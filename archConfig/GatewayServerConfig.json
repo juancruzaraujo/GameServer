@@ -1,0 +1,55 @@
+{
+   "serverConfig":{
+      "serverParameters":{
+         "serverName":"TestServer",
+         "tcpPortNumber":"1492",
+         "udpPortNumber":"1492",
+         "maxUsers":"10",
+         "recieveTimeOut":"30",
+         "logFileName" : "log.txt",
+         "adminUsers":[
+            {
+               "adminUser":{
+                  "usr":"42782F76B4A45AC9A6434E7F57F06A08",
+                  "pass":"81DC9BDB52D04DC20036DBD8313ED055"   
+               }
+            },
+            {
+               "adminUser":{
+                  "usr":"42782F76B4A45AC9A6434E7F57F06A08",
+                  "pass":"81DC9BDB52D04DC20036DBD8313ED055"   
+               }
+            }
+         ]
+         
+      },
+      "mapServerList":[
+         {
+            "mapServerInfo":{
+               "mapServerType":"battlecityroyale",
+               "host":"232.12.12.12",
+               "tcpPort":"1987",
+               "udpPort":"1987"
+            }
+         },
+         {
+            "mapServerInfo":{
+               "mapServerType":"leyendof",
+               "host":"232.12.12.12",
+               "tcpPort":"2020",
+               "udpPort":"2020"
+            }
+         }
+      ],
+      "otherServer":[
+         {
+            "otherServerInfo":{
+               "host":"232.12.12.12",
+               "tcpPort":"1510",
+               "udpPort":"1510",
+               "serverType":"playerDB"
+            }
+         }
+      ]
+   }
+}

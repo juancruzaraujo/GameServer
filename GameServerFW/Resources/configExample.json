@@ -1,0 +1,43 @@
+{
+  "serverParameters": {
+    "serverName": "TestServer",
+    "tcpPortNumber": "1492",
+    "udpPortNumber": "1492",
+    "maxUsers": "10",
+    "recieveTimeOut": "30",
+    "logFileName" : "log.txt",
+    "adminUsers": [
+      {
+        "adminUser": {
+          "usr": "md5User1",
+          "pass": "md5Pass"
+        }
+      },
+      {
+        "adminUser": {
+          "usr": "md5User2",
+          "pass": "md5Pass"
+        }
+      }
+    ]
+  },
+  "mapServerList": [
+    {
+      "mapServerInfo": {
+        "host": "127.0.0.1",
+        "tcpPort": "1987",
+        "udpPort": "1987"
+      }
+    }
+  ],
+  "otherServer": [
+    {
+      "otherServerInfo": {
+        "host": "127.0.0.1",
+        "tcpPort": "1510",
+        "udpPort": "1510",
+        "type": "playerDB"
+      }
+    }
+  ]
+}
