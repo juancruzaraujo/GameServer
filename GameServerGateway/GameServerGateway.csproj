@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandLineParametersHelp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users\User.cs" />
@@ -52,6 +53,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ConsoleOutputFormater\ConsoleOutputFormater.csproj">
+      <Project>{bc6db0f0-eb09-4f5b-8aaa-76dae681e3d8}</Project>
+      <Name>ConsoleOutputFormater</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GameServerFW\GameServerFW.csproj">
       <Project>{8966dc55-74ee-4f64-b234-a1acd0114ff6}</Project>
       <Name>GameServerFW</Name>

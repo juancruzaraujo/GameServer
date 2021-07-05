@@ -14,61 +14,103 @@ namespace GameServerGateway
     class Program
     {
 
+        #if DEBUG
+            private static bool debug_Mode = true;
+        #else
+            private /*static*/ bool debug_Mode = false;
+        #endif
+
+        const string C_PARAM_LOAD_FILE_CONFIG = "-f";
+        const string C_PARAM_CREATE_CONFIG_FILE = "-g";
+
+
         static bool keepRuning;
         static GameServerFW.GameServerManager _gameServerManager;
 
         static void Main(string[] args)
         {
-            _gameServerManager = GameServerFW.GameServerManager.GetGameServerInstance();
-            _gameServerManager.Event_GameServer += new GameServerManager.Delegate_GameServer_Event(_gameserver_Event_GameServer);
-            _gameServerManager.LoadConfig(args);
 
-            _gameServerManager.Test();
-            /*
-            utils = new Utils();
-            outputFormater = new OutputFormater();
-            logger = new Logger.Logger("gatewayserverlog_"+ ".txt", Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar);
-            logger.Event_Log += Logger_Event_Log;
+            start(args);
 
-            Console.WriteLine(logger.WriteLog("Iniciando GatewayServer"));
-
-            config = configManager.GetConfig(args,logger);
-            if (config==null)
-            {
-                Console.WriteLine(logger.WriteLog(utils.ReturnError() + " Load config"));
-                logger.SaveLog();
-                System.Environment.Exit(0);
-            }
-            else
-            {
-
-                Console.WriteLine(logger.WriteLog(utils.ReturnOk() + " Load config"));
-            }
-
-            StartServer();
-            StartClientsToServers();
-
-            keepRuning = true;
-            logger.SaveLog();
-
-
-
-            Console.WriteLine("inicio de tareas");
-            while(keepRuning)
-            {
-
-            }
-            //Console.ReadKey();
-            */
+          
             while (true)
             {
 
             }
         }
-
-        private static void _gameserver_Event_GameServer(GameServerEventParameters gameServerEventParameters)
+        private static void start(string[] args)
         {
-            Console.WriteLine("evento");
+            _gameServerManager = GameServerFW.GameServerManager.GetGameServerInstance();
+            _gameServerManager.Event_GameServer += new GameServerManager.Delegate_GameServer_Event(gameserver_Event_GameServer);
+
+            if (args.Count() == 1 && args[0] == C_PARAM_CREATE_CONFIG_FILE)
+            {
+                //generar el archivo de conf
+                string exampleConfigName = System.Diagnostics.Process.GetCurrentProcess().ProcessName + "_example.json";
+                _gameServerManager.CreateConfigFile(exampleConfigName);
+                ExitServer();
+            }
+            else if (args.Count() == 2)
+            {
+                if (args[0] == C_PARAM_LOAD_FILE_CONFIG)
+                {
+                    _gameServerManager.LoadConfig(args[1]);
+                }
+
+            }
+            else
+            {
+                //muestro la ayuda propia del prog
+                CommandLineParametersHelp.ShowHelp("configFile.json", C_PARAM_CREATE_CONFIG_FILE, C_PARAM_LOAD_FILE_CONFIG);
+                ExitServer();
+            }
+
+            //_gameServerManager.CreateConfigFile()
+
+        }
+
+        private static void ExitServer()
+        {
+            if (debug_Mode) Console.ReadLine();
+            System.Environment.Exit(0);
+        }
+
+        private static void gameserver_Event_GameServer(GameServerEventParameters gameServerEventParameters)
+        {
+            
+            //para pruebas
+            //Console.WriteLine(gameServerEventParameters.GetGameServerEventType + " " +  gameServerEventParameters.GetMessage);
+
+            switch (gameServerEventParameters.GetGameServerEventType)
+            {
+                case GameServerEventParameters.GameServerEventType.GAMESERVER_LOAD_CONFIG_ERROR:
+                    Console.WriteLine(gameServerEventParameters.GetMessage);
+                    ExitServer();
+                    break;
+
+                case GameServerEventParameters.GameServerEventType.GAMESERVER_LOAD_CONFIG_OK:
+                    Console.WriteLine(gameServerEventParameters.GetMessage);
+                    break;
+
+                case GameServerEventParameters.GameServerEventType.GAMESERVER_MESSAGE:
+                    Console.WriteLine(gameServerEventParameters.GetMessage);
+                    break;
+
+                case GameServerEventParameters.GameServerEventType.GAMESERVER_MESSAGE_ERROR:
+                    break;
+
+                case GameServerEventParameters.GameServerEventType.GAMESERVER_STARTING:
+                    break;
+
+                case GameServerEventParameters.GameServerEventType.GAMESERVER_START_ERROR:
+                    break;
+
+                case GameServerEventParameters.GameServerEventType.GAMESERVER_START_OK:
+                    break;
+
+                case GameServerEventParameters.GameServerEventType.GAMESERVER_STOP:
+                    break;
+            }
         }
 
         private static void Logger_Event_Log(string eventMessage)

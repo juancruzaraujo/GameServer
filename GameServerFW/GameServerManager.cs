@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using Logger;
 using Sockets;
 using ConsoleOutputFormater;
-using GameServerFW.config;
 using System.IO;
+using GameServerFW.config;
 
 namespace GameServerFW
 {
@@ -24,11 +24,11 @@ namespace GameServerFW
         Sockets.Sockets _cliServersUDP;
 
         Config _config;
-        ConfigManager _configManager = new ConfigManager();
+        ConfigManager _configManager;
         Utils utils;
         OutputFormater _outputFormater;
         private Logger.Logger _logger;
-        static string[] _args;
+        //static string[] _args;
 
         static GameServerManager _gameServerInstance;
 
@@ -40,7 +40,19 @@ namespace GameServerFW
             this.Event_GameServer(gameServerEventParameters);
         }
 
-        private GameServerManager() { }
+        private GameServerManager() 
+        {
+            utils = new Utils();
+            _outputFormater = new OutputFormater();
+            _configManager = new ConfigManager();
+            _configManager.Event_ConfigManager += new ConfigManager.Delegate_ConfigManager_Event(ConfigManagerEvent);
+
+            //mandar esto a un evento
+            //Console.WriteLine(_logger.WriteLog("Iniciando GatewayServer"));
+
+            _logger = new Logger.Logger();
+            _logger.Event_Log += Logger_Event_Log;
+        }
 
         public static GameServerManager GetGameServerInstance()
         {
@@ -53,45 +65,14 @@ namespace GameServerFW
             return _gameServerInstance;
         }
         
-        public void LoadConfig(string[] args)
+        public void LoadConfig(string fileName)
         {
+            _config = _configManager.GetConfig(fileName);
+        }
 
-            _args = args;
-            utils = new Utils();
-            _outputFormater = new OutputFormater();
-
-
-            //mandar esto a un evento
-            //Console.WriteLine(_logger.WriteLog("Iniciando GatewayServer"));
-
-            _config = _configManager.GetConfig(_args, _logger);
-            if (_config == null)
-            {
-                //Console.WriteLine(_logger.WriteLog(utils.ReturnError() + " Load config"));
-                //_logger.SaveLog();
-                //crear evento de error
-                //System.Environment.Exit(0);
-            }
-            //else
-            //{
-            //enviar a un evento
-            //Console.WriteLine(_logger.WriteLog(utils.ReturnOk() + " Load config"));
-            //}
-            //salio todo ok,
-            _logger = new Logger.Logger(_config.ServerConfig.serverParameters.logFileName, Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar);
-            _logger.Event_Log += Logger_Event_Log;
-
-
-            //StartServer();
-            //StartClientsToServers();
-
-            //keepRuning = true;
-            _logger.SaveLog();
-
-
-
-            //Console.WriteLine("inicio de tareas");
-
+        public void CreateConfigFile(string fileName)
+        {
+            _configManager.CreateConfigFile(fileName);
         }
 
         public string WriteLog(string log)
@@ -104,19 +85,52 @@ namespace GameServerFW
             return WriteLog(_logger.WriteAndSaveLog(log));
         }
 
-
-
-        public void Test()
+        public void GetConfig()
         {
-            GameServerEventParameters ev = new GameServerEventParameters();
-
-            this.EventGameServer(ev);
-            Console.WriteLine("test");
+            
         }
 
         private void Logger_Event_Log(string eventMessage)
         {
-            //Console.WriteLine(eventMessage);
+            
+        }
+
+        private void ConfigManagerEvent(ConfigManagerEventsParameters eventParameters)
+        {
+
+            GameServerEventParameters gameServerEventParameters = new GameServerEventParameters();
+            gameServerEventParameters.SetMessage(eventParameters.GetMessage);
+
+            switch (eventParameters.GetEventType)
+            {
+                case ConfigManagerEventsParameters.ConfigManagerEventType.LOAD_CONFIG_OK:
+                    gameServerEventParameters.SetEventType(GameServerEventParameters.GameServerEventType.GAMESERVER_LOAD_CONFIG_OK);
+                    break;
+
+                case ConfigManagerEventsParameters.ConfigManagerEventType.LOAD_CONFIG_ERROR:
+                    gameServerEventParameters.SetEventType(GameServerEventParameters.GameServerEventType.GAMESERVER_LOAD_CONFIG_ERROR);
+                    break;
+
+                case ConfigManagerEventsParameters.ConfigManagerEventType.READ_CONFIG_OK:
+                    gameServerEventParameters.SetEventType(GameServerEventParameters.GameServerEventType.GAMESERVER_READ_CONFIG_OK);
+                    break;
+
+                case ConfigManagerEventsParameters.ConfigManagerEventType.READ_CONFIG_ERROR:
+                    gameServerEventParameters.SetEventType(GameServerEventParameters.GameServerEventType.GAMESERVER_READ_CONFIG_ERROR);
+                    break;
+
+                case ConfigManagerEventsParameters.ConfigManagerEventType.CREATE_CONFIG_FILE_OK:
+                    gameServerEventParameters.SetEventType(GameServerEventParameters.GameServerEventType.GAMESERVER_CREATE_CONFIG_FILE_OK);
+                    break;
+
+                case ConfigManagerEventsParameters.ConfigManagerEventType.CREATE_CONFIG_FILE_ERROR:
+                    gameServerEventParameters.SetEventType(GameServerEventParameters.GameServerEventType.GAMESERVER_CREATE_CONFIG_FILE_ERROR);
+                    break;
+
+                case ConfigManagerEventsParameters.ConfigManagerEventType.FILE_NOT_FOUND:
+                    gameServerEventParameters.SetEventType(GameServerEventParameters.GameServerEventType.GAMESERVER_CONFIG_FILE_NOT_FOUND);
+                    break;
+            }
         }
     }
 }

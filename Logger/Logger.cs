@@ -22,12 +22,17 @@ namespace Logger
             this.Event_Log(eventMessage);
         }
 
+        public Logger()
+        {
+            
+        }
+
         /// <summary>
         /// create txt logfile in current directory
         /// </summary>
         /// <param name="logName">file log name</param>
         /// <param name="path">path</param>
-        public Logger(string logName, string path)
+        public void CreateLogFile(string logName, string path)
         {
             lstLog = new List<string>();
             //logFile = Directory.GetCurrentDirectory() + directorySeparatorChar + logName + ".txt";

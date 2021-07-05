@@ -21,5 +21,9 @@ namespace GameServerFW.config
 
         [DataMember]
         public string serverType { get; set; }
+
+        //https://stackoverflow.com/questions/25570712/is-it-possible-to-wrap-json-in-json-field-like-a-string
+        [DataMember]
+        public string identifierTag { get; set; }
     }
 }

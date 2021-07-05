@@ -6,7 +6,7 @@
          "udpPortNumber":"1492",
          "maxUsers":"10",
          "recieveTimeOut":"30",
-         "logFileName" : "log.txt",
+         "logFileName" : "gatewayserverlog_.txt",
          "adminUsers":[
             {
                "adminUser":{
@@ -47,7 +47,8 @@
                "host":"232.12.12.12",
                "tcpPort":"1510",
                "udpPort":"1510",
-               "serverType":"playerDB"
+               "serverType":"playerDB",
+               "identifierTag" : ""
             }
          }
       ]

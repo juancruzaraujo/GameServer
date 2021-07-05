@@ -11,7 +11,7 @@ namespace GameServerFW.config
     class Config
     {
         [DataMember]
-        public ServerConfig ServerConfig { get; set; }
+        public ServerConfig serverConfig { get; set; }
 
         /*
         public Config()

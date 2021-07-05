@@ -45,10 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigManager.cs" />
+    <Compile Include="ConfigManagerEventsParameters.cs" />
     <Compile Include="config\AdminUser.cs" />
     <Compile Include="config\AdminUsers.cs" />
     <Compile Include="config\Config.cs" />
-    <Compile Include="config\ConfigManager.cs" />
     <Compile Include="config\MapServerInfo.cs" />
     <Compile Include="config\MapServerList.cs" />
     <Compile Include="config\OtherServer.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="config\ServerParameters.cs" />
     <Compile Include="GameServerEventParameters.cs" />
     <Compile Include="GameServerManager.cs" />
+    <Compile Include="GameServerStartParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

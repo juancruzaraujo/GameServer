@@ -86,7 +86,7 @@ namespace DummyServer
             switch (eventParameters.GetEventType)
             {
                 case EventParameters.EventType.ACCEPT_CONNECTION:
-                    DataIn("Accept connection from > " + eventParameters.GetIpOrigen);
+                    DataIn("Accept connection from > " + eventParameters.GetClientIp);
                     break;
 
                 case EventParameters.EventType.DATA_IN:
