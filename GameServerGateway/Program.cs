@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization.Json;
 using System.Runtime.Serialization;
 using GameServerFW;
+using GameServerFW.config;
+using ConsoleOutputFormater;
 
 
 namespace GameServerGateway
@@ -16,23 +18,27 @@ namespace GameServerGateway
 
         #if DEBUG
             private static bool debug_Mode = true;
+            const int C_MAX_LOG_LINES_TO_SAVE = 0;
         #else
             private /*static*/ bool debug_Mode = false;
+            const int C_MAX_LOG_LINES_TO_SAVE = 20;
         #endif
 
         const string C_PARAM_LOAD_FILE_CONFIG = "-f";
         const string C_PARAM_CREATE_CONFIG_FILE = "-g";
-
+         
 
         static bool keepRuning;
-        static GameServerFW.GameServerManager _gameServerManager;
+        static GameServerManager _gameServerManager;
+        
+        static bool _logFileCreated;
+        static int _logCounterLineSave;
 
         static void Main(string[] args)
         {
-
+            _logFileCreated = false;
             start(args);
 
-          
             while (true)
             {
 
@@ -40,6 +46,7 @@ namespace GameServerGateway
         }
         private static void start(string[] args)
         {
+
             _gameServerManager = GameServerFW.GameServerManager.GetGameServerInstance();
             _gameServerManager.Event_GameServer += new GameServerManager.Delegate_GameServer_Event(gameserver_Event_GameServer);
 
@@ -56,7 +63,6 @@ namespace GameServerGateway
                 {
                     _gameServerManager.LoadConfig(args[1]);
                 }
-
             }
             else
             {
@@ -84,31 +90,38 @@ namespace GameServerGateway
             switch (gameServerEventParameters.GetGameServerEventType)
             {
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_LOAD_CONFIG_ERROR:
-                    Console.WriteLine(gameServerEventParameters.GetMessage);
+                    ShowMessage(gameServerEventParameters.GetMessage, null, true);
                     ExitServer();
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_LOAD_CONFIG_OK:
-                    Console.WriteLine(gameServerEventParameters.GetMessage);
+                    CreateLogFile();
+                    ShowAndLogMessage("LOAD CONFIG", null, false,true);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_MESSAGE:
-                    Console.WriteLine(gameServerEventParameters.GetMessage);
+                    LogMessage(gameServerEventParameters.GetMessage);
+                    ShowMessage(gameServerEventParameters.GetMessage);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_MESSAGE_ERROR:
+                    ShowMessage(gameServerEventParameters.GetMessage,null,true);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_STARTING:
+                    ShowAndLogMessage("GAME SERVER STARTING", null, false, true);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_START_ERROR:
+                    ShowAndLogMessage("GAME SERVER START", null, true, false);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_START_OK:
+                    ShowAndLogMessage("GAME SERVER START", null, false, true);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_STOP:
+                    ShowAndLogMessage("GAME SERVER STOP", null, false, true);
                     break;
             }
         }
@@ -118,105 +131,62 @@ namespace GameServerGateway
             //Console.WriteLine(eventMessage);
         }
 
-
-        /*
-        int tcpPort = int.Parse(config.serverConfig.serverParameters.tcpPortNumber);
-        int UdpPort = int.Parse(config.serverConfig.serverParameters.udpPortNumber);
-        int maxCon = int.Parse(config.serverConfig.serverParameters.MaxUsers);
-
-        gatewayServerTCP = new Sockets.Sockets();
-        gatewayServerTCP.SetServer(tcpPort, Sockets.Sockets.C_DEFALT_CODEPAGE, true,maxCon);
-        gatewayServerTCP.Event_Socket += GatewayServerTCP_Event_Socket;
-
-        gatewayServerUDP = new Sockets.Sockets();
-        gatewayServerUDP.SetServer(UdpPort, Sockets.Sockets.C_DEFALT_CODEPAGE, false, 0);
-        gatewayServerUDP.Event_Socket += GetewayServertUDP_Event_Socket;
-
-        gatewayServerTCP.StartServer();
-        gatewayServerUDP.StartServer();
-        */
-
-
-
-
-        private static void StartClientsToServers()
+        private static void CreateLogFile()
         {
-            /*
-            int mapServersCount = config.serverConfig.mapServerList.Count();
-            int otherServersCount = config.serverConfig.otherServer.Count();
-
-            cliServersTCP = new Sockets.Sockets();
-            cliServersTCP.ClientMode = true;
-            cliServersTCP.Event_Socket += CliServersTCP_Event_Socket;
-
-            for (int i= 0;i<mapServersCount;i++)
+            if (!_logFileCreated)
             {
-                int tcpPortNumber = Convert.ToInt32(config.serverConfig.mapServerList[i].mapServerInfo.tcpPort);
-                int udpPortNumber = Convert.ToInt32(config.serverConfig.mapServerList[i].mapServerInfo.udpPort);
-                string host = config.serverConfig.mapServerList[i].mapServerInfo.host;
+                string fileName = _gameServerManager.GetConfig.serverConfig.serverParameters.logFileName;
+                string path = _gameServerManager.GetConfig.serverConfig.serverParameters.logPathFile;
+                
+                _gameServerManager.CreateLogFile(fileName, path);
+                _logFileCreated = true;
+            }
 
-                cliServersTCP.ConnectClient(tcpPortNumber, host, C_SERVERS_TIMEOUT);
-                Console.WriteLine("ok");
+        }
+
+        private static void LogMessage(string message)
+        {
+            if (_logCounterLineSave < C_MAX_LOG_LINES_TO_SAVE)
+            {
+                _gameServerManager.WriteLog(message);
+                _logCounterLineSave++;
+            }
+            else
+            {
+                _gameServerManager.WriteAndSaveLog(message);
+                _logCounterLineSave = 0;
+            }
+            //hacer una clase estatica que devuelva el mensaje con sus colores            
+        }
+
+        private static void ShowMessage(string message, OutputFormatter outputFormaterParam = null, bool msgError = false, bool msgOk = false)
+        {
+            MessageParams param = new MessageParams();
+            
+            Console.WriteLine(message);
+
+            if (outputFormaterParam != null)
+            {
                 
             }
 
-            for (int i =0;i<otherServersCount;i++)
+            if (msgError)
             {
-                int tcpPortNumber = Convert.ToInt32(config.serverConfig.otherServer[i].otherServerInfo.tcpPort);
-                int udpPortNumber = Convert.ToInt32(config.serverConfig.otherServer[i].otherServerInfo.udpPort);
 
-                string host = config.serverConfig.otherServer[i].otherServerInfo.host;
-
-                cliServersTCP.ConnectClient(tcpPortNumber, host, C_SERVERS_TIMEOUT);
-                Console.WriteLine("ok");
             }
             
-        }
-        
+            if (msgOk)
+            {
 
-        /*
-        private static void CliServersTCP_Event_Socket(EventParameters eventParameters)
+            }
+
+        }
+
+        private static void ShowAndLogMessage(string message, OutputFormatter outputFormaterParam = null, bool msgError = false, bool msgOk = false)
         {
-            /*
-            switch (eventParameters.GetEventType)
-            {
-                case Sockets.EventParameters.EventType.ERROR:
-                    Console.WriteLine("ERROR ");
-                    break;
-
-                case EventParameters.EventType.TIME_OUT:
-                    Console.WriteLine(logger.WriteLog(utils.ReturnError() + " time out " + eventParameters.GetServerIp));
-                    break;
-                
-            }
+            LogMessage(message);
+            ShowMessage(message, outputFormaterParam, msgError, msgOk);
         }
 
-
-    private static void GatewayServerTCP_Event_Socket(Sockets.EventParameters eventParameters)
-        {
-            
-            switch(eventParameters.GetEventType)
-            {
-                case Sockets.EventParameters.EventType.SERVER_START:
-                    outputFormater.SetBold(true);
-                    Console.WriteLine(logger.WriteLog(utils.ReturnOk() + " start server on TCP port " + outputFormater.FormatText(config.serverConfig.serverParameters.tcpPortNumber, OutputFormater.TextColorFG.Bright_Green, OutputFormater.TextColorBG.Black)));
-                    break;
-            }
-        }
-
-        private static void GetewayServertUDP_Event_Socket(Sockets.EventParameters eventParameters)
-        {
-            
-            switch (eventParameters.GetEventType)
-            {
-                case Sockets.EventParameters.EventType.SERVER_START:
-                    outputFormater.SetBold(true);
-                    Console.WriteLine(logger.WriteLog(utils.ReturnOk() + " start server on UDP port " + outputFormater.FormatText(config.serverConfig.serverParameters.udpPortNumber, OutputFormater.TextColorFG.Bright_Green, OutputFormater.TextColorBG.Black)));
-                    break;
-            }
-            
-        }
-        */
-        }
     }
 }

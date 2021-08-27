@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace GameServerFW.config
 {
     [DataContract]
-    class MapServerInfo
+    public class MapServerInfo
     {
         [DataMember]
         public string mapServerType { get; set; }

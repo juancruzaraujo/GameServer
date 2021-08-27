@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace GameServerFW.config
 {
     [DataContract]
-    class ServerParameters
+    public class ServerParameters
     {
         [DataMember]
         public string serverName { get; set; }
@@ -27,6 +27,9 @@ namespace GameServerFW.config
 
         [DataMember]
         public string logFileName { get; set; }
+
+        [DataMember]
+        public string logPathFile { get; set; }
 
         [DataMember]
         public List<AdminUsers> adminUsers { get; set; }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace GameServerFW.config
 {
     [DataContract]
-    class AdminUsers
+    public class AdminUsers
     {
         [DataMember]
         AdminUser adminUser { get; set; }

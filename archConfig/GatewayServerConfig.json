@@ -7,6 +7,7 @@
          "maxUsers":"10",
          "recieveTimeOut":"30",
          "logFileName" : "gatewayserverlog_.txt",
+         "logPathFile" : "F:\\Fuentes\\C# 2019\\GameServer\\archConfig",
          "adminUsers":[
             {
                "adminUser":{

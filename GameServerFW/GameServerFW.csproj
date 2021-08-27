@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigManager.cs" />
-    <Compile Include="ConfigManagerEventsParameters.cs" />
+    <Compile Include="EventParameters\ConfigManagerEventsParameters.cs" />
     <Compile Include="config\AdminUser.cs" />
     <Compile Include="config\AdminUsers.cs" />
     <Compile Include="config\Config.cs" />
@@ -56,9 +56,9 @@
     <Compile Include="config\OtherServerInfo.cs" />
     <Compile Include="config\ServerConfig.cs" />
     <Compile Include="config\ServerParameters.cs" />
-    <Compile Include="GameServerEventParameters.cs" />
+    <Compile Include="EventParameters\GameServerEventParameters.cs" />
     <Compile Include="GameServerManager.cs" />
-    <Compile Include="GameServerStartParameters.cs" />
+    <Compile Include="LoggerManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -72,13 +72,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleOutputFormater\ConsoleOutputFormater.csproj">
+    <ProjectReference Include="..\ConsoleOutputFormater\ConsoleOutputFormatter.csproj">
       <Project>{bc6db0f0-eb09-4f5b-8aaa-76dae681e3d8}</Project>
-      <Name>ConsoleOutputFormater</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Logger\Logger.csproj">
-      <Project>{4421a7e9-d39c-40be-ab39-603d0b2d6063}</Project>
-      <Name>Logger</Name>
+      <Name>ConsoleOutputFormatter</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

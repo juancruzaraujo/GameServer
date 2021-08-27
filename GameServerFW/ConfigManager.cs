@@ -13,9 +13,9 @@ namespace GameServerFW
 
         public delegate void Delegate_ConfigManager_Event(ConfigManagerEventsParameters message);
         public Delegate_ConfigManager_Event Event_ConfigManager;
-        private void EventConfigManager(ConfigManagerEventsParameters message)
+        private void EventConfigManager(ConfigManagerEventsParameters configmanagerEventsParameters)
         {
-            this.Event_ConfigManager(message);
+            this.Event_ConfigManager(configmanagerEventsParameters);
         }
 
 
@@ -49,6 +49,11 @@ namespace GameServerFW
 
                     config = (Config)serializer.ReadObject(ms);
                     ms.Close();
+
+                    //ConfigManagerEventsParameters ev = new ConfigManagerEventsParameters();
+                    //ev.SetEventType(ConfigManagerEventsParameters.ConfigManagerEventType.LOAD_CONFIG_OK);
+                    //EventConfigManager(ev);
+
                     return config;
                 }
                 else

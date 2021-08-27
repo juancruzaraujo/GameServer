@@ -5,7 +5,8 @@
     "udpPortNumber": "1492",
     "maxUsers": "10",
     "recieveTimeOut": "30",
-    "logFileName" : "log.txt",
+    "logFileName": "log.txt",
+    "logPathFile" : "c:\\",
     "adminUsers": [
       {
         "adminUser": {

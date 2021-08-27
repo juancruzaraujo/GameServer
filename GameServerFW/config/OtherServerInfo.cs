@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace GameServerFW.config
 {
     [DataContract]
-    class OtherServerInfo
+    public class OtherServerInfo
     {
         [DataMember]
         public string host { get; set; }

@@ -11,18 +11,18 @@ namespace ConsoleOutputFormater
     {
         public string ReturnOk()
         {
-            OutputFormater outputFormater = new OutputFormater();
+            OutputFormatter outputFormater = new OutputFormatter();
 
-            string aux = outputFormater.FormatText("OK", OutputFormater.TextColorFG.Bright_Green, OutputFormater.TextColorBG.Black);
+            string aux = outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black);
             return("[ " + aux + " ]");
 
         }
 
         public string ReturnError()
         {
-            OutputFormater outputFormater = new OutputFormater();
+            OutputFormatter outputFormater = new OutputFormatter();
 
-            string aux = outputFormater.FormatText("ERROR", OutputFormater.TextColorFG.Bright_Red, OutputFormater.TextColorBG.Black);
+            string aux = outputFormater.FormatText("ERROR", OutputFormatter.TextColorFG.Bright_Red, OutputFormatter.TextColorBG.Black);
             return ("[ " + aux + " ]");
 
         }

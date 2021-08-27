@@ -44,10 +44,10 @@ namespace testServer
                 case EventParameters.EventType.NEW_CONNECTION:
 
                     int numCon = eventParameters.GetConnectionNumber;
-                    OutputFormater outputFormater = new OutputFormater();
+                    OutputFormatter outputFormater = new OutputFormatter();
 
                     outputFormater.SetBold(true).SetUnderline(true);
-                    Send(numCon, outputFormater.FormatText("HOLA MUNDO", OutputFormater.TextColorFG.Bright_Green, OutputFormater.TextColorBG.Bright_White));
+                    Send(numCon, outputFormater.FormatText("HOLA MUNDO", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Bright_White));
                     //Send(numCon, "\x1b[1;4;92;107mHola Mundo\x1b[0m");
                     //obSocket.Send("HELLO THERE MY FRIEND!\n\r", eventParameters.GetListIndex);
 

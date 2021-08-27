@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Logger;
 using Sockets;
 using ConsoleOutputFormater;
 using System.IO;
@@ -11,6 +10,9 @@ using GameServerFW.config;
 
 namespace GameServerFW
 {
+    /// <summary>
+    /// use GetGameServerInstance to create singleton objet
+    /// </summary>
     public class GameServerManager
     {
         //https://refactoring.guru/es/design-patterns/singleton/csharp/example#example-0
@@ -26,8 +28,8 @@ namespace GameServerFW
         Config _config;
         ConfigManager _configManager;
         Utils utils;
-        OutputFormater _outputFormater;
-        private Logger.Logger _logger;
+        
+        private LoggerManager _loggerManager;
         //static string[] _args;
 
         static GameServerManager _gameServerInstance;
@@ -42,18 +44,18 @@ namespace GameServerFW
 
         private GameServerManager() 
         {
-            utils = new Utils();
-            _outputFormater = new OutputFormater();
+           
             _configManager = new ConfigManager();
             _configManager.Event_ConfigManager += new ConfigManager.Delegate_ConfigManager_Event(ConfigManagerEvent);
 
-            //mandar esto a un evento
-            //Console.WriteLine(_logger.WriteLog("Iniciando GatewayServer"));
-
-            _logger = new Logger.Logger();
-            _logger.Event_Log += Logger_Event_Log;
+            _loggerManager = new LoggerManager();
+            _loggerManager.Event_Log += Logger_Event_Log;
         }
 
+        /// <summary>
+        /// create a singleton instance
+        /// </summary>
+        /// <returns></returns>
         public static GameServerManager GetGameServerInstance()
         {
             if (_gameServerInstance == null)
@@ -68,6 +70,12 @@ namespace GameServerFW
         public void LoadConfig(string fileName)
         {
             _config = _configManager.GetConfig(fileName);
+            if (_config !=null)
+            {
+                ConfigManagerEventsParameters ev = new ConfigManagerEventsParameters();
+                ev.SetEventType(ConfigManagerEventsParameters.ConfigManagerEventType.LOAD_CONFIG_OK);
+                ConfigManagerEvent(ev);
+            }
         }
 
         public void CreateConfigFile(string fileName)
@@ -75,19 +83,27 @@ namespace GameServerFW
             _configManager.CreateConfigFile(fileName);
         }
 
+        public void CreateLogFile(string fileName,string path)
+        {
+            _loggerManager.CreateLogFile(fileName, path);
+        }
+
         public string WriteLog(string log)
         {
-            return (_logger.WriteLog(log));
+            return (_loggerManager.WriteLog(log));
         }
 
         public string WriteAndSaveLog(string log)
         {
-            return WriteLog(_logger.WriteAndSaveLog(log));
+            return _loggerManager.WriteAndSaveLog(log);
         }
 
-        public void GetConfig()
+        public Config GetConfig
         {
-            
+            get
+            {
+                return _config;
+            }
         }
 
         private void Logger_Event_Log(string eventMessage)
@@ -131,6 +147,8 @@ namespace GameServerFW
                     gameServerEventParameters.SetEventType(GameServerEventParameters.GameServerEventType.GAMESERVER_CONFIG_FILE_NOT_FOUND);
                     break;
             }
+
+            EventGameServer(gameServerEventParameters);
         }
     }
 }
