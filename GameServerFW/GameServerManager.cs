@@ -7,6 +7,7 @@ using Sockets;
 using ConsoleOutputFormater;
 using System.IO;
 using GameServerFW.config;
+using GameServerFW.EventParameters;
 
 namespace GameServerFW
 {
@@ -49,7 +50,7 @@ namespace GameServerFW
             _configManager.Event_ConfigManager += new ConfigManager.Delegate_ConfigManager_Event(ConfigManagerEvent);
 
             _loggerManager = new LoggerManager();
-            _loggerManager.Event_Log += Logger_Event_Log;
+            _loggerManager.Event_Log += new LoggerManager.Delegate_Log_Event(LoggerManagerEvent);
         }
 
         /// <summary>
@@ -106,9 +107,38 @@ namespace GameServerFW
             }
         }
 
-        private void Logger_Event_Log(string eventMessage)
+        private void LoggerManagerEvent(LoggerManagerEventsParameters eventMessage)
         {
-            
+            GameServerEventParameters gameServerEventParameters = new GameServerEventParameters();
+            gameServerEventParameters.SetMessage(eventMessage.GetEventMessage);
+
+            switch (eventMessage.GetEventType)
+            {
+                case LoggerManagerEventsParameters.LoggerManagerEventType.CREATE_OR_APPEND_LOG_FILE_OK:
+                    gameServerEventParameters.SetEventType(GameServerEventParameters.GameServerEventType.GAMESERVER_CREATE_OR_APPEND_LOG_FILE_OK);
+                    break;
+
+                case LoggerManagerEventsParameters.LoggerManagerEventType.CREATE_OR_APPEND_LOG_FILE_ERROR:
+                    gameServerEventParameters.SetEventType(GameServerEventParameters.GameServerEventType.GAMESERVER_CREATE_OR_APPEND_LOG_FILE_ERROR);
+                    break;
+
+                case LoggerManagerEventsParameters.LoggerManagerEventType.WRITE_LOG_FILE_OK:
+                    gameServerEventParameters.SetEventType(GameServerEventParameters.GameServerEventType.GAMESERVER_WRITE_LOG_FILE_OK);
+                    break;
+
+                case LoggerManagerEventsParameters.LoggerManagerEventType.WRITE_LOG_FILE_ERROR:
+                    gameServerEventParameters.SetEventType(GameServerEventParameters.GameServerEventType.GAMESERVER_WRITE_LOG_FILE_ERROR);
+                    break;
+
+                case LoggerManagerEventsParameters.LoggerManagerEventType.SAVE_LOG_OK:
+                    gameServerEventParameters.SetEventType(GameServerEventParameters.GameServerEventType.GAMESERVER_SAVE_LOG_OK);
+                    break;
+
+                case LoggerManagerEventsParameters.LoggerManagerEventType.SAVE_LOG_ERROR:
+                    gameServerEventParameters.SetEventType(GameServerEventParameters.GameServerEventType.GAMESERVER_SAVE_LOG_ERROR);
+                    break;
+            }
+            EventGameServer(gameServerEventParameters);
         }
 
         private void ConfigManagerEvent(ConfigManagerEventsParameters eventParameters)

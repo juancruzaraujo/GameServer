@@ -9,7 +9,7 @@ using System.Runtime.Serialization;
 using GameServerFW;
 using GameServerFW.config;
 using ConsoleOutputFormater;
-
+using ShowAndLogMessage;
 
 namespace GameServerGateway
 {
@@ -30,21 +30,29 @@ namespace GameServerGateway
 
         static bool keepRuning;
         static GameServerManager _gameServerManager;
+        //static FormatterOutput _formatterOutput;
+        static LoggerMessage _loggerMessage;
         
+
         static bool _logFileCreated;
-        static int _logCounterLineSave;
 
         static void Main(string[] args)
         {
+            //-f GatewayServerConfig.json
+
             _logFileCreated = false;
-            start(args);
+            _loggerMessage = LoggerMessage.GetInstance();
+
+            Start(args);
+
+            
 
             while (true)
             {
 
             }
         }
-        private static void start(string[] args)
+        private static void Start(string[] args)
         {
 
             _gameServerManager = GameServerFW.GameServerManager.GetGameServerInstance();
@@ -71,7 +79,6 @@ namespace GameServerGateway
                 ExitServer();
             }
 
-            //_gameServerManager.CreateConfigFile()
 
         }
 
@@ -83,109 +90,56 @@ namespace GameServerGateway
 
         private static void gameserver_Event_GameServer(GameServerEventParameters gameServerEventParameters)
         {
-            
-            //para pruebas
-            //Console.WriteLine(gameServerEventParameters.GetGameServerEventType + " " +  gameServerEventParameters.GetMessage);
+            OutputFormatterAttributes atr = new OutputFormatterAttributes();
 
             switch (gameServerEventParameters.GetGameServerEventType)
             {
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_LOAD_CONFIG_ERROR:
-                    ShowMessage(gameServerEventParameters.GetMessage, null, true);
+                    _loggerMessage.ShowMessage(gameServerEventParameters.GetMessage, null, LoggerMessage.C_ERROR);
                     ExitServer();
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_LOAD_CONFIG_OK:
-                    CreateLogFile();
-                    ShowAndLogMessage("LOAD CONFIG", null, false,true);
+                    _loggerMessage.CreateLogFile(_gameServerManager);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_MESSAGE:
-                    LogMessage(gameServerEventParameters.GetMessage);
-                    ShowMessage(gameServerEventParameters.GetMessage);
+                    _loggerMessage.ShowAndLogMessage(gameServerEventParameters.GetMessage);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_MESSAGE_ERROR:
-                    ShowMessage(gameServerEventParameters.GetMessage,null,true);
+                    _loggerMessage.ShowAndLogMessage(gameServerEventParameters.GetMessage,null, LoggerMessage.C_ERROR);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_STARTING:
-                    ShowAndLogMessage("GAME SERVER STARTING", null, false, true);
+                    _loggerMessage.ShowAndLogMessage("GAME SERVER STARTING", null, LoggerMessage.C_OK);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_START_ERROR:
-                    ShowAndLogMessage("GAME SERVER START", null, true, false);
+                    _loggerMessage.ShowAndLogMessage("GAME SERVER START", null, LoggerMessage.C_ERROR);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_START_OK:
-                    ShowAndLogMessage("GAME SERVER START", null, false, true);
+                    _loggerMessage.ShowAndLogMessage("GAME SERVER START", null, LoggerMessage.C_OK);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_STOP:
-                    ShowAndLogMessage("GAME SERVER STOP", null, false, true);
+                    _loggerMessage.ShowAndLogMessage("GAME SERVER STOP", null, LoggerMessage.C_OK);
                     break;
+
+                case GameServerEventParameters.GameServerEventType.GAMESERVER_CREATE_OR_APPEND_LOG_FILE_OK:
+                    _loggerMessage.ShowAndLogMessage("LOAD CONFIG", null, LoggerMessage.C_OK);
+                    _loggerMessage.ShowAndLogMessage("CREATE OR APPEND LOG FILE", null, LoggerMessage.C_OK);
+                    break;
+
+                case GameServerEventParameters.GameServerEventType.GAMESERVER_CREATE_OR_APPEND_LOG_FILE_ERROR:
+                    _loggerMessage.ShowMessage("LOAD CONFIG", null, LoggerMessage.C_OK);
+                    _loggerMessage.ShowMessage("CREATE OR APPEND LOG FILE", null, LoggerMessage.C_ERROR);
+                    atr.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_Red);
+                    _loggerMessage.ShowMessage(gameServerEventParameters.GetMessage,atr); 
+                    break;
+   
             }
-        }
-
-        private static void Logger_Event_Log(string eventMessage)
-        {
-            //Console.WriteLine(eventMessage);
-        }
-
-        private static void CreateLogFile()
-        {
-            if (!_logFileCreated)
-            {
-                string fileName = _gameServerManager.GetConfig.serverConfig.serverParameters.logFileName;
-                string path = _gameServerManager.GetConfig.serverConfig.serverParameters.logPathFile;
-                
-                _gameServerManager.CreateLogFile(fileName, path);
-                _logFileCreated = true;
-            }
-
-        }
-
-        private static void LogMessage(string message)
-        {
-            if (_logCounterLineSave < C_MAX_LOG_LINES_TO_SAVE)
-            {
-                _gameServerManager.WriteLog(message);
-                _logCounterLineSave++;
-            }
-            else
-            {
-                _gameServerManager.WriteAndSaveLog(message);
-                _logCounterLineSave = 0;
-            }
-            //hacer una clase estatica que devuelva el mensaje con sus colores            
-        }
-
-        private static void ShowMessage(string message, OutputFormatter outputFormaterParam = null, bool msgError = false, bool msgOk = false)
-        {
-            MessageParams param = new MessageParams();
-            
-            Console.WriteLine(message);
-
-            if (outputFormaterParam != null)
-            {
-                
-            }
-
-            if (msgError)
-            {
-
-            }
-            
-            if (msgOk)
-            {
-
-            }
-
-        }
-
-        private static void ShowAndLogMessage(string message, OutputFormatter outputFormaterParam = null, bool msgError = false, bool msgOk = false)
-        {
-            LogMessage(message);
-            ShowMessage(message, outputFormaterParam, msgError, msgOk);
         }
 
     }

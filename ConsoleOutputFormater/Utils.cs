@@ -12,8 +12,8 @@ namespace ConsoleOutputFormater
         public string ReturnOk()
         {
             OutputFormatter outputFormater = new OutputFormatter();
-
-            string aux = outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black);
+            string aux = "";
+            //string aux = outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black);
             return("[ " + aux + " ]");
 
         }
@@ -21,8 +21,8 @@ namespace ConsoleOutputFormater
         public string ReturnError()
         {
             OutputFormatter outputFormater = new OutputFormatter();
-
-            string aux = outputFormater.FormatText("ERROR", OutputFormatter.TextColorFG.Bright_Red, OutputFormatter.TextColorBG.Black);
+            string aux = "";
+            //string aux = outputFormater.FormatText("ERROR", OutputFormatter.TextColorFG.Bright_Red, OutputFormatter.TextColorBG.Black);
             return ("[ " + aux + " ]");
 
         }

@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigManager.cs" />
+    <Compile Include="ConnectionsManager.cs" />
     <Compile Include="EventParameters\ConfigManagerEventsParameters.cs" />
     <Compile Include="config\AdminUser.cs" />
     <Compile Include="config\AdminUsers.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="config\ServerConfig.cs" />
     <Compile Include="config\ServerParameters.cs" />
     <Compile Include="EventParameters\GameServerEventParameters.cs" />
+    <Compile Include="EventParameters\LoggerManagerEventsParameters.cs" />
     <Compile Include="GameServerManager.cs" />
     <Compile Include="LoggerManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

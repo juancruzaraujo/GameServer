@@ -46,8 +46,8 @@ namespace testServer
                     int numCon = eventParameters.GetConnectionNumber;
                     OutputFormatter outputFormater = new OutputFormatter();
 
-                    outputFormater.SetBold(true).SetUnderline(true);
-                    Send(numCon, outputFormater.FormatText("HOLA MUNDO", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Bright_White));
+                    //outputFormater.SetBold(true).SetUnderline(true);
+                    //Send(numCon, outputFormater.FormatText("HOLA MUNDO", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Bright_White));
                     //Send(numCon, "\x1b[1;4;92;107mHola Mundo\x1b[0m");
                     //obSocket.Send("HELLO THERE MY FRIEND!\n\r", eventParameters.GetListIndex);
 

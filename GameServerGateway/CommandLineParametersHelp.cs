@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using GameServerFW;
 using ConsoleOutputFormater;
+using ShowAndLogMessage;
 
 namespace GameServerGateway
 {
@@ -13,31 +14,37 @@ namespace GameServerGateway
     {
         static internal void ShowHelp(string fileName, string generateParam, string loadFileParam)
         {
-            OutputFormatter outputFormater = new OutputFormatter();
+            //OutputFormatter outputFormater = new OutputFormatter();
+            LoggerMessage loggerMessage = LoggerMessage.GetInstance();
+            OutputFormatterAttributes formatAttributes = new OutputFormatterAttributes();
 
             string message = "";
             char directorySeparatorChar = Path.DirectorySeparatorChar;
             string executableName = System.Diagnostics.Process.GetCurrentProcess().ProcessName;
 
             message = $"run with {generateParam} parameter to generate configuration file or run with path " + directorySeparatorChar + $"{fileName}";
-            /*
-            ShowMessage(outputFormater.FormatText(message, OutputFormatter.TextColorFG.Bright_White, OutputFormatter.TextColorBG.Black));
-            ShowMessage(outputFormater.FormatText("examples", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black));
-            ShowMessage(outputFormater.FormatText($"{executableName} {generateParam}", OutputFormatter.TextColorFG.Bright_Cyan, OutputFormatter.TextColorBG.Black));
+            formatAttributes.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_White).SetColorBG(OutputFormatterAttributes.TextColorBG.Black);
+            loggerMessage.ShowMessage(message, formatAttributes);
+
+            formatAttributes.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_Green).SetColorBG(OutputFormatterAttributes.TextColorBG.Black);
+            loggerMessage.ShowMessage("examples", formatAttributes);
+
+            formatAttributes.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_Cyan).SetColorBG(OutputFormatterAttributes.TextColorBG.Black);
+            loggerMessage.ShowMessage($"{executableName} {generateParam}", formatAttributes);
+            
             message = $"generates the configuration file {fileName} in the execution directory";
-            ShowMessage(outputFormater.FormatText(message, OutputFormatter.TextColorFG.Bright_White, OutputFormatter.TextColorBG.Black));
+            formatAttributes.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_White).SetColorBG(OutputFormatterAttributes.TextColorBG.Black);
+            loggerMessage.ShowMessage(message, formatAttributes);
 
-            ShowMessage(outputFormater.FormatText($"{executableName} {loadFileParam} {fileName}", OutputFormatter.TextColorFG.Bright_Cyan, OutputFormatter.TextColorBG.Black));
-            ShowMessage(outputFormater.FormatText($"{executableName} {loadFileParam} [name.json]", OutputFormatter.TextColorFG.Bright_Cyan, OutputFormatter.TextColorBG.Black));
-            ShowMessage(outputFormater.FormatText($"{executableName} {loadFileParam} path" + directorySeparatorChar + $"{fileName}", OutputFormatter.TextColorFG.Bright_Cyan, OutputFormatter.TextColorBG.Black));
+            formatAttributes.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_Cyan).SetColorBG(OutputFormatterAttributes.TextColorBG.Black);
+            loggerMessage.ShowMessage($"{executableName} {loadFileParam} {fileName}", formatAttributes);
+            loggerMessage.ShowMessage($"{executableName} {loadFileParam} [name.json]", formatAttributes);
+            loggerMessage.ShowMessage($"{executableName} {loadFileParam} path" + directorySeparatorChar + $"{fileName}", formatAttributes);
+
+            formatAttributes.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_White).SetColorBG(OutputFormatterAttributes.TextColorBG.Black);
             message = $"execute {executableName} with this config file";
-            ShowMessage(outputFormater.FormatText(message, OutputFormatter.TextColorFG.Bright_White, OutputFormatter.TextColorBG.Black));
-            */
+            loggerMessage.ShowMessage(message, formatAttributes);
         }
 
-        static private void ShowMessage(string message)
-        {
-            Console.WriteLine(message);
-        }
     }
 }

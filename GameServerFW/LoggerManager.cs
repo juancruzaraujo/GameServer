@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using GameServerFW.EventParameters;
 
 namespace GameServerFW
 {
@@ -12,14 +13,14 @@ namespace GameServerFW
         private List<string> lstLog;
         private char directorySeparatorChar = Path.DirectorySeparatorChar;
         private string _logFile;
-        private StreamWriter sw;
+        private StreamWriter _sw;
+        private static bool _logFileCreated= false;
 
-
-        public delegate void Delegate_Log_Event(string eventMessage);
+        public delegate void Delegate_Log_Event(LoggerManagerEventsParameters loggerManagerEventsParameters);
         public event Delegate_Log_Event Event_Log;
-        public void LoggerEvent(string eventMessage)
+        public void LoggerEvent(LoggerManagerEventsParameters loggerManagerEventsParameters)
         {
-            this.Event_Log(eventMessage);
+            this.Event_Log(loggerManagerEventsParameters);
         }
 
         public LoggerManager()
@@ -52,19 +53,34 @@ namespace GameServerFW
         {
             try
             {
+
                 if (!File.Exists(_logFile))
                 {
-                    sw = File.CreateText(_logFile);
+                    _sw = File.CreateText(_logFile);
                 }
                 else
                 {
-                    sw = File.AppendText(_logFile);
+                    _sw = File.AppendText(_logFile);
                 }
-                
+
+                //lo ejecutamos una sola vez, si guardo el archivo lo tengo que volver a abrir
+                //y eso puede hacer que salte un error de stack
+                if (!_logFileCreated) 
+                {
+                    _logFileCreated = true;
+
+                    LoggerManagerEventsParameters loggerManagerEventsParameters = new LoggerManagerEventsParameters();
+                    loggerManagerEventsParameters.SetEventType(LoggerManagerEventsParameters.LoggerManagerEventType.CREATE_OR_APPEND_LOG_FILE_OK);
+                    LoggerEvent(loggerManagerEventsParameters);
+                }
+
             }
             catch(Exception err)
             {
-                LoggerEvent(err.Message);
+                LoggerManagerEventsParameters loggerManagerEventsParameters = new LoggerManagerEventsParameters();
+                loggerManagerEventsParameters.SetEventType(LoggerManagerEventsParameters.LoggerManagerEventType.CREATE_OR_APPEND_LOG_FILE_ERROR)
+                    .SetEventMessage(err.Message);
+                LoggerEvent(loggerManagerEventsParameters);
             }
         }
 
@@ -82,7 +98,11 @@ namespace GameServerFW
             }
             catch(Exception err)
             {
-                LoggerEvent(err.Message);
+                LoggerManagerEventsParameters loggerManagerEventsParameters = new LoggerManagerEventsParameters();
+                loggerManagerEventsParameters.SetEventType(LoggerManagerEventsParameters.LoggerManagerEventType.SAVE_LOG_ERROR)
+                    .SetEventMessage(err.Message);
+
+                LoggerEvent(loggerManagerEventsParameters);
             }
             
             
@@ -98,13 +118,21 @@ namespace GameServerFW
         {
             try
             {
-                sw.WriteLine(Log(message));
+                if (_logFileCreated)
+                {
+                    _sw.WriteLine(Log(message));
+                }
                 return message;
             }
             catch(Exception err)
             {
-                LoggerEvent(err.Message);
-                return message + " " + err.Message;
+
+                LoggerManagerEventsParameters loggerManagerEventsParameters = new LoggerManagerEventsParameters();
+                loggerManagerEventsParameters.SetEventType(LoggerManagerEventsParameters.LoggerManagerEventType.WRITE_LOG_FILE_ERROR)
+                    .SetEventMessage(err.Message);
+
+                LoggerEvent(loggerManagerEventsParameters);
+                return null;
             }
         }
 
@@ -113,7 +141,10 @@ namespace GameServerFW
         /// </summary>
         public void SaveLog()
         {
-            sw.Close();
+            if (_logFileCreated)
+            {
+                _sw.Close();
+            }
         }
 
         /// <summary>
@@ -132,5 +163,6 @@ namespace GameServerFW
         {
             lstLog.Clear();
         }
+        
     }
 }

@@ -11,7 +11,7 @@ namespace GameServerFW
     internal class ConfigManager
     {
 
-        public delegate void Delegate_ConfigManager_Event(ConfigManagerEventsParameters message);
+        public delegate void Delegate_ConfigManager_Event(ConfigManagerEventsParameters configmanagerEventsParameters);
         public Delegate_ConfigManager_Event Event_ConfigManager;
         private void EventConfigManager(ConfigManagerEventsParameters configmanagerEventsParameters)
         {

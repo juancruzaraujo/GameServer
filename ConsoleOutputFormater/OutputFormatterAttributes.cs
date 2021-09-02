@@ -36,7 +36,7 @@ namespace ConsoleOutputFormater
         private int _textColorFG;
         private int _textColorBG;
 
-        public enum TextColorFG
+        public enum TextColorFG : int
         {
             Black = 30,
             Red = 31,
@@ -56,7 +56,7 @@ namespace ConsoleOutputFormater
             Bright_White = 97
         }
 
-        public enum TextColorBG
+        public enum TextColorBG : int
         {
             Black = 40,
             Red = 41,
@@ -157,8 +157,8 @@ namespace ConsoleOutputFormater
         public void ResetAttributes()
         {
             _normal = true;
-            _textColorBG = (int)TextColorBG.Black;
-            _textColorFG = (int)TextColorFG.White;
+            _textColorBG = GetDefaulBGColor;
+            _textColorFG = GetDefaulFGColor;
 
 
             _bold = false;
@@ -242,6 +242,160 @@ namespace ConsoleOutputFormater
             get
             {
                 return _textColorBG;
+            }
+        }
+
+        private int GetDefaulFGColor
+        {
+            get
+            {
+                ConsoleColor defaulColor = Console.ForegroundColor;
+                int result = 0;
+
+                switch(defaulColor)
+                {
+                    case ConsoleColor.DarkRed:
+                        result = (int)TextColorFG.Red;
+                        break;
+
+                    case ConsoleColor.DarkYellow:
+                        result = (int)TextColorFG.Yellow;
+                        break;
+
+                    case ConsoleColor.Black:
+                        result = (int)TextColorFG.Black;
+                        break;
+
+                    case ConsoleColor.DarkGreen:
+                        result = (int)TextColorFG.Green;
+                        break;
+
+                    case ConsoleColor.DarkBlue:
+                        result = (int)TextColorFG.Blue;
+                        break;
+
+                    case ConsoleColor.DarkMagenta:
+                        result = (int)TextColorFG.Magenta;
+                        break;
+
+                    case ConsoleColor.DarkCyan:
+                        result = (int)TextColorFG.Cyan;
+                        break;
+
+                    case ConsoleColor.DarkGray:
+                        result = (int)TextColorFG.White;
+                        break;
+
+                    case ConsoleColor.Red:
+                        result = (int)TextColorFG.Bright_Red;
+                        break;
+
+                    case ConsoleColor.Green:
+                        result = (int)TextColorFG.Bright_Green;
+                        break;
+
+                    case ConsoleColor.Yellow:
+                        result = (int)TextColorFG.Bright_Yellow;
+                        break;
+
+                    case ConsoleColor.Blue:
+                        result = (int)TextColorFG.Bright_Blue;
+                        break;
+
+                    case ConsoleColor.Magenta:
+                        result = (int)TextColorFG.Bright_Magenta;
+                        break;
+
+                    case ConsoleColor.Cyan:
+                        result = (int)TextColorFG.Bright_Cyan;
+                        break;
+
+                    case ConsoleColor.White:
+                        result = (int)TextColorFG.Bright_White;
+                        break;
+                }
+                /*
+                    Bright_Black = 90, //este falta
+                */
+                return result;
+            }
+        }
+
+        private int GetDefaulBGColor
+        {
+            get
+            {
+                ConsoleColor defaulColor = Console.BackgroundColor;
+                int result = 0;
+
+                switch(defaulColor)
+                {
+                    case ConsoleColor.Black:
+                        result = (int)TextColorBG.Black;
+                        break;
+
+                    case ConsoleColor.DarkRed:
+                        result = (int)TextColorBG.Red;
+                        break;
+
+                    case ConsoleColor.DarkGreen:
+                        result = (int)TextColorBG.Green;
+                        break;
+
+                    case ConsoleColor.DarkYellow:
+                        result = (int)TextColorBG.Yellow;
+                        break;
+
+                    case ConsoleColor.DarkBlue:
+                        result = (int)TextColorBG.Blue;
+                        break;
+
+                    case ConsoleColor.DarkMagenta:
+                        result = (int)TextColorBG.Magenta;
+                        break;
+
+                    case ConsoleColor.DarkCyan:
+                        result = (int)TextColorBG.Cyan;
+                        break;
+
+                    case ConsoleColor.Gray:
+                        result = (int)TextColorBG.White;
+                        break;
+
+                    case ConsoleColor.Red:
+                        result = (int)TextColorBG.Bright_Red;
+                        break;
+
+                    case ConsoleColor.Green:
+                        result = (int)TextColorBG.Bright_Green;
+                        break;
+
+                    case ConsoleColor.Yellow:
+                        result = (int)TextColorBG.Bright_Yellow;
+                        break;
+
+                    case ConsoleColor.Blue:
+                        result = (int)TextColorBG.Bright_Blue;
+                        break;
+
+                    case ConsoleColor.Magenta:
+                        result = (int)TextColorBG.Bright_Magenta;
+                        break;
+
+                    case ConsoleColor.Cyan:
+                        result = (int)TextColorBG.Bright_Cyan;
+                        break;
+
+                    case ConsoleColor.White:
+                        result = (int)TextColorBG.Bright_White;
+                        break;
+
+                }
+                /*
+                    Bright_Black = 100,
+                */
+
+                return result;
             }
         }
     }

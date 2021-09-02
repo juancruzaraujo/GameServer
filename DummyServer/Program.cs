@@ -27,9 +27,9 @@ namespace DummyServer
                 
                 if (args.Length == 0 || args.Length == 1)
                 {
-                    string errMessage = "[ " + outputFormater.FormatText("ERROR", OutputFormatter.TextColorFG.Bright_Red, OutputFormatter.TextColorBG.Black) + " ]";
-                    errMessage = errMessage + " \r\nparams [port number] [server type]";
-                    WriteMessage(errMessage);
+                    //string errMessage = "[ " + outputFormater.FormatText("ERROR", OutputFormatter.TextColorFG.Bright_Red, OutputFormatter.TextColorBG.Black) + " ]";
+                    //errMessage = errMessage + " \r\nparams [port number] [server type]";
+                    //WriteMessage(errMessage);
                     System.Environment.Exit(0);
                 }
 
@@ -45,17 +45,17 @@ namespace DummyServer
                 socketsTCP.Event_Socket += SocketsTCP_Event_Socket;
                 socketsUDP.Event_Socket += SocketsUDP_Event_Socket;
 
-                WriteMessage("[ " + outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black) + " ] Dummy Server");
-                WriteMessage("[ " + outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black) + " ] tcp port " + portNumber);
-                WriteMessage("[ " + outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black) + " ] udt port " + portNumber);
-                WriteMessage("[ " + outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black) + " ] server type " + serverType);
+                //WriteMessage("[ " + outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black) + " ] Dummy Server");
+                //WriteMessage("[ " + outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black) + " ] tcp port " + portNumber);
+                //WriteMessage("[ " + outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black) + " ] udt port " + portNumber);
+                //WriteMessage("[ " + outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black) + " ] server type " + serverType);
 
 
                 socketsTCP.StartServer();
-                WriteMessage("[ " + outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black) + " ] tcp start " + serverType);
+                //WriteMessage("[ " + outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black) + " ] tcp start " + serverType);
 
                 socketsUDP.StartServer();
-                WriteMessage("[ " + outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black) + " ] udp start " + serverType);
+                //WriteMessage("[ " + outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black) + " ] udp start " + serverType);
 
                 keepRuning = true;
 
