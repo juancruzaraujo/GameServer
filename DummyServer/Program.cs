@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Sockets;
 using ConsoleOutputFormater;
+using ShowAndLogMessage;
 
 namespace DummyServer
 {
@@ -14,6 +15,8 @@ namespace DummyServer
         static Sockets.Sockets socketsTCP;
         static Sockets.Sockets socketsUDP;
         static OutputFormatter outputFormater;
+        
+
         static int portNumber;
         static string serverType;
         static bool keepRuning;
@@ -21,15 +24,22 @@ namespace DummyServer
         static void Main(string[] args)
         {
             outputFormater = new ConsoleOutputFormater.OutputFormatter();
-
+            OutputFormatterAttributes attr = new OutputFormatterAttributes();
+            LoggerMessage msg = LoggerMessage.GetInstance();
             try
             {
-                
+
+                //msg.ShowMessage("Dummy server", attr, LoggerMessage.typeMsg.ERROR);
+                //msg.ShowMessage("Dummy server", attr, LoggerMessage.typeMsg.OK);
+                //msg.ShowMessage("Dummy server", attr, LoggerMessage.typeMsg.OK);
+                //msg.ShowMessage("Dummy server", attr, LoggerMessage.typeMsg.OK);
+                //msg.ShowMessage("Dummy server", attr, LoggerMessage.typeMsg.WARNING);
+
                 if (args.Length == 0 || args.Length == 1)
                 {
-                    //string errMessage = "[ " + outputFormater.FormatText("ERROR", OutputFormatter.TextColorFG.Bright_Red, OutputFormatter.TextColorBG.Black) + " ]";
-                    //errMessage = errMessage + " \r\nparams [port number] [server type]";
-                    //WriteMessage(errMessage);
+                    //attr.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_Red);
+                    msg.ShowMessage(" \r\nparams[port number][server type]", null, LoggerMessage.typeMsg.ERROR);
+
                     System.Environment.Exit(0);
                 }
 
@@ -45,17 +55,26 @@ namespace DummyServer
                 socketsTCP.Event_Socket += SocketsTCP_Event_Socket;
                 socketsUDP.Event_Socket += SocketsUDP_Event_Socket;
 
-                //WriteMessage("[ " + outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black) + " ] Dummy Server");
-                //WriteMessage("[ " + outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black) + " ] tcp port " + portNumber);
-                //WriteMessage("[ " + outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black) + " ] udt port " + portNumber);
-                //WriteMessage("[ " + outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black) + " ] server type " + serverType);
+                msg.ShowMessage("Dummy server ", null, LoggerMessage.typeMsg.NO_TYPE);
+                             
+                
+                msg.ShowMessage("tcp port " + portNumber, null, LoggerMessage.typeMsg.OK);
+                msg.ShowMessage("udp port " + portNumber, null, LoggerMessage.typeMsg.OK);
+                msg.ShowMessage("server type  " + serverType, null, LoggerMessage.typeMsg.OK);
+                
 
 
                 socketsTCP.StartServer();
-                //WriteMessage("[ " + outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black) + " ] tcp start " + serverType);
+                msg.ShowMessage("tcp start " + serverType, null, LoggerMessage.typeMsg.OK);
 
                 socketsUDP.StartServer();
-                //WriteMessage("[ " + outputFormater.FormatText("OK", OutputFormatter.TextColorFG.Bright_Green, OutputFormatter.TextColorBG.Black) + " ] udp start " + serverType);
+                msg.ShowMessage("udp start " + serverType, null, LoggerMessage.typeMsg.OK);
+
+
+                attr.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_Yellow);
+                msg.ShowMessage("test test", attr,LoggerMessage.typeMsg.WARNING);
+                msg.ShowMessage("test test", null, LoggerMessage.typeMsg.WARNING);
+                msg.ShowMessage("no amarillo 22222222222222", null);
 
                 keepRuning = true;
 
@@ -77,6 +96,7 @@ namespace DummyServer
             {
                 case EventParameters.EventType.DATA_IN:
                     DataIn(eventParameters.GetData);
+                    socketsUDP.Send(eventParameters.GetConnectionNumber, "MSG UDP RECIVED OK ");
                     break;
             }
         }
@@ -91,6 +111,7 @@ namespace DummyServer
 
                 case EventParameters.EventType.DATA_IN:
                     DataIn(eventParameters.GetData);
+                    socketsTCP.Send(eventParameters.GetConnectionNumber, "MSG TCP RECIVED OK ");
                     break;
 
                 case EventParameters.EventType.ERROR:

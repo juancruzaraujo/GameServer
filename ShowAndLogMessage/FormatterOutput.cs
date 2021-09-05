@@ -15,7 +15,6 @@ namespace ShowAndLogMessage
         internal const string C_ERROR = " ERROR ";
         internal const string C_WARING = " WARNIG ";
 
-
         static FormatterOutput _formaterOutputInstance;
         static OutputFormatter _outputFormater;
 

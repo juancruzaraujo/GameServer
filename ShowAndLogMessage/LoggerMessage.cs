@@ -20,9 +20,17 @@ namespace ShowAndLogMessage
             const int C_MAX_LOG_LINES_TO_SAVE = 20;         
         #endif
 
-        public const string C_OK = " OK ";
-        public const string C_ERROR = " ERROR ";
-        public const string C_WARING = " WARNIG ";
+        const string C_OK = " OK ";
+        const string C_ERROR = " ERROR ";
+        const string C_WARING = " WARNIG ";
+
+        public enum typeMsg
+        {
+            OK,
+            ERROR,
+            WARNING,
+            NO_TYPE
+        }
 
         GameServerManager _gameServerManager;
         private FormatterOutput _formatterOutput;
@@ -72,45 +80,82 @@ namespace ShowAndLogMessage
         }
 
 
-        public void ShowAndLogMessage(string message, OutputFormatterAttributes outputFormaterParam = null, string typeMsg = "")
+        public void ShowAndLogMessage(string message, OutputFormatterAttributes outputFormaterParam = null, typeMsg msgType = typeMsg.NO_TYPE)
         {
             string typeMsgFormatter = ""; //"[ " + typeMsg + " ]";
-            if (typeMsg != "")
+            string typeMsgStr = GetMsgTypeSTR(msgType);
+            if (typeMsgStr != "")
             {
-                typeMsgFormatter = "[ " + typeMsg + " ] ";
+                typeMsgFormatter = "[ " + typeMsgStr + " ] ";
             }
 
             LogMessage(typeMsgFormatter + message);
-            ShowMessage(message, outputFormaterParam, typeMsg);
+            ShowMessage(message, outputFormaterParam, msgType);
 
         }
 
-        public void ShowMessage(string message, OutputFormatterAttributes outputFormaterParam = null, string typeMsg = "")
+        public void ShowMessage(string message, OutputFormatterAttributes outputFormaterParam = null, typeMsg msgType = typeMsg.NO_TYPE)
         {
             //LogMessage(message);
             string msgFormatter = "";
-            string typeMsgFormatter = "[ " + typeMsg + " ] ";
-            switch (typeMsg)
+            string typeMsgStr = GetMsgTypeSTR(msgType);
+
+            if (typeMsgStr == C_OK)
             {
-                case FormatterOutput.C_OK:
-                    msgFormatter = _formatterOutput.OkMessage(message);
-                    break;
+                msgFormatter = _formatterOutput.OkMessage(message);
+            }
+            else if (typeMsgStr == C_WARING)
+            {
+                msgFormatter = _formatterOutput.WarnigMessage(message);
+            }
+            else if (typeMsgStr == C_ERROR)
+            {
+                msgFormatter = _formatterOutput.ErrorMessage(message);
 
-                case FormatterOutput.C_WARING:
-                    msgFormatter = _formatterOutput.WarnigMessage(message);
-                    break;
-
-                case FormatterOutput.C_ERROR:
-                    msgFormatter = _formatterOutput.ErrorMessage(message);
-                    break;
-
-                case "":
-                    typeMsgFormatter = "";
-                    msgFormatter = _formatterOutput.CustomMessage(message, outputFormaterParam);
-                    break;
+            }
+            else if (typeMsgStr == "")
+            {
+                msgFormatter = _formatterOutput.CustomMessage(message, outputFormaterParam);
             }
 
             _formatterOutput.ShowMessage(msgFormatter, outputFormaterParam);
+        }
+
+        /// <summary>
+        /// return [ custom type ], example, [ yupi! ]
+        /// </summary>
+        /// <param name="customType">custom type</param>
+        /// <param name="outputFormaterParam">text atributes</param>
+        /// <returns>return [ custom type ], example, [ yupi! ]</returns>
+        public string CustomType(string customType, OutputFormatterAttributes outputFormaterParam)
+        {
+            return "[ " + _formatterOutput.CustomMessage(customType, outputFormaterParam) + " ]";
+        }
+
+        private string GetMsgTypeSTR(typeMsg msgType)
+        {
+            string res = "";
+
+            switch(msgType)
+            {
+                case typeMsg.OK:
+                    res = C_OK;
+                    break;
+
+                case typeMsg.WARNING:
+                    res = C_WARING;
+                    break;
+
+                case typeMsg.ERROR:
+                    res = C_ERROR;
+                    break;
+
+                case typeMsg.NO_TYPE: //pongo esto por prologidad
+                    res = "";
+                    break;
+            }
+
+            return res;
         }
     }
 }

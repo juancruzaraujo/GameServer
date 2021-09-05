@@ -57,6 +57,10 @@
       <Project>{bc6db0f0-eb09-4f5b-8aaa-76dae681e3d8}</Project>
       <Name>ConsoleOutputFormatter</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ShowAndLogMessage\ShowAndLogMessage.csproj">
+      <Project>{c6623127-329f-4eeb-93ee-e8948e379bb3}</Project>
+      <Name>ShowAndLogMessage</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

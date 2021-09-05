@@ -62,7 +62,9 @@ namespace GameServerGateway
             {
                 //generar el archivo de conf
                 string exampleConfigName = System.Diagnostics.Process.GetCurrentProcess().ProcessName + "_example.json";
+
                 _gameServerManager.CreateConfigFile(exampleConfigName);
+
                 ExitServer();
             }
             else if (args.Count() == 2)
@@ -95,7 +97,7 @@ namespace GameServerGateway
             switch (gameServerEventParameters.GetGameServerEventType)
             {
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_LOAD_CONFIG_ERROR:
-                    _loggerMessage.ShowMessage(gameServerEventParameters.GetMessage, null, LoggerMessage.C_ERROR);
+                    _loggerMessage.ShowMessage(gameServerEventParameters.GetMessage, null, LoggerMessage.typeMsg.ERROR);
                     ExitServer();
                     break;
 
@@ -108,33 +110,33 @@ namespace GameServerGateway
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_MESSAGE_ERROR:
-                    _loggerMessage.ShowAndLogMessage(gameServerEventParameters.GetMessage,null, LoggerMessage.C_ERROR);
+                    _loggerMessage.ShowAndLogMessage(gameServerEventParameters.GetMessage,null, LoggerMessage.typeMsg.ERROR);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_STARTING:
-                    _loggerMessage.ShowAndLogMessage("GAME SERVER STARTING", null, LoggerMessage.C_OK);
+                    _loggerMessage.ShowAndLogMessage("GAME SERVER STARTING", null, LoggerMessage.typeMsg.OK);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_START_ERROR:
-                    _loggerMessage.ShowAndLogMessage("GAME SERVER START", null, LoggerMessage.C_ERROR);
+                    _loggerMessage.ShowAndLogMessage("GAME SERVER START", null, LoggerMessage.typeMsg.ERROR);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_START_OK:
-                    _loggerMessage.ShowAndLogMessage("GAME SERVER START", null, LoggerMessage.C_OK);
+                    _loggerMessage.ShowAndLogMessage("GAME SERVER START", null, LoggerMessage.typeMsg.OK);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_STOP:
-                    _loggerMessage.ShowAndLogMessage("GAME SERVER STOP", null, LoggerMessage.C_OK);
+                    _loggerMessage.ShowAndLogMessage("GAME SERVER STOP", null, LoggerMessage.typeMsg.OK);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_CREATE_OR_APPEND_LOG_FILE_OK:
-                    _loggerMessage.ShowAndLogMessage("LOAD CONFIG", null, LoggerMessage.C_OK);
-                    _loggerMessage.ShowAndLogMessage("CREATE OR APPEND LOG FILE", null, LoggerMessage.C_OK);
+                    _loggerMessage.ShowAndLogMessage("LOAD CONFIG", null, LoggerMessage.typeMsg.OK);
+                    _loggerMessage.ShowAndLogMessage("CREATE OR APPEND LOG FILE", null, LoggerMessage.typeMsg.OK);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_CREATE_OR_APPEND_LOG_FILE_ERROR:
-                    _loggerMessage.ShowMessage("LOAD CONFIG", null, LoggerMessage.C_OK);
-                    _loggerMessage.ShowMessage("CREATE OR APPEND LOG FILE", null, LoggerMessage.C_ERROR);
+                    _loggerMessage.ShowMessage("LOAD CONFIG", null, LoggerMessage.typeMsg.OK);
+                    _loggerMessage.ShowMessage("CREATE OR APPEND LOG FILE", null, LoggerMessage.typeMsg.ERROR);
                     atr.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_Red);
                     _loggerMessage.ShowMessage(gameServerEventParameters.GetMessage,atr); 
                     break;
