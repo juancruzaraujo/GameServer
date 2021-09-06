@@ -37,36 +37,28 @@ namespace ShowAndLogMessage
         /// </summary>
         /// <param name="message">message to show with [ ERROR ] in front</param>
         /// <returns>string</returns>
-        internal string ErrorMessage(string message)
+        internal string ErrorMessage()
         {
-            return DefaultMessages(C_ERROR) + " " + message;
+            return DefaultMessages(C_ERROR);
         }
 
         /// <summary>
         /// return string [ OK ] + message
         /// </summary>
-        /// <param name="message">message to show with [ OK ] in front</param>
         /// <returns>string</returns>
-        internal string OkMessage(string message)
+        internal string OkMessage()
         {
 
-            return DefaultMessages(C_OK) + " " + message;
+            return DefaultMessages(C_OK);
         }
 
         /// <summary>
         /// message to show with [ WARNIG ] in front
         /// </summary>
-        /// <param name="message">message to show with [ WARNIG ] in front</param>
         /// <returns>string</returns>
-        internal string WarnigMessage(string message)
+        internal string WarnigMessage()
         {
-            return DefaultMessages(C_WARING) + " " + message;
-        }
-
-        //ver como pasar el resto de parametros y cosas para mostrar mensajines
-        internal string CustomMessage(string message,OutputFormatterAttributes outputFormatterAttributes)
-        {
-            return _outputFormater.FormatText(message, outputFormatterAttributes);
+            return DefaultMessages(C_WARING);
         }
 
         private string DefaultMessages(string msgType)
@@ -98,12 +90,18 @@ namespace ShowAndLogMessage
 
             outputFormatterAttributes.SetColorBG(OutputFormatterAttributes.TextColorBG.Black);
 
-            return "[" + result + "]";
+            return "[" + result + "] ";
         }
 
-        internal void ShowMessage(string message, OutputFormatterAttributes outputFormatterAttributes)
+        internal void ShowMessage(string message)
         {
-            Console.WriteLine(_outputFormater.FormatText(message, outputFormatterAttributes));
+            //Console.WriteLine(_outputFormater.FormatText(message, outputFormatterAttributes));
+            Console.WriteLine(message);
+        }
+
+        internal string GetForrmatedText(string text, OutputFormatterAttributes outputFormaterParam)
+        {
+            return _outputFormater.FormatText(text, outputFormaterParam);
         }
 
     }

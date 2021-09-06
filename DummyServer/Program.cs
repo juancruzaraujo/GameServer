@@ -71,10 +71,11 @@ namespace DummyServer
                 msg.ShowMessage("udp start " + serverType, null, LoggerMessage.typeMsg.OK);
 
 
-                attr.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_Yellow);
-                msg.ShowMessage("test test", attr,LoggerMessage.typeMsg.WARNING);
-                msg.ShowMessage("test test", null, LoggerMessage.typeMsg.WARNING);
-                msg.ShowMessage("no amarillo 22222222222222", null);
+                attr.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_Red).SetColorBG(OutputFormatterAttributes.TextColorBG.Bright_Green);
+                msg.ShowMessage("test test no", attr,LoggerMessage.typeMsg.ERROR); //falla
+                msg.ShowMessage("test test si", null, LoggerMessage.typeMsg.ERROR); //no falla
+                msg.ShowMessage("no rojo 22222222222222", null);
+                msg.ShowMessage("formateado", attr);
 
                 keepRuning = true;
 

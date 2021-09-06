@@ -23,6 +23,7 @@ namespace ShowAndLogMessage
         const string C_OK = " OK ";
         const string C_ERROR = " ERROR ";
         const string C_WARING = " WARNIG ";
+        const string C_NO_TYPE = "";
 
         public enum typeMsg
         {
@@ -102,23 +103,33 @@ namespace ShowAndLogMessage
 
             if (typeMsgStr == C_OK)
             {
-                msgFormatter = _formatterOutput.OkMessage(message);
+                msgFormatter = _formatterOutput.OkMessage() + FormattMSG(message, outputFormaterParam);
             }
             else if (typeMsgStr == C_WARING)
             {
-                msgFormatter = _formatterOutput.WarnigMessage(message);
+                msgFormatter = _formatterOutput.WarnigMessage() + FormattMSG(message, outputFormaterParam);
             }
             else if (typeMsgStr == C_ERROR)
             {
-                msgFormatter = _formatterOutput.ErrorMessage(message);
+                msgFormatter = _formatterOutput.ErrorMessage() + FormattMSG(message, outputFormaterParam);
 
             }
-            else if (typeMsgStr == "")
+            else if (typeMsgStr == C_NO_TYPE)
             {
-                msgFormatter = _formatterOutput.CustomMessage(message, outputFormaterParam);
+                msgFormatter = _formatterOutput.GetForrmatedText(message, outputFormaterParam);
             }
 
-            _formatterOutput.ShowMessage(msgFormatter, outputFormaterParam);
+            _formatterOutput.ShowMessage(msgFormatter);
+        }
+
+        private string FormattMSG(string message, OutputFormatterAttributes outputFormaterParam)
+        {
+            if (outputFormaterParam != null)
+            {
+                message = _formatterOutput.GetForrmatedText(message, outputFormaterParam);
+            }
+
+            return message;
         }
 
         /// <summary>
@@ -129,7 +140,7 @@ namespace ShowAndLogMessage
         /// <returns>return [ custom type ], example, [ yupi! ]</returns>
         public string CustomType(string customType, OutputFormatterAttributes outputFormaterParam)
         {
-            return "[ " + _formatterOutput.CustomMessage(customType, outputFormaterParam) + " ]";
+            return "[ " + _formatterOutput.GetForrmatedText(customType, outputFormaterParam) + " ]";
         }
 
         private string GetMsgTypeSTR(typeMsg msgType)
