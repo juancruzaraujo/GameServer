@@ -5,8 +5,7 @@
     "udpPortNumber": "1492",
     "maxUsers": "10",
     "recieveTimeOut": "30",
-    "logFileName": "log.txt",
-    "logPathFile" : "c:\\",
+    "logFileName" : "log.txt",
     "adminUsers": [
       {
         "adminUser": {
@@ -22,14 +21,22 @@
       }
     ]
   },
-  "DestinyServers": [
+  "mapServerList": [
     {
-      "ServerInfo": {
+      "mapServerInfo": {
+        "host": "127.0.0.1",
+        "tcpPort": "1987",
+        "udpPort": "1987"
+      }
+    }
+  ],
+  "otherServer": [
+    {
+      "otherServerInfo": {
         "host": "127.0.0.1",
         "tcpPort": "1510",
         "udpPort": "1510",
-        "serverType": "playerDB",
-        "identifierTag": ""
+        "type": "playerDB"
       }
     }
   ]

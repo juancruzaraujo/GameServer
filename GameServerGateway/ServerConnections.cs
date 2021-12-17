@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace GameServerGateway
 {
-    internal class Connections
+    internal class ServerConnections
     {
         //aca manejar los comandos que vengan en conection manager
+        internal ServerConnections()
+        {
+
+        }
+
     }
 }

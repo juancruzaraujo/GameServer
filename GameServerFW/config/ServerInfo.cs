@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace GameServerFW.config
 {
     [DataContract]
-    public class OtherServerInfo
+    public class ServerInfo
     {
         [DataMember]
         public string host { get; set; }
@@ -25,5 +25,14 @@ namespace GameServerFW.config
         //https://stackoverflow.com/questions/25570712/is-it-possible-to-wrap-json-in-json-field-like-a-string
         [DataMember]
         public string identifierTag { get; set; }
+
+        //"user": "user",
+        //"password" : "password"
+
+        [DataMember]
+        public string user { get; set; }
+        
+        [DataMember]
+        public string password { get; set; }
     }
 }

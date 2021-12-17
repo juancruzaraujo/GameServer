@@ -22,26 +22,26 @@ namespace GameServerFW.EventParameters
         private LoggerManagerEventType _loggerManagerEventType;
         private string _eventMessage;
 
-        public LoggerManagerEventsParameters() { }
+        internal LoggerManagerEventsParameters() { }
 
-        public LoggerManagerEventsParameters(LoggerManagerEventType loggerManagerEventType)
+        internal LoggerManagerEventsParameters(LoggerManagerEventType loggerManagerEventType)
         {
             _loggerManagerEventType = loggerManagerEventType;
         }
 
-        public LoggerManagerEventsParameters SetEventType(LoggerManagerEventType loggerManagerEventType)
+        internal LoggerManagerEventsParameters SetEventType(LoggerManagerEventType loggerManagerEventType)
         {
             _loggerManagerEventType = loggerManagerEventType;
             return this;
         }
 
-        public LoggerManagerEventsParameters SetEventMessage(string eventMessage)
+        internal LoggerManagerEventsParameters SetEventMessage(string eventMessage)
         {
             _eventMessage = eventMessage;
             return this;
         }
 
-        public string GetEventMessage
+        internal string GetEventMessage
         {
             get
             {
@@ -49,12 +49,14 @@ namespace GameServerFW.EventParameters
             }
         }
 
-        public LoggerManagerEventType GetEventType
+        internal LoggerManagerEventType GetEventType
         {
             get
             {
                 return _loggerManagerEventType;
             }
         }
+
+
     }
 }

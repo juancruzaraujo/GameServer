@@ -24,41 +24,16 @@
          ]
          
       },
-      "destinyServers":[
+      "DestinyServers":[
          {
-            "serverInfo":{
-               "host":"127.0.0.1",
-               "tcpPort":"1987",
-               "udpPort":"1987",
-               "serverType":"MapServer",
-               "identifierTag" : "MapServer_1",
-               "user" : "adm",
-               "password" : "map123"
-            }
-         },
-         {
-            "serverInfo":{
-               "host":"127.0.0.1",
-               "tcpPort":"2020",
-               "udpPort":"2020",
-               "serverType":"MapServer",
-               "identifierTag" : "MapServer_2",
-               "user" : "adm",
-               "password" : "map123"
-            }
-         },
-         {
-            "serverInfo":{
+            "ServerInfo":{
                "host":"127.0.0.1",
                "tcpPort":"1510",
                "udpPort":"1510",
                "serverType":"MapServer",
-               "identifierTag" : "MapServer_3",
-               "user" : "adm",
-               "password" : "map123"
+               "identifierTag" : "MapServer_1"
             }
          }
-
       ]
    }
 }

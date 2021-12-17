@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace GameServerFW.config
 {
     [DataContract]
-    public class OtherServer
+    public class DestinyServers
     {
         [DataMember]
-        public OtherServerInfo otherServerInfo { get; set; }
+        public ServerInfo serverInfo { get; set; }
     }
 }

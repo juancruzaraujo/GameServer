@@ -14,17 +14,18 @@ namespace GameServerFW.config
         [DataMember]
         public ServerParameters serverParameters{ get; set; }
 
-        [DataMember]
+        /*[DataMember]
         public List<MapServerList> mapServerList{ get; set; }
+        */
 
         [DataMember]
-        public List<OtherServer> otherServer{ get; set; }
+        public List<DestinyServers> destinyServers{ get; set; }
 
         public ServerConfig()
         {
             serverParameters = new ServerParameters();
-            mapServerList = new List<MapServerList>();
-            otherServer = new List<OtherServer>();
+            //mapServerList = new List<MapServerList>();
+            destinyServers = new List<DestinyServers>();
         }
     }
 }

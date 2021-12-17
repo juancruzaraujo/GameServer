@@ -58,10 +58,11 @@ namespace ShowAndLogMessage
         {
             _gameServerManager = gameServerManager;
 
-            string fileName = _gameServerManager.GetConfig.serverConfig.serverParameters.logFileName;
-            string path = _gameServerManager.GetConfig.serverConfig.serverParameters.logPathFile;
+            string fileName = _gameServerManager.configManager.GetConfig.serverConfig.serverParameters.logFileName;
+            string path = _gameServerManager.configManager.GetConfig.serverConfig.serverParameters.logPathFile;
 
-            _gameServerManager.CreateLogFile(fileName, path);
+            //_gameServerManager.CreateLogFile(fileName, path);
+            _gameServerManager.loggerManager.CreateLogFile(fileName, path);
 
         }
 
@@ -69,12 +70,12 @@ namespace ShowAndLogMessage
         {
             if (_logCounterLineSave < C_MAX_LOG_LINES_TO_SAVE)
             {
-                _gameServerManager.WriteLog(message);
+                _gameServerManager.loggerManager.WriteLog(message);
                 _logCounterLineSave++;
             }
             else
             {
-                _gameServerManager.WriteAndSaveLog(message);
+                _gameServerManager.loggerManager.WriteAndSaveLog(message);
                 _logCounterLineSave = 0;
             }
             //hacer una clase estatica que devuelva el mensaje con sus colores            
@@ -94,7 +95,15 @@ namespace ShowAndLogMessage
             ShowMessage(message, outputFormaterParam, msgType);
 
         }
-
+        /// <summary>
+        /// displays a message in the terminal. 
+        /// If the "outputFormaterParam" parameter is used this applies from the beginning of the string until the break character is found. 
+        /// if you want different formats, you must use a string previously formatted with the "FormattText" function
+        /// </summary>
+        /// <param name="message">string to show</param>
+        /// <param name="outputFormaterParam">attributes to apply in the chain. default is null</param>
+        /// <param name="msgType">message type, "OK", "WARNIG", "ERROR" and "NO_TYPE", the default value is NO_TYPE. 
+        /// if a different type is chosen, the function shows in the terminal "[TYPE] message</param>
         public void ShowMessage(string message, OutputFormatterAttributes outputFormaterParam = null, typeMsg msgType = typeMsg.NO_TYPE)
         {
             //LogMessage(message);
@@ -103,15 +112,15 @@ namespace ShowAndLogMessage
 
             if (typeMsgStr == C_OK)
             {
-                msgFormatter = _formatterOutput.OkMessage() + FormattMSG(message, outputFormaterParam);
+                msgFormatter = _formatterOutput.OkMessage() + FormattText(message, outputFormaterParam);
             }
             else if (typeMsgStr == C_WARING)
             {
-                msgFormatter = _formatterOutput.WarnigMessage() + FormattMSG(message, outputFormaterParam);
+                msgFormatter = _formatterOutput.WarnigMessage() + FormattText(message, outputFormaterParam);
             }
             else if (typeMsgStr == C_ERROR)
             {
-                msgFormatter = _formatterOutput.ErrorMessage() + FormattMSG(message, outputFormaterParam);
+                msgFormatter = _formatterOutput.ErrorMessage() + FormattText(message, outputFormaterParam);
 
             }
             else if (typeMsgStr == C_NO_TYPE)
@@ -122,7 +131,7 @@ namespace ShowAndLogMessage
             _formatterOutput.ShowMessage(msgFormatter);
         }
 
-        private string FormattMSG(string message, OutputFormatterAttributes outputFormaterParam)
+        public string FormattText(string message, OutputFormatterAttributes outputFormaterParam)
         {
             if (outputFormaterParam != null)
             {

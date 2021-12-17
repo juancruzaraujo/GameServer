@@ -45,16 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventParameters\UserManagerEventsParameters.cs" />
+    <Compile Include="Mappers\GameServerEventMapper.cs" />
+    <Compile Include="Mappers\GameServerSocketEventParameters.cs" />
+    <Compile Include="Prueba.cs" />
+    <Compile Include="UserManager.cs" />
+    <Compile Include="Users\UserInfo.cs" />
     <Compile Include="ConfigManager.cs" />
     <Compile Include="ConnectionsManager.cs" />
+    <Compile Include="Connections\Client.cs" />
+    <Compile Include="Connections\Protocol.cs" />
+    <Compile Include="Connections\Server.cs" />
     <Compile Include="EventParameters\ConfigManagerEventsParameters.cs" />
     <Compile Include="config\AdminUser.cs" />
     <Compile Include="config\AdminUsers.cs" />
     <Compile Include="config\Config.cs" />
-    <Compile Include="config\MapServerInfo.cs" />
-    <Compile Include="config\MapServerList.cs" />
-    <Compile Include="config\OtherServer.cs" />
-    <Compile Include="config\OtherServerInfo.cs" />
+    <Compile Include="config\DestinyServers.cs" />
+    <Compile Include="config\ServerInfo.cs" />
     <Compile Include="config\ServerConfig.cs" />
     <Compile Include="config\ServerParameters.cs" />
     <Compile Include="EventParameters\GameServerEventParameters.cs" />
@@ -92,5 +99,6 @@
   <ItemGroup>
     <None Include="Resources\configExample.json" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

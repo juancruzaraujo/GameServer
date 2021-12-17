@@ -23,7 +23,7 @@ namespace GameServerFW
             this.Event_Log(loggerManagerEventsParameters);
         }
 
-        public LoggerManager()
+        internal LoggerManager()
         {
             
         }
@@ -139,7 +139,7 @@ namespace GameServerFW
         /// <summary>
         /// save log file
         /// </summary>
-        public void SaveLog()
+        internal void SaveLog()
         {
             if (_logFileCreated)
             {
@@ -151,7 +151,7 @@ namespace GameServerFW
         /// return list all logs
         /// </summary>
         /// <returns></returns>
-        public List<string> getLogBuffer()
+        internal List<string> getLogBuffer()
         {
             return lstLog;
         }
@@ -159,7 +159,7 @@ namespace GameServerFW
         /// <summary>
         /// clear log list
         /// </summary>
-        public void ClearLogBuffer()
+        internal void ClearLogBuffer()
         {
             lstLog.Clear();
         }

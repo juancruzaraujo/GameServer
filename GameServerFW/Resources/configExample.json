@@ -22,23 +22,16 @@
       }
     ]
   },
-  "mapServerList": [
+  "destinyServers": [
     {
-      "mapServerInfo": {
-        "host": "127.0.0.1",
-        "tcpPort": "1987",
-        "udpPort": "1987"
-      }
-    }
-  ],
-  "otherServer": [
-    {
-      "otherServerInfo": {
+      "serverInfo": {
         "host": "127.0.0.1",
         "tcpPort": "1510",
         "udpPort": "1510",
         "serverType": "playerDB",
-        "identifierTag": ""
+        "identifierTag": "",
+        "user": "user",
+        "password" : "password"
       }
     }
   ]
