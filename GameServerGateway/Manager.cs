@@ -28,28 +28,42 @@ namespace GameServerGateway
         static GameServerManager _gameServerManager;
         
         static LoggerMessage _loggerMessage;
+        
+        private static ServerCommands _serverCommands;
+
+        
+        
         bool keepRuning;
         bool _logFileCreated;
 
         int _maxTcpConnections;
         int _tcpPort;
         int _udpPort;
-        static List<HostInfo> _lstHostInfo;
+        
 
         public Manager()
         {
+            
             _logFileCreated = false;
+
             keepRuning = true;
-            _lstHostInfo = new List<HostInfo>();
+
+
             _loggerMessage = LoggerMessage.GetInstance();
+
+            
             
         }
+
+        
 
         public void StartServer(string[] args)
         {
 
             _gameServerManager = GameServerFW.GameServerManager.GetGameServerInstance();
             _gameServerManager.Event_GameServer += new GameServerManager.Delegate_GameServer_Event(GameserverEventGameServer);
+
+            _serverCommands = new ServerCommands(_gameServerManager);
 
             if (args.Count() == 1 && args[0] == C_PARAM_CREATE_CONFIG_FILE)
             {
@@ -108,7 +122,8 @@ namespace GameServerGateway
                     hostInfo.Ip = _gameServerManager.configManager.GetConfig.serverConfig.destinyServers[i].serverInfo.host;
                     hostInfo.status = CommsInfo.Status.DISCONNECTED;
 
-                    _lstHostInfo.Add(hostInfo);
+                    _serverCommands.AddHostInfo(hostInfo);
+                    
 
                     _gameServerManager.connectionsManager.ConnectToServer(_gameServerManager.configManager.GetConfig.serverConfig.destinyServers[i].serverInfo);
                 }
@@ -203,8 +218,13 @@ namespace GameServerGateway
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_NEW_CONNECTION:
-                    CreateNewUser(gameServerEventParameters.GetSocketEventParameters.GetConnectionNumber, gameServerEventParameters.GetSocketEventParameters.GetClientIp);
+                    _serverCommands.AddClientInfo(gameServerEventParameters.GetSocketEventParameters.GetConnectionNumber, gameServerEventParameters.GetSocketEventParameters.GetClientIp);
+                    //enviar comando
+
                     _gameServerManager.connectionsManager.SeverSendMessage(gameServerEventParameters.GetSocketEventParameters.GetConnectionNumber, "hola", GameServerFW.Connections.Protocol.ConnectionProtocol.TCP);
+
+
+
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_SOCKET_ERROR:
@@ -217,7 +237,7 @@ namespace GameServerGateway
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_CLIENT_CONNECTION_OK:
                     _loggerMessage.ShowAndLogMessage("Connected to " + gameServerEventParameters.GetSocketEventParameters.GetServerIp + " " + gameServerEventParameters.GetSocketEventParameters.GetTag + "\r\n", null, LoggerMessage.typeMsg.OK);
-                    UpdateHostInfo(gameServerEventParameters.GetSocketEventParameters.GetConnectionNumber, gameServerEventParameters.GetSocketEventParameters.GetTag);
+                    _serverCommands.UpdateHostInfo(gameServerEventParameters.GetSocketEventParameters.GetConnectionNumber, gameServerEventParameters.GetSocketEventParameters.GetTag);
 
                     //HACER PROTOCOLO
                     //crear clase de hots con los datos y estado del host al que me conecte
@@ -232,28 +252,20 @@ namespace GameServerGateway
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_END_CONNECTION:
                     _loggerMessage.ShowMessage("end connection =(");
+                    _serverCommands.DeleteInfo(gameServerEventParameters.GetSocketEventParameters.GetConnectionNumber, gameServerEventParameters.GetSocketEventParameters.GetTag);
+                    break;
+
+                case GameServerEventParameters.GameServerEventType.GAMESERVER_DATA_IN:
+                    string tag = gameServerEventParameters.GetSocketEventParameters.GetTag;
+                    int connectionNumber = gameServerEventParameters.GetSocketEventParameters.GetConnectionNumber;
+                    _serverCommands.GetMessage(gameServerEventParameters.GetMessage, connectionNumber, tag);
                     break;
 
             }
         }
 
-        private static void CreateNewUser(int connectionNumber, string ip)
-        {
-            string id = DateTime.Now.ToString("ddMMyyyyHHmmssfff");
-            //_userManager.NewUser(ip, id, connectionNumber);
-        }
+        
 
-        private static void UpdateHostInfo(int connectionNumber,string tag)
-        {
-            for (int i=0;i<_lstHostInfo.Count(); i++)
-            {
-                if (_lstHostInfo[i].GetServerTag == tag)
-                {
-                    _lstHostInfo[i].ConnectionNumber = connectionNumber;
-                    _lstHostInfo[i].status = CommsInfo.Status.CONNECTED;
-                }
-            }
-        }
     }
 
 }

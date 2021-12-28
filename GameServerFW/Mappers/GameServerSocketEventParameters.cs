@@ -9,26 +9,7 @@ namespace GameServerFW.Mappers
     public class GameServerSocketEventParameters
     {
 
-        /*
-        public enum SocketEventType
-        {
-            ERROR,
-            SEND_COMPLETE,
-            DATA_IN,
-            SERVER_NEW_CONNECTION,
-            END_CONNECTION,
-            SERVER_ACCEPT_CONNECTION,
-            SERVER_WAIT_CONNECTION,
-            SEND_POSITION,
-            CLIENT_CONNECTION_OK,
-            CLIENT_TIME_OUT,
-            SERVER_START,
-            CONNECTION_LIMIT,
-            SERVER_STOP,
-            SEND_ARRAY_COMPLETE,
-            RECIEVE_TIMEOUT
-        }
-        */
+        
         public enum SocketProtocol
         {
             TCP,
@@ -67,23 +48,7 @@ namespace GameServerFW.Mappers
             }
         }
 
-        /*
-        private SocketEventType _eventType;
-        internal SocketEventType SetEventType
-        {
-            set
-            {
-                _eventType = value;
-            }
-        }
-        public SocketEventType GetEventType
-        { 
-            get
-            {
-                return _eventType;
-            }
-        }
-        */
+      
         private bool _listenig;
         internal bool SetListenig
         {
@@ -160,7 +125,7 @@ namespace GameServerFW.Mappers
         {
             get
             {
-                return _clientIp;
+                return _clientIp + "";
             }
         }
 
@@ -176,7 +141,7 @@ namespace GameServerFW.Mappers
         {
             get
             {
-                return _serverIp;
+                return _serverIp + "";
             }
         }
 
@@ -209,7 +174,7 @@ namespace GameServerFW.Mappers
         {
             get
             {
-                return _tag;
+                return _tag + "";
             }
         }
     }

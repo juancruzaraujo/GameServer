@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5C0BAB6C-9A28-4BD2-A5FE-1C7AB5A4ECBE}</ProjectGuid>
+    <ProjectGuid>{E8BDEFE9-2E90-42AB-9B31-C081EA6116E5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameCommunication</RootNamespace>
-    <AssemblyName>GameCommunication</AssemblyName>
+    <RootNamespace>SrvComs</RootNamespace>
+    <AssemblyName>SrvComs</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,12 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command.cs" />
-    <Compile Include="CommandsManager.cs" />
-    <Compile Include="Info\ClientInfo.cs" />
-    <Compile Include="Info\CommsInfo.cs" />
-    <Compile Include="Info\HostInfo.cs" />
+    <Compile Include="ServerConnections.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameCommunication\GameCommunication.csproj">
+      <Project>{5c0bab6c-9a28-4bd2-a5fe-1c7ab5a4ecbe}</Project>
+      <Name>GameCommunication</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
