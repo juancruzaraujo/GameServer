@@ -11,28 +11,24 @@ namespace GameServerGateway
 {
     internal class ServerCommands
     {
+        internal const string C_LOGUIN_TO_SERVER = "LoguinToServer";
+
+
         private ServerConnections _serverConnections;
 
         CommandsManager _commandsManager;
-        GameServerManager _gameServerManager;
+        GatewayCommands _gatewayCommands;
 
         //aca manejar los comandos que vengan en conection manager
         internal ServerCommands(GameServerManager gameServerManager)
         {
-            _gameServerManager = gameServerManager;
             _commandsManager = new CommandsManager();
             _serverConnections = new ServerConnections();
-
+            _gatewayCommands = new GatewayCommands(gameServerManager);
 
             Borrame();
 
         }
-
-        private string CreateClientId()
-        {
-            return DateTime.Now.ToString("ddMMyyyyHHmmssfff");
-        }
-
         internal void Borrame()
         {
             Command command = new Command();
@@ -48,6 +44,37 @@ namespace GameServerGateway
             //command.ExecuteCommand("test",lst);
             _commandsManager.ExecuteCommand("test", lst);
         }
+        internal void CreateCommands()
+        {
+            
+            Command command = new Command();
+            command.SetExecCommand(_gatewayCommands.LoguinToServer);
+            command.SetEnabled(true);
+            command.SetName(C_LOGUIN_TO_SERVER);
+            _commandsManager.AddCommand(command);
+            
+        }
+
+        internal void ExecuteCommand(string name, List<string> commandParameters)
+        {
+            _commandsManager.ExecuteCommand(name, commandParameters);
+        }
+
+        internal void ExecuteCommand(string name, string commanParameter)
+        {
+            List<string> lstParam = new List<string>();
+            lstParam.Add(commanParameter);
+
+            ExecuteCommand(name, lstParam);
+        }
+
+
+        private string CreateClientId()
+        {
+            return DateTime.Now.ToString("ddMMyyyyHHmmssfff");
+        }
+
+       
         private void test(string mensaje, List<string> parameters)
         {
             Console.WriteLine("hola " + parameters[0]);
@@ -57,7 +84,7 @@ namespace GameServerGateway
         {
             Console.WriteLine(message + " from connectionNumber => " + connectionNumber + " or hostTag => " + hostTag);
 
-            _gameServerManager.connectionsManager.SeverSendMessage(connectionNumber, "<<=OK=>>", GameServerFW.Connections.Protocol.ConnectionProtocol.TCP);
+            //_gameServerManager.connectionsManager.SeverSendMessage(connectionNumber, "<<=OK=>>", GameServerFW.Connections.Protocol.ConnectionProtocol.TCP);
         }
 
         internal void AddHostInfo(HostInfo hostInfo)

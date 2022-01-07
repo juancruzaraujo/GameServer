@@ -168,6 +168,23 @@ namespace GameServerFW
             }
         }
 
+        public void ClientSendMessageToAll(string message,Protocol.ConnectionProtocol connectionProtocol)
+        {
 
+        }
+
+        public void ClientSendMessage(string message, int connectionNumber, Protocol.ConnectionProtocol connectionProtocol)
+        {
+            if (connectionProtocol == Protocol.ConnectionProtocol.TCP)
+            {
+                //_serverTCP.Send(message, connectionNumber);
+                _clientTCP.Send(message, connectionNumber);
+            }
+
+            if (connectionProtocol == Protocol.ConnectionProtocol.UDP)
+            {
+                _clientUDP.Send(message, connectionNumber);
+            }
+        }
     }
 }

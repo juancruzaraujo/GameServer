@@ -45,14 +45,10 @@ namespace GameServerGateway
         {
             
             _logFileCreated = false;
-
             keepRuning = true;
-
 
             _loggerMessage = LoggerMessage.GetInstance();
 
-            
-            
         }
 
         
@@ -64,6 +60,7 @@ namespace GameServerGateway
             _gameServerManager.Event_GameServer += new GameServerManager.Delegate_GameServer_Event(GameserverEventGameServer);
 
             _serverCommands = new ServerCommands(_gameServerManager);
+            _serverCommands.CreateCommands();
 
             if (args.Count() == 1 && args[0] == C_PARAM_CREATE_CONFIG_FILE)
             {
@@ -217,10 +214,9 @@ namespace GameServerGateway
                     _loggerMessage.ShowMessage(gameServerEventParameters.GetMessage, atr);
                     break;
 
+                    //ACÁ SE CONECTA ALGUIEN A MI
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_NEW_CONNECTION:
-                    _serverCommands.AddClientInfo(gameServerEventParameters.GetSocketEventParameters.GetConnectionNumber, gameServerEventParameters.GetSocketEventParameters.GetClientIp);
-                    //enviar comando
-
+                    _serverCommands.AddClientInfo(gameServerEventParameters.GetSocketEventParameters.GetConnectionNumber, gameServerEventParameters.GetSocketEventParameters.GetClientIp);               
                     _gameServerManager.connectionsManager.SeverSendMessage(gameServerEventParameters.GetSocketEventParameters.GetConnectionNumber, "hola", GameServerFW.Connections.Protocol.ConnectionProtocol.TCP);
 
 
@@ -235,9 +231,16 @@ namespace GameServerGateway
                     _loggerMessage.ShowAndLogMessage(gameServerEventParameters.GetMessage + " " + gameServerEventParameters.GetSocketEventParameters.GetServerIp + " " + gameServerEventParameters.GetSocketEventParameters.GetTag,null, LoggerMessage.typeMsg.ERROR); 
                     break;
 
+                    //ACÁ YO ME CONECTO A UN SERVIDOR
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_CLIENT_CONNECTION_OK:
                     _loggerMessage.ShowAndLogMessage("Connected to " + gameServerEventParameters.GetSocketEventParameters.GetServerIp + " " + gameServerEventParameters.GetSocketEventParameters.GetTag + "\r\n", null, LoggerMessage.typeMsg.OK);
                     _serverCommands.UpdateHostInfo(gameServerEventParameters.GetSocketEventParameters.GetConnectionNumber, gameServerEventParameters.GetSocketEventParameters.GetTag);
+                    
+                    List<string> lstParams = new List<string>();
+                    lstParams.Add(gameServerEventParameters.GetSocketEventParameters.GetConnectionNumber.ToString());
+                    lstParams.Add(gameServerEventParameters.GetSocketEventParameters.GetTag);
+
+                    _serverCommands.ExecuteCommand(ServerCommands.C_LOGUIN_TO_SERVER, lstParams); 
 
                     //HACER PROTOCOLO
                     //crear clase de hots con los datos y estado del host al que me conecte

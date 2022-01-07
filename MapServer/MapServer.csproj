@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4C1DA1F0-D965-418D-BDC2-97AB05E937DA}</ProjectGuid>
+    <ProjectGuid>{2DB0404A-7ED7-4715-94A1-D6DE58B51808}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>GameServerGateway</RootNamespace>
-    <AssemblyName>GameServerGateway</AssemblyName>
+    <RootNamespace>MapServer</RootNamespace>
+    <AssemblyName>MapServer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,7 +35,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,13 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandLineParametersHelp.cs" />
-    <Compile Include="GatewayCommands.cs" />
-    <Compile Include="ServerCommands.cs" />
-    <Compile Include="Manager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Users\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
