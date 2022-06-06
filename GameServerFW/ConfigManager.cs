@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using GameServerFW.config;
+using GameUtils;
 
 namespace GameServerFW
 {
@@ -39,8 +40,7 @@ namespace GameServerFW
             ConfigManagerEventsParameters ev = new ConfigManagerEventsParameters();
             string curConfig = "";
             string message = "";
-            //string aux = "";
-            //Config config;
+            
             char directorySeparatorChar = Path.DirectorySeparatorChar;
 
             try
@@ -86,16 +86,41 @@ namespace GameServerFW
             
         }
     
+        /// <summary>
+        /// not implemented
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <param name="theClass"></param>
+        /// <param name="obj"></param>
+        public void CreateCustomConfigFile(string filename,Type theClass,object obj)
+        {
+
+        }
+
         public void CreateConfigFile(string fileName)
         {
             try
             {
-                //genera el archivo de configuracion
-                File.WriteAllBytes(fileName, Resource1.configExample);
-                
                 ConfigManagerEventsParameters ev = new ConfigManagerEventsParameters();
-                ev.SetEventType(ConfigManagerEventsParameters.ConfigManagerEventType.CREATE_CONFIG_FILE_OK);
-                EventConfigManager(ev);
+
+                //genera el archivo de configuracion
+                JsonUtils jsonUtils = new JsonUtils();
+                Config config = SetExampleConfig();
+
+                if (jsonUtils.JsonToFile(fileName,typeof(Config), config))
+                {
+                    ev.SetEventType(ConfigManagerEventsParameters.ConfigManagerEventType.CREATE_CONFIG_FILE_OK);
+                    EventConfigManager(ev);
+                    return;
+
+                }
+                else
+                {
+                    ev.SetEventType(ConfigManagerEventsParameters.ConfigManagerEventType.CREATE_CONFIG_FILE_ERROR);
+                    ev.SetMessage(jsonUtils.GetErrorMessage);
+                    EventConfigManager(ev);
+                }
+
             }
             catch(Exception err)
             {
@@ -104,6 +129,55 @@ namespace GameServerFW
                 ev.SetEventType(ConfigManagerEventsParameters.ConfigManagerEventType.CREATE_CONFIG_FILE_ERROR).SetMessage(err.Message);
                 EventConfigManager(ev);
             }
+        }
+
+        private Config SetExampleConfig()
+        {
+            Config config = new Config();
+            
+            ServerConfig serverConfig = new ServerConfig();
+            config.serverConfig = serverConfig;
+
+            ServerParameters serverParameters = new ServerParameters();
+            config.serverConfig.serverParameters = serverParameters;
+
+            config.serverConfig.serverParameters.serverName = "exampleName";
+            config.serverConfig.serverParameters.tcpPortNumber = "1234";
+            config.serverConfig.serverParameters.udpPortNumber = "1234";
+            config.serverConfig.serverParameters.maxUsers = "100";
+            config.serverConfig.serverParameters.recieveTimeOut = "30";
+            config.serverConfig.serverParameters.logFileName = "exampleLog.log";
+            config.serverConfig.serverParameters.logPathFile = "c:\\";
+
+            DestinyServers destinyServers = new DestinyServers();
+            ServerInfo serverInfo = new ServerInfo();
+
+            destinyServers.serverInfo = serverInfo;
+            destinyServers.serverInfo.host = "1.1.1.1";
+            destinyServers.serverInfo.identifierTag = "example_tag";
+            destinyServers.serverInfo.password = "1234pass";
+            destinyServers.serverInfo.serverType = "exaple server";
+            destinyServers.serverInfo.tcpPort = "4321";
+            destinyServers.serverInfo.udpPort = "4321";
+            destinyServers.serverInfo.user = "usr";
+
+            List<DestinyServers> lstDestiniServer = new List<DestinyServers>();
+            lstDestiniServer.Add(destinyServers);
+
+            config.serverConfig.destinyServers = lstDestiniServer;
+
+            AdminUser adminUser = new AdminUser();
+            adminUser.usr = "adm1";
+            adminUser.pass = "admPass";
+
+            AdminUsers adminUsers = new AdminUsers();
+            adminUsers.adminUser = adminUser;
+
+            List<AdminUsers> lst = new List<AdminUsers>();
+            config.serverConfig.serverParameters.adminUsers = lst;
+            config.serverConfig.serverParameters.adminUsers.Add(adminUsers);
+            
+            return config;
         }
     }
 }

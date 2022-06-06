@@ -10,22 +10,40 @@ namespace GameServerFW.config
     [DataContract]
     public class ServerConfig
     {
-        
-        [DataMember]
-        public ServerParameters serverParameters{ get; set; }
-
-        /*[DataMember]
-        public List<MapServerList> mapServerList{ get; set; }
-        */
-
-        [DataMember]
-        public List<DestinyServers> destinyServers{ get; set; }
-
+        ServerParameters _serverParameters;
+        List<DestinyServers> _lstDestinyServer;
         public ServerConfig()
         {
-            serverParameters = new ServerParameters();
-            //mapServerList = new List<MapServerList>();
-            destinyServers = new List<DestinyServers>();
+            _serverParameters = new ServerParameters();
+            _lstDestinyServer = new List<DestinyServers>();
         }
+
+
+        [DataMember]
+        public ServerParameters serverParameters
+        { 
+            get
+            {
+                return _serverParameters;
+            }
+            set
+            {
+                _serverParameters = value;
+            }
+        }
+
+        [DataMember]
+        public List<DestinyServers> destinyServers
+        {
+            get
+            {
+                return _lstDestinyServer;
+            }
+            set
+            {
+                _lstDestinyServer = value;
+            }
+        }
+
     }
 }

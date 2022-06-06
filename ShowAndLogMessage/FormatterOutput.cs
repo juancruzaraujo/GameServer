@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameServerFW;
 using ConsoleOutputFormater;
 
 namespace ShowAndLogMessage
@@ -68,23 +67,23 @@ namespace ShowAndLogMessage
             string result = "";
                 
 
-            string okMessage = _outputFormater.FormatText(C_OK, outputFormatterAttributes);
+            string okMessage = OutputFormatter.FormatText(C_OK, outputFormatterAttributes);
 
             switch(msgType)
             {
                 case C_OK:
                     outputFormatterAttributes.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_Green);
-                    result = _outputFormater.FormatText(C_OK, outputFormatterAttributes);
+                    result = OutputFormatter.FormatText(C_OK, outputFormatterAttributes);
                     break;
 
                 case C_WARING:
                     outputFormatterAttributes.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_Yellow);
-                    result = _outputFormater.FormatText(C_WARING, outputFormatterAttributes);
+                    result = OutputFormatter.FormatText(C_WARING, outputFormatterAttributes);
                     break;
 
                 case C_ERROR:
                     outputFormatterAttributes.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_Red);
-                    result = _outputFormater.FormatText(C_ERROR, outputFormatterAttributes);
+                    result = OutputFormatter.FormatText(C_ERROR, outputFormatterAttributes);
                     break;
             }
 
@@ -95,13 +94,12 @@ namespace ShowAndLogMessage
 
         internal void ShowMessage(string message)
         {
-            //Console.WriteLine(_outputFormater.FormatText(message, outputFormatterAttributes));
             Console.WriteLine(message);
         }
 
         internal string GetForrmatedText(string text, OutputFormatterAttributes outputFormaterParam)
         {
-            return _outputFormater.FormatText(text, outputFormaterParam);
+            return OutputFormatter.FormatText(text, outputFormaterParam);
         }
 
     }

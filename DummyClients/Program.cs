@@ -14,7 +14,7 @@ namespace DummyClients
     {
         static Socket clientTCP;
         static Socket clientUDP;
-        static LoggerMessage msg;
+        static LogInfo msg;
         static int port;
         static string host;
         static int maxCon;
@@ -27,7 +27,7 @@ namespace DummyClients
             //ip, puerto, cantidad conexiones
             //DummyClient 200.1.1.10 1987 10
 
-            msg = LoggerMessage.GetInstance();
+            msg = LogInfo.GetInstance();
 
             OutputFormatterAttributes attr = new OutputFormatterAttributes();
             attr.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_Blue).SetColorBG(OutputFormatterAttributes.TextColorBG.Black);
@@ -53,7 +53,7 @@ namespace DummyClients
             clientUDP = new Socket();
             clientUDP.Event_Socket += ClientUDP_Event_Socket;
 
-            msg.ShowMessage("start client", null, LoggerMessage.typeMsg.OK);
+            msg.ShowMessage("start client", null, LogInfo.typeMsg.OK);
 
             for (int i =0;i<maxCon;i++)
             {
@@ -82,19 +82,19 @@ namespace DummyClients
             switch(eventParameters.GetEventType)
             {
                 case EventParameters.EventType.CLIENT_CONNECTION_OK:
-                    msg.ShowMessage("connection to " + host + " connection number " + eventParameters.GetConnectionNumber, null, LoggerMessage.typeMsg.OK);
+                    msg.ShowMessage("connection to " + host + " connection number " + eventParameters.GetConnectionNumber, null, LogInfo.typeMsg.OK);
                     clientTCP.Send(eventParameters.GetConnectionNumber, "hola mundo");
                     break;
 
                 case EventParameters.EventType.DATA_IN:
                     msg.ShowMessage(msgType + " " + eventParameters.GetData);
                     //clientTCP.Disconnect(eventParameters.GetConnectionNumber);
-                    Thread.Sleep(500);
+                    //Thread.Sleep(500);
                     //clientTCP.ConnectClient(port, host);
                     break;
 
                 case EventParameters.EventType.ERROR:
-                    msg.ShowMessage(eventParameters.GetData, null, LoggerMessage.typeMsg.ERROR);
+                    msg.ShowMessage(eventParameters.GetData, null, LogInfo.typeMsg.ERROR);
                     break;
             }
         }

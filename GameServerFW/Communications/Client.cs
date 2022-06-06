@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Sockets;
 
-namespace GameServerFW.Connections
+namespace GameServerFW.Communications
 {
     class Client
     {

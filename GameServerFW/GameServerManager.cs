@@ -9,6 +9,15 @@ namespace GameServerFW
     /// </summary>
     public class GameServerManager
     {
+
+        #if DEBUG
+            private static bool debug_Mode = true;
+            const int C_MAX_LOG_LINES_TO_SAVE = 0;
+        #else
+            private static bool debug_Mode = false;
+            const int C_MAX_LOG_LINES_TO_SAVE = 20;
+        #endif
+
         //https://refactoring.guru/es/design-patterns/singleton/csharp/example#example-0
 
         const int C_SERVERS_TIMEOUT = 5;
@@ -23,11 +32,11 @@ namespace GameServerFW
         public LoggerManager loggerManager;
 
         private UserManager _userManager;
-        private ConnectionsManager _connectionsManager;
+        private CommunicationsManager _connectionsManager;
 
         static GameServerManager _gameServerInstance;
 
-        public Prueba prueba;
+        //public Prueba prueba;
 
         public delegate void Delegate_GameServer_Event(GameServerEventParameters gameServerEventParameters);
         public event Delegate_GameServer_Event Event_GameServer;
@@ -49,16 +58,28 @@ namespace GameServerFW
             loggerManager = new LoggerManager();
             loggerManager.Event_Log += new LoggerManager.Delegate_Log_Event(_gameServerEventParameters.LoggerManagerEvent);
 
-            _connectionsManager = new ConnectionsManager();
-            connectionsManager.ConnectionManagerEvents += new ConnectionsManager.Delegate_Server_Events(_gameServerEventParameters.ConnectionsManager_ConnectionManagerEvents);
+            _connectionsManager = new CommunicationsManager();
+            connectionsManager.ConnectionManagerEvents += new CommunicationsManager.Delegate_Server_Events(_gameServerEventParameters.ConnectionsManager_ConnectionManagerEvents);
 
             _userManager = new UserManager();
             _userManager.ConnectionManagerEvents += new UserManager.Delegate_UserManager_Events(_gameServerEventParameters.UserManager_UserManagerEvents);
 
-            prueba = new Prueba("hola mundo");
+            //prueba = new Prueba("hola mundo");
 
         }
 
+        /// <summary>
+        /// return true if we are run in debug mode
+        /// </summary>
+        public static bool Get_debug_mode
+        {
+            get
+            {
+                return debug_Mode;
+            }
+        }
+
+        /*
         public Prueba GetPrueba
         {
             get
@@ -66,6 +87,7 @@ namespace GameServerFW
                 return prueba;
             }
         }
+        */
 
         public ConfigManager configManager
         {
@@ -83,7 +105,7 @@ namespace GameServerFW
             }
         }
 
-        public ConnectionsManager connectionsManager
+        public CommunicationsManager connectionsManager
         {
             get
             {

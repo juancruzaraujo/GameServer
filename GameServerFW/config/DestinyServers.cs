@@ -10,7 +10,24 @@ namespace GameServerFW.config
     [DataContract]
     public class DestinyServers
     {
+        ServerInfo _serverInfo;
+
+        public DestinyServers()
+        {
+            _serverInfo = new ServerInfo();
+        }
+
         [DataMember]
-        public ServerInfo serverInfo { get; set; }
+        public ServerInfo serverInfo
+        {
+            get
+            {
+                return _serverInfo;
+            }
+            set
+            {
+                _serverInfo = value;
+            }
+        }
     }
 }

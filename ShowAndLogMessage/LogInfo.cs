@@ -1,29 +1,47 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameServerFW;
 using ConsoleOutputFormater;
 
 namespace ShowAndLogMessage
 {
-    public class LoggerMessage
+    /// <summary>
+    /// use LoggerMessage.GetInstance()
+    /// </summary>
+    public class LogInfo
     {
-
-
         #if DEBUG
             private static bool debug_Mode = true;
-            const int C_MAX_LOG_LINES_TO_SAVE = 0;
         #else
             private /*static*/ bool debug_Mode = false;
-            const int C_MAX_LOG_LINES_TO_SAVE = 20;         
         #endif
 
         const string C_OK = " OK ";
         const string C_ERROR = " ERROR ";
         const string C_WARING = " WARNIG ";
         const string C_NO_TYPE = "";
+
+        private List<string> _lstMessages;
+        private string _logFile;
+        private StreamWriter _sw;
+        private static bool _logFileCreated = false;
+        private int _maxLinesToSaveLogFile;
+        private int _countLines;
+
+        public int MaxLinesToSaveLogFile
+        {
+            get
+            {
+                return _maxLinesToSaveLogFile;
+            }
+            set
+            {
+                _maxLinesToSaveLogFile = value;
+            }
+        }
 
         public enum typeMsg
         {
@@ -33,50 +51,105 @@ namespace ShowAndLogMessage
             NO_TYPE
         }
 
-        GameServerManager _gameServerManager;
         private FormatterOutput _formatterOutput;
-        static LoggerMessage _loggerMessageInstance;
-        int _logCounterLineSave;
+        static LogInfo _loggerMessageInstance;        
         
-
-        private LoggerMessage()
+        public bool LogFileCreated
         {
-            _formatterOutput = FormatterOutput.GetInstance();
+            get
+            {
+                return _logFileCreated;
+            }
         }
 
-        public static LoggerMessage GetInstance()
+        private LogInfo()
+        {
+            _lstMessages = new List<string>();   
+            _formatterOutput = FormatterOutput.GetInstance();
+        }
+        
+        public static LogInfo GetInstance()
         {
             if (_loggerMessageInstance == null)
             {
-                _loggerMessageInstance = new LoggerMessage();
+                _loggerMessageInstance = new LogInfo();
             }
 
             return _loggerMessageInstance;
         }
 
-        public void CreateLogFile(GameServerManager gameServerManager)
+        public void CreateLogFile(string logName, string path)
         {
-            _gameServerManager = gameServerManager;
+            try
+            {
+                _logFile = path + Path.DirectorySeparatorChar + logName;
+                CreateOpenLogFile();
+            }
+            catch(Exception err)
+            {
+                throw new Exception(err.Message);
+            }
+        }
 
-            string fileName = _gameServerManager.configManager.GetConfig.serverConfig.serverParameters.logFileName;
-            string path = _gameServerManager.configManager.GetConfig.serverConfig.serverParameters.logPathFile;
+        private void CreateOpenLogFile()
+        {
+            try
+            {
+                
 
-            //_gameServerManager.CreateLogFile(fileName, path);
-            _gameServerManager.loggerManager.CreateLogFile(fileName, path);
+                if (!File.Exists(_logFile))
+                {
+                    _sw = File.CreateText(_logFile);
+                }
+                else
+                {
+                    _sw = File.AppendText(_logFile);
+                }
 
+                //lo ejecutamos una sola vez, si guardo el archivo lo tengo que volver a abrir
+                //y eso puede hacer que salte un error de stack
+                if (!_logFileCreated)
+                {
+                    _logFileCreated = true;
+                }
+
+            }
+            catch (Exception err)
+            {
+                throw new Exception(err.Message);
+            }
         }
 
         public void LogMessage(string message)
         {
-            if (_logCounterLineSave < C_MAX_LOG_LINES_TO_SAVE)
+            try
             {
-                _gameServerManager.loggerManager.WriteLog(message);
-                _logCounterLineSave++;
+                _lstMessages.Add(PutDateTime(message));
+                if (_countLines < _maxLinesToSaveLogFile)
+                {
+                    _countLines++;
+                }
+                else
+                {
+                    if (_sw != null)
+                    {
+                        for (int i = 0; i < _lstMessages.Count(); i++)
+                        {
+                            _sw.WriteLine(_lstMessages[i]);
+                        }
+                        _sw.Flush();
+                        _sw.Close();
+                        CreateOpenLogFile();
+                        _countLines = 0;
+                        _lstMessages.Clear();
+                    }
+                    
+                }
             }
-            else
+            catch(Exception err)
             {
-                _gameServerManager.loggerManager.WriteAndSaveLog(message);
-                _logCounterLineSave = 0;
+                ShowMessage(message);
+                throw new Exception(err.Message);
             }
             //hacer una clase estatica que devuelva el mensaje con sus colores            
         }
@@ -106,7 +179,6 @@ namespace ShowAndLogMessage
         /// if a different type is chosen, the function shows in the terminal "[TYPE] message</param>
         public void ShowMessage(string message, OutputFormatterAttributes outputFormaterParam = null, typeMsg msgType = typeMsg.NO_TYPE)
         {
-            //LogMessage(message);
             string msgFormatter = "";
             string typeMsgStr = GetMsgTypeSTR(msgType);
 
@@ -177,5 +249,14 @@ namespace ShowAndLogMessage
 
             return res;
         }
+
+        private string PutDateTime(string logMessage)
+        {
+            string message = "[" + DateTime.Now + "] " + logMessage;
+
+            return message;
+
+        }
+
     }
 }

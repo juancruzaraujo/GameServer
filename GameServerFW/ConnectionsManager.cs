@@ -4,187 +4,249 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameServerFW.Connections;
-using GameServerFW.config;
+using GameServerFW.EventParameters;
 
 namespace GameServerFW
 {
-    public class ConnectionsManager
+    internal class ConnectionsManager
     {
+        private const string C_HOSTINFO_NOT_FOUND = "host info not found";
+        private const string C_CLIENTINFO_NOT_FOUND = "client info not found";
 
-        //static ConnectionsManager _connectionsManagerInstance;
-        private Server _serverTCP;
-        private Server _serverUDP;
-        private Client _clientTCP;
-        private Client _clientUDP;
+        List<HostInfo> _lstHostInfo;
+        List<ClientInfo> _lstClientInfo;
 
-        internal delegate void Delegate_Server_Events(Sockets.EventParameters socketEventParameters);
-        internal event Delegate_Server_Events ConnectionManagerEvents;
-        private void Events(Sockets.EventParameters socketEventParameters)
+        internal delegate void Delegate_Server_Events(ConnectionsManagerEventsParameters connectionsMangerEventsParameters);
+        internal event Delegate_Server_Events ConnectionsManagerEvents;
+        private void Events(ConnectionsManagerEventsParameters connectionsMangerEventsParameters)
         {
-            this.ConnectionManagerEvents(socketEventParameters);
+            this.ConnectionsManagerEvents(connectionsMangerEventsParameters);
         }
 
-        internal ConnectionsManager(){}
 
-
-        public void StartServerTCP(int port, int maxConnections)
+        internal ConnectionsManager()
         {
-            StartServer(port, maxConnections, Protocol.ConnectionProtocol.TCP);
+            _lstHostInfo = new List<HostInfo>();
+            _lstClientInfo = new List<ClientInfo>();
         }
 
-        public void StartServerUDP(int port,int maxConnections)
+        internal void AddClientInfo(int connectionNumber, string ip, string clientId)
         {
-            StartServer(port, maxConnections, Protocol.ConnectionProtocol.UDP);
-        }
-
-        private void StartServer(int port,int maxConnections, Protocol.ConnectionProtocol connectionProtocol)
-        {
-            if (connectionProtocol == Protocol.ConnectionProtocol.TCP)
+            if (_lstClientInfo == null)
             {
-                _serverTCP = new Server(port, maxConnections, connectionProtocol);
-                _serverTCP.ServerEvents += ServerTCP_ServerEvents;
-                _serverTCP.StartServer();
+                _lstClientInfo = new List<ClientInfo>();
             }
 
-            if (connectionProtocol == Protocol.ConnectionProtocol.UDP)
+
+            ClientInfo clientInfo = new ClientInfo(clientId);
+            clientInfo.ConnectionNumber = connectionNumber;
+            clientInfo.status = ConnectionInfo.Status.CONNECTED;
+
+            _lstClientInfo.Add(clientInfo);
+
+        }
+
+        private int GetClientInfoIndex(string clientId)
+        {
+
+            int res = -1;
+            for (int i = 0; i < _lstClientInfo.Count(); i++)
             {
-                _serverUDP = new Server(port, 0, connectionProtocol);
-                _serverUDP.ServerEvents += ServerUDP_ServerEvents;
-                _serverUDP.StartServer();
-            }
-            
-        }
-
-        private void ServerTCP_ServerEvents(Sockets.EventParameters socketEventParameters)
-        {
-            Events(socketEventParameters);
-        }
-
-        private void ServerUDP_ServerEvents(Sockets.EventParameters socketEventParameters)
-        {
-            Events(socketEventParameters);
-        }
-
-        public void ConnectTCP(string host,int port,string tag)
-        {
-            Connect(host, port, tag, Protocol.ConnectionProtocol.TCP);
-        }
-
-        public void ConnectUDP(string host,int port, string tag)
-        {
-            Connect(host, port, tag,Protocol.ConnectionProtocol.UDP);
-        }
-
-        public void ConnectToServer(ServerInfo serverInfo)
-        {
-            if (serverInfo.tcpPort !="")
-            {
-                Connect(serverInfo.host, Convert.ToInt32(serverInfo.tcpPort), serverInfo.identifierTag,Protocol.ConnectionProtocol.TCP);
-            }
-
-            if (serverInfo.udpPort != "")
-            {
-                Connect(serverInfo.host, Convert.ToInt32(serverInfo.tcpPort), serverInfo.identifierTag, Protocol.ConnectionProtocol.UDP);
-            }
-
-        }
-
-        private void Connect(string host,int port,string tag,Protocol.ConnectionProtocol connectionProtocol)
-        {
-            if (connectionProtocol == Protocol.ConnectionProtocol.TCP)
-            {
-                if (_clientTCP == null)
+                if (_lstClientInfo[i].GetClientId == clientId)
                 {
-                    _clientTCP = new Client(connectionProtocol);
-                    _clientTCP.ClientEvents += ClientTCP_ClientEvents;
-                    
+                    res = i;
+                    return res;
                 }
-
-                _clientTCP.Connect(host, port,tag);
-                
-
             }
 
-            if (connectionProtocol == Protocol.ConnectionProtocol.UDP)
+            if (res == -1)
             {
-                if (_clientUDP == null)
+                ConnectionsManagerEventsParameters ev = new ConnectionsManagerEventsParameters(ConnectionsManagerEventsParameters.CommunicationsMangerEventsType.CLIENT_INFO_NOT_FOUND);
+                ev.SetEventMessage(C_CLIENTINFO_NOT_FOUND);
+                Events(ev);
+            }
+
+            return res;
+        }
+
+        private int GetClientInfoIndex(int connectionNumber)
+        {
+            int res = -1;
+            for (int i = 0; i < _lstClientInfo.Count(); i++)
+            {
+                if (_lstClientInfo[i].ConnectionNumber == connectionNumber)
                 {
-                    _clientUDP = new Client(connectionProtocol);
-                    _clientUDP.ClientEvents += ClientUDP_ClientEvents;
+                    res = i;
+                    return res;
                 }
-
-                _clientUDP.Connect(host, port,tag);
             }
-        }
 
-        private void ClientUDP_ClientEvents(Sockets.EventParameters socketEventParameters)
-        {
-            Events(socketEventParameters);
-        }
-
-        private void ClientTCP_ClientEvents(Sockets.EventParameters socketEventParameters)
-        {
-            Events(socketEventParameters);
-        }
-
-        public void Disconect()
-        {
-
-        }
-
-        public void DisconnectTCPClientFromServer(int connectionNumber)
-        {
-            _serverTCP.DisconnectClient(connectionNumber);
-        }
-
-        public void DisconnectAllTCPClientsFromServer()
-        {
-            _serverTCP.DisconnectAllClients();
-        }
-
-        public void SeverSendMessage(int connectionNumber, string message, Protocol.ConnectionProtocol connectionProtocol)
-        {
-            if (connectionProtocol == Protocol.ConnectionProtocol.TCP)
+            if (res == -1)
             {
-                _serverTCP.Send(message, connectionNumber);
+                ConnectionsManagerEventsParameters ev = new ConnectionsManagerEventsParameters(ConnectionsManagerEventsParameters.CommunicationsMangerEventsType.CLIENT_INFO_NOT_FOUND);
+                ev.SetEventMessage(C_CLIENTINFO_NOT_FOUND);
+                Events(ev);
             }
-            
-            if (connectionProtocol == Protocol.ConnectionProtocol.UDP)
-            {
-                _serverUDP.Send(message, connectionNumber);
-            }
+
+
+            return res;
         }
 
-        public void ServerSendMessageToAll(string message, Protocol.ConnectionProtocol connectionProtocol)
+        public int GetClientInfoConnectionNumber(string clientId)
         {
-            if (connectionProtocol == Protocol.ConnectionProtocol.TCP)
+            int index = GetClientInfoIndex(clientId);
+
+            if (index < 0)
             {
-                _serverTCP.SendToAll(message);
+                ConnectionsManagerEventsParameters ev = new ConnectionsManagerEventsParameters(ConnectionsManagerEventsParameters.CommunicationsMangerEventsType.CLIENT_INFO_NOT_FOUND);
+                ev.SetEventMessage(C_CLIENTINFO_NOT_FOUND);
+                Events(ev);
             }
 
-            if (connectionProtocol == Protocol.ConnectionProtocol.UDP)
-            {
-                _serverUDP.SendToAll(message);
-            }
+            return _lstClientInfo[index].ConnectionNumber;
         }
 
-        public void ClientSendMessageToAll(string message,Protocol.ConnectionProtocol connectionProtocol)
+        internal string GetClientInfoId(int connectionNumber)
+        {
+            int index = GetClientInfoIndex(connectionNumber);
+
+            if (index < 0)
+            {
+                ConnectionsManagerEventsParameters ev = new ConnectionsManagerEventsParameters(ConnectionsManagerEventsParameters.CommunicationsMangerEventsType.CLIENT_INFO_NOT_FOUND);
+                ev.SetEventMessage(C_CLIENTINFO_NOT_FOUND);
+                Events(ev);
+            }
+
+            return _lstClientInfo[index].GetClientId;
+        }
+
+
+        internal void DeleteClientInfo(string clientId)
+        {
+            int index = GetClientInfoIndex(clientId);
+
+            if (index < 0)
+            {
+                ConnectionsManagerEventsParameters ev = new ConnectionsManagerEventsParameters(ConnectionsManagerEventsParameters.CommunicationsMangerEventsType.CLIENT_INFO_NOT_FOUND);
+                ev.SetEventMessage(C_CLIENTINFO_NOT_FOUND);
+                Events(ev);
+            }
+
+            _lstClientInfo.RemoveAt(index);
+        }
+
+        internal void DeleteClientInfo(int connectionNumber)
+        {
+            DeleteClientInfo(GetClientInfoId(connectionNumber));
+        }
+
+        internal void DeleteHostInfo(string tag)
+        {
+            int index = GetHostInfoIndex(tag);
+
+            if (index < 0)
+            {
+                ConnectionsManagerEventsParameters ev = new ConnectionsManagerEventsParameters(ConnectionsManagerEventsParameters.CommunicationsMangerEventsType.HOST_INFO_NOT_FOUND);
+                ev.SetEventMessage(C_HOSTINFO_NOT_FOUND);
+                Events(ev);
+            }
+
+            _lstHostInfo.RemoveAt(index);
+        }
+
+        internal void DeleteInfo(string clientId, string tag)
+        {
+            if (clientId != "")
+            {
+                DeleteClientInfo(clientId);
+                return;
+            }
+
+            if (tag != "")
+            {
+                DeleteHostInfo(tag);
+                return;
+            }
+
+        }
+
+        internal void DeleteInfo(int connectionNumber, string tag)
+        {
+            if (connectionNumber >= 0)
+            {
+                DeleteClientInfo(connectionNumber);
+                return;
+            }
+
+            if (tag != "")
+            {
+                DeleteInfo("", tag);
+            }
+
+        }
+
+        internal void AddHostInfo(HostInfo hostInfo)
+        {
+            _lstHostInfo.Add(hostInfo);
+        }
+
+        internal void UpdateHostInfo(int connectionNumber, string tag, ConnectionInfo.Status status = ConnectionInfo.Status.CONNECTED)
         {
 
+            int index = GetHostInfoIndex(tag);
+
+            if (index >= 0)
+            {
+                _lstHostInfo[index].ConnectionNumber = connectionNumber;
+                _lstHostInfo[index].status = status;
+            }
+            else
+            {
+                ConnectionsManagerEventsParameters ev = new ConnectionsManagerEventsParameters(ConnectionsManagerEventsParameters.CommunicationsMangerEventsType.HOST_INFO_NOT_FOUND);
+                ev.SetEventMessage(C_HOSTINFO_NOT_FOUND);
+                Events(ev);
+            }
+
         }
 
-        public void ClientSendMessage(string message, int connectionNumber, Protocol.ConnectionProtocol connectionProtocol)
+        private int GetHostInfoIndex(string tag)
         {
-            if (connectionProtocol == Protocol.ConnectionProtocol.TCP)
+            int res = -1;
+            for (int i = 0; i < _lstHostInfo.Count(); i++)
             {
-                //_serverTCP.Send(message, connectionNumber);
-                _clientTCP.Send(message, connectionNumber);
+                if (_lstHostInfo[i].GetServerTag == tag)
+                {
+                    res = i;
+                    return res;
+                }
             }
 
-            if (connectionProtocol == Protocol.ConnectionProtocol.UDP)
+            if (res == -1)
             {
-                _clientUDP.Send(message, connectionNumber);
+                ConnectionsManagerEventsParameters ev = new ConnectionsManagerEventsParameters(ConnectionsManagerEventsParameters.CommunicationsMangerEventsType.HOST_INFO_NOT_FOUND);
+                ev.SetEventMessage(C_HOSTINFO_NOT_FOUND);
+                Events(ev);
+            }
+
+            return res;
+        }
+
+        internal int GetClientsCount
+        {
+            get
+            {
+                return _lstClientInfo.Count();
             }
         }
+
+        internal int GetConnectedHost
+        {
+            get
+            {
+                return _lstHostInfo.Count();
+            }
+        }
+
     }
 }
+

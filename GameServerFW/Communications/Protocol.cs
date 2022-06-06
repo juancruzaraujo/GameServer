@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameServerFW.Connections
+namespace GameServerFW.Communications
 {
     public static class Protocol
     {

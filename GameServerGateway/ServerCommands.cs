@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GameCommunication;
 using GameServerFW;
-using SrvComs;
+using SrvComs; 
+
 
 namespace GameServerGateway
 {
     internal class ServerCommands
     {
         internal const string C_LOGUIN_TO_SERVER = "LoguinToServer";
-
 
         private ServerConnections _serverConnections;
 
@@ -26,24 +23,11 @@ namespace GameServerGateway
             _serverConnections = new ServerConnections();
             _gatewayCommands = new GatewayCommands(gameServerManager);
 
-            Borrame();
-
         }
-        internal void Borrame()
-        {
-            Command command = new Command();
-            command.SetExecCommand(test);
-            command.SetEnabled(true);
-            command.SetName("test");
-
-            _commandsManager.AddCommand(command);
-
-            List<string> lst = new List<string>();
-            lst.Add("Joaquina");
-
-            //command.ExecuteCommand("test",lst);
-            _commandsManager.ExecuteCommand("test", lst);
-        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
         internal void CreateCommands()
         {
             
@@ -52,6 +36,8 @@ namespace GameServerGateway
             command.SetEnabled(true);
             command.SetName(C_LOGUIN_TO_SERVER);
             _commandsManager.AddCommand(command);
+
+            //acá agrego el resto de los comandos
             
         }
 
@@ -74,17 +60,12 @@ namespace GameServerGateway
             return DateTime.Now.ToString("ddMMyyyyHHmmssfff");
         }
 
-       
-        private void test(string mensaje, List<string> parameters)
-        {
-            Console.WriteLine("hola " + parameters[0]);
-        }
 
         internal void GetMessage(string message,int connectionNumber,string hostTag)
         {
-            Console.WriteLine(message + " from connectionNumber => " + connectionNumber + " or hostTag => " + hostTag);
-
-            //_gameServerManager.connectionsManager.SeverSendMessage(connectionNumber, "<<=OK=>>", GameServerFW.Connections.Protocol.ConnectionProtocol.TCP);
+            //acá ver tema de seguridad, para que nadie pueda mandar un comando sin permiso
+            //o modificar cosas
+            //Console.WriteLine(message + " from connectionNumber => " + connectionNumber + " or hostTag => " + hostTag);
         }
 
         internal void AddHostInfo(HostInfo hostInfo)

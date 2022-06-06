@@ -8,13 +8,20 @@ using GameServerFW;
 using ConsoleOutputFormater;
 using ShowAndLogMessage;
 
-namespace GameServerGateway
+namespace GSGateway
 {
     static internal class CommandLineParametersHelp
     {
+        static GameServerManager _gameServerManager;
+
+        static internal void SetGameFW(GameServerManager gameServerInstance)
+        {
+            _gameServerManager = gameServerInstance;
+        }
+
         static internal void ShowHelp(string fileName, string generateParam, string loadFileParam)
         {
-            //OutputFormatter outputFormater = new OutputFormatter();
+            OutputFormatter outputFormater = new OutputFormatter();
             LogInfo loggerMessage = LogInfo.GetInstance();
             OutputFormatterAttributes formatAttributes = new OutputFormatterAttributes();
 
@@ -23,28 +30,28 @@ namespace GameServerGateway
             string executableName = System.Diagnostics.Process.GetCurrentProcess().ProcessName;
 
             message = $"run with {generateParam} parameter to generate configuration file or run with path " + directorySeparatorChar + $"{fileName}";
+            
             formatAttributes.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_White).SetColorBG(OutputFormatterAttributes.TextColorBG.Black);
-            loggerMessage.ShowMessage(message, formatAttributes);
+            _gameServerManager.loggerManager.ShowAndLogMessage(message, formatAttributes);
 
             formatAttributes.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_Green).SetColorBG(OutputFormatterAttributes.TextColorBG.Black);
-            loggerMessage.ShowMessage("examples", formatAttributes);
+            _gameServerManager.loggerManager.ShowAndLogMessage("examples", formatAttributes);
 
             formatAttributes.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_Cyan).SetColorBG(OutputFormatterAttributes.TextColorBG.Black);
-            loggerMessage.ShowMessage($"{executableName} {generateParam}", formatAttributes);
-            
+            _gameServerManager.loggerManager.ShowAndLogMessage($"{executableName} {generateParam}", formatAttributes);
+
             message = $"generates the configuration file {fileName} in the execution directory";
             formatAttributes.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_White).SetColorBG(OutputFormatterAttributes.TextColorBG.Black);
-            loggerMessage.ShowMessage(message, formatAttributes);
+            _gameServerManager.loggerManager.ShowAndLogMessage(message, formatAttributes);
 
             formatAttributes.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_Cyan).SetColorBG(OutputFormatterAttributes.TextColorBG.Black);
-            loggerMessage.ShowMessage($"{executableName} {loadFileParam} {fileName}", formatAttributes);
-            loggerMessage.ShowMessage($"{executableName} {loadFileParam} [name.json]", formatAttributes);
-            loggerMessage.ShowMessage($"{executableName} {loadFileParam} path" + directorySeparatorChar + $"{fileName}", formatAttributes);
+            _gameServerManager.loggerManager.ShowAndLogMessage($"{executableName} {loadFileParam} {fileName}", formatAttributes);
+            _gameServerManager.loggerManager.ShowAndLogMessage($"{executableName} {loadFileParam} [name.json]", formatAttributes);
+            _gameServerManager.loggerManager.ShowAndLogMessage($"{executableName} {loadFileParam} path" + directorySeparatorChar + $"{fileName}", formatAttributes);
 
             formatAttributes.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_White).SetColorBG(OutputFormatterAttributes.TextColorBG.Black);
             message = $"execute {executableName} with this config file";
-            loggerMessage.ShowMessage(message, formatAttributes);
+            _gameServerManager.loggerManager.ShowAndLogMessage(message, formatAttributes);
         }
-
     }
 }

@@ -10,7 +10,24 @@ namespace GameServerFW.config
     [DataContract]
     public class AdminUsers
     {
+        public AdminUser _adminUser;
+
+        public AdminUsers()
+        {
+            _adminUser = new AdminUser();
+        }
+
         [DataMember]
-        AdminUser adminUser { get; set; }
+        public AdminUser adminUser
+        {
+            get
+            {
+                return _adminUser;
+            }
+            set
+            {
+                _adminUser = value;
+            }
+        }
     }
 }

@@ -45,6 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectionsManager.cs" />
+    <Compile Include="Connections\ClientInfo.cs" />
+    <Compile Include="Connections\ConnectionInfo.cs" />
+    <Compile Include="Connections\HostInfo.cs" />
+    <Compile Include="EventParameters\ConnectionsManagerEventsParameters.cs" />
     <Compile Include="EventParameters\UserManagerEventsParameters.cs" />
     <Compile Include="Mappers\GameServerEventMapper.cs" />
     <Compile Include="Mappers\GameServerSocketEventParameters.cs" />
@@ -52,10 +57,10 @@
     <Compile Include="UserManager.cs" />
     <Compile Include="Users\UserInfo.cs" />
     <Compile Include="ConfigManager.cs" />
-    <Compile Include="ConnectionsManager.cs" />
-    <Compile Include="Connections\Client.cs" />
-    <Compile Include="Connections\Protocol.cs" />
-    <Compile Include="Connections\Server.cs" />
+    <Compile Include="CommunicationsManager.cs" />
+    <Compile Include="Communications\Client.cs" />
+    <Compile Include="Communications\Protocol.cs" />
+    <Compile Include="Communications\Server.cs" />
     <Compile Include="EventParameters\ConfigManagerEventsParameters.cs" />
     <Compile Include="config\AdminUser.cs" />
     <Compile Include="config\AdminUsers.cs" />
@@ -84,6 +89,14 @@
     <ProjectReference Include="..\ConsoleOutputFormater\ConsoleOutputFormatter.csproj">
       <Project>{bc6db0f0-eb09-4f5b-8aaa-76dae681e3d8}</Project>
       <Name>ConsoleOutputFormatter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameUtils\GameUtils.csproj">
+      <Project>{2e857a1d-1662-4c41-883f-159957cdceb9}</Project>
+      <Name>GameUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShowAndLogMessage\ShowAndLogMessage.csproj">
+      <Project>{c6623127-329f-4eeb-93ee-e8948e379bb3}</Project>
+      <Name>ShowAndLogMessage</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

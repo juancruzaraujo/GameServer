@@ -14,6 +14,6 @@ namespace CommunicationObjects
         public string messageTag { get; set; }
 
         [DataMember]
-        public string message { get; set; }
+        public string messageBody { get; set; }
     }
 }

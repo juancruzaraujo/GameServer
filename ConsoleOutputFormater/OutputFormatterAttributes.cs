@@ -8,6 +8,11 @@ namespace ConsoleOutputFormater
 {
     public class OutputFormatterAttributes
     {
+        //explición
+        //por que hice esto en una dll?
+        //solo devuelve el texto formateado
+        //otro se encarga de mostrarlo o guardar en un archivo o lo que sea.
+        
         internal const string C_ESCAPE = "\x1b[";
         internal const string C_P = ";";
         internal const string C_M = "m";

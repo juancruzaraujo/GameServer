@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GameServerFW;
 using GameServerFW.config;
-using GameServerFW.Connections;
+using GameServerFW.Communications;
 using ConsoleOutputFormater;
 using ShowAndLogMessage;
 using GameCommunication;
@@ -27,7 +27,7 @@ namespace GameServerGateway
         const string C_PARAM_CREATE_CONFIG_FILE = "-g";
         static GameServerManager _gameServerManager;
         
-        static LoggerMessage _loggerMessage;
+        static LogInfo _loggerMessage;
         
         private static ServerCommands _serverCommands;
 
@@ -47,12 +47,11 @@ namespace GameServerGateway
             _logFileCreated = false;
             keepRuning = true;
 
-            _loggerMessage = LoggerMessage.GetInstance();
+            _loggerMessage = LogInfo.GetInstance();
 
         }
 
         
-
         public void StartServer(string[] args)
         {
 
@@ -138,10 +137,10 @@ namespace GameServerGateway
             _udpPort = Convert.ToInt32(_gameServerManager.configManager.GetConfig.serverConfig.serverParameters.udpPortNumber);
 
             _gameServerManager.connectionsManager.StartServerTCP(_tcpPort, _maxTcpConnections);
-            _loggerMessage.ShowAndLogMessage("Listening TCP port " + _tcpPort, null, LoggerMessage.typeMsg.OK);
+            _loggerMessage.ShowAndLogMessage("Listening TCP port " + _tcpPort, null, LogInfo.typeMsg.OK);
 
             _gameServerManager.connectionsManager.StartServerUDP(_tcpPort, _maxTcpConnections);
-            _loggerMessage.ShowAndLogMessage("Listening UDP port " + _udpPort, null, LoggerMessage.typeMsg.OK);
+            _loggerMessage.ShowAndLogMessage("Listening UDP port " + _udpPort, null, LogInfo.typeMsg.OK);
         }
 
 
@@ -160,21 +159,21 @@ namespace GameServerGateway
             switch (gameServerEventParameters.GetGameServerEventType)
             {
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_LOAD_CONFIG_ERROR:
-                    _loggerMessage.ShowMessage(gameServerEventParameters.GetMessage, null, LoggerMessage.typeMsg.ERROR);
+                    _loggerMessage.ShowMessage(gameServerEventParameters.GetMessage, null, LogInfo.typeMsg.ERROR);
                     ExitServer();
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_LOAD_CONFIG_OK:
-                    _loggerMessage.CreateLogFile(_gameServerManager);
+                    //_loggerMessage.CreateLogFile(_gameServerManager);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_CREATE_CONFIG_FILE_OK:
-                    _loggerMessage.ShowMessage("create config example file", null, LoggerMessage.typeMsg.OK);
+                    _loggerMessage.ShowMessage("create config example file", null, LogInfo.typeMsg.OK);
                     ExitServer();
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_CONFIG_FILE_NOT_FOUND:
-                    _loggerMessage.ShowMessage("config file not found", null, LoggerMessage.typeMsg.ERROR);
+                    _loggerMessage.ShowMessage("config file not found", null, LogInfo.typeMsg.ERROR);
                     ExitServer();
                     break;
 
@@ -183,57 +182,59 @@ namespace GameServerGateway
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_MESSAGE_ERROR:
-                    _loggerMessage.ShowAndLogMessage(gameServerEventParameters.GetMessage, null, LoggerMessage.typeMsg.ERROR);
+                    _loggerMessage.ShowAndLogMessage(gameServerEventParameters.GetMessage, null, LogInfo.typeMsg.ERROR);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_STARTING:
-                    _loggerMessage.ShowAndLogMessage("GAME SERVER STARTING", null, LoggerMessage.typeMsg.OK);
+                    _loggerMessage.ShowAndLogMessage("GAME SERVER STARTING", null, LogInfo.typeMsg.OK);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_START_ERROR:
-                    _loggerMessage.ShowAndLogMessage("GAME SERVER START", null, LoggerMessage.typeMsg.ERROR);
+                    _loggerMessage.ShowAndLogMessage("GAME SERVER START", null, LogInfo.typeMsg.ERROR);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_START_OK:
-                    _loggerMessage.ShowAndLogMessage("GAME SERVER START", null, LoggerMessage.typeMsg.OK);
+                    _loggerMessage.ShowAndLogMessage("GAME SERVER START", null, LogInfo.typeMsg.OK);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_STOP:
-                    _loggerMessage.ShowAndLogMessage("GAME SERVER STOP", null, LoggerMessage.typeMsg.OK);
+                    _loggerMessage.ShowAndLogMessage("GAME SERVER STOP", null, LogInfo.typeMsg.OK);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_CREATE_OR_APPEND_LOG_FILE_OK:
-                    _loggerMessage.ShowAndLogMessage("LOAD CONFIG", null, LoggerMessage.typeMsg.OK);
-                    _loggerMessage.ShowAndLogMessage("CREATE OR APPEND LOG FILE", null, LoggerMessage.typeMsg.OK);
+                    _loggerMessage.ShowAndLogMessage("LOAD CONFIG", null, LogInfo.typeMsg.OK);
+                    _loggerMessage.ShowAndLogMessage("CREATE OR APPEND LOG FILE", null, LogInfo.typeMsg.OK);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_CREATE_OR_APPEND_LOG_FILE_ERROR:
-                    _loggerMessage.ShowMessage("LOAD CONFIG", null, LoggerMessage.typeMsg.OK);
-                    _loggerMessage.ShowMessage("CREATE OR APPEND LOG FILE", null, LoggerMessage.typeMsg.ERROR);
+                    _loggerMessage.ShowMessage("LOAD CONFIG", null, LogInfo.typeMsg.OK);
+                    _loggerMessage.ShowMessage("CREATE OR APPEND LOG FILE", null, LogInfo.typeMsg.ERROR);
                     atr.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_Red);
                     _loggerMessage.ShowMessage(gameServerEventParameters.GetMessage, atr);
                     break;
 
-                    //ACÁ SE CONECTA ALGUIEN A MI
-                case GameServerEventParameters.GameServerEventType.GAMESERVER_NEW_CONNECTION:
-                    _serverCommands.AddClientInfo(gameServerEventParameters.GetSocketEventParameters.GetConnectionNumber, gameServerEventParameters.GetSocketEventParameters.GetClientIp);               
-                    _gameServerManager.connectionsManager.SeverSendMessage(gameServerEventParameters.GetSocketEventParameters.GetConnectionNumber, "hola", GameServerFW.Connections.Protocol.ConnectionProtocol.TCP);
-
-
-
-                    break;
-
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_SOCKET_ERROR:
-                    _loggerMessage.ShowMessage(gameServerEventParameters.GetMessage, null, LoggerMessage.typeMsg.ERROR);
+                    _loggerMessage.ShowMessage(gameServerEventParameters.GetMessage, null, LogInfo.typeMsg.ERROR);
                     break;
 
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_CLIENT_TIME_OUT:
-                    _loggerMessage.ShowAndLogMessage(gameServerEventParameters.GetMessage + " " + gameServerEventParameters.GetSocketEventParameters.GetServerIp + " " + gameServerEventParameters.GetSocketEventParameters.GetTag,null, LoggerMessage.typeMsg.ERROR); 
+                    _loggerMessage.ShowAndLogMessage(gameServerEventParameters.GetMessage + " " + gameServerEventParameters.GetSocketEventParameters.GetServerIp + " " + gameServerEventParameters.GetSocketEventParameters.GetTag,null, LogInfo.typeMsg.ERROR); 
                     break;
 
-                    //ACÁ YO ME CONECTO A UN SERVIDOR
+
+
+                //ACÁ SE CONECTA ALGUIEN A MI
+                case GameServerEventParameters.GameServerEventType.GAMESERVER_NEW_CONNECTION:
+                    _serverCommands.AddClientInfo(gameServerEventParameters.GetSocketEventParameters.GetConnectionNumber, gameServerEventParameters.GetSocketEventParameters.GetClientIp);
+                    _gameServerManager.connectionsManager.SeverSendMessage(gameServerEventParameters.GetSocketEventParameters.GetConnectionNumber, "hola", GameServerFW.Communications.Protocol.ConnectionProtocol.TCP);
+
+
+
+                    break;
+
+                //ACÁ YO ME CONECTO A UN SERVIDOR
                 case GameServerEventParameters.GameServerEventType.GAMESERVER_CLIENT_CONNECTION_OK:
-                    _loggerMessage.ShowAndLogMessage("Connected to " + gameServerEventParameters.GetSocketEventParameters.GetServerIp + " " + gameServerEventParameters.GetSocketEventParameters.GetTag + "\r\n", null, LoggerMessage.typeMsg.OK);
+                    _loggerMessage.ShowAndLogMessage("Connected to " + gameServerEventParameters.GetSocketEventParameters.GetServerIp + " " + gameServerEventParameters.GetSocketEventParameters.GetTag + "\r\n", null, LogInfo.typeMsg.OK);
                     _serverCommands.UpdateHostInfo(gameServerEventParameters.GetSocketEventParameters.GetConnectionNumber, gameServerEventParameters.GetSocketEventParameters.GetTag);
                     
                     List<string> lstParams = new List<string>();

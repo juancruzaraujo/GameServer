@@ -1,1023 +1,165 @@
-[26/11/2021 17:19:28][  OK  ] LOAD CONFIG
-[26/11/2021 17:19:28][  OK  ] CREATE OR APPEND LOG FILE
-[26/11/2021 17:19:28][  OK  ] Listening TCP port 1492
-[26/11/2021 17:19:28][  OK  ] Listening UDP port 1492
-[26/11/2021 18:13:37][  OK  ] LOAD CONFIG
-[26/11/2021 18:13:37][  OK  ] CREATE OR APPEND LOG FILE
-[26/11/2021 18:13:37][  OK  ] Listening TCP port 1492
-[26/11/2021 18:13:37][  OK  ] Listening UDP port 1492
-[29/11/2021 11:46:37][  OK  ] LOAD CONFIG
-[29/11/2021 11:46:37][  OK  ] CREATE OR APPEND LOG FILE
-[29/11/2021 11:46:37][  OK  ] Listening TCP port 1492
-[29/11/2021 11:46:37][  OK  ] Listening UDP port 1492
-[1/12/2021 18:08:22][  OK  ] LOAD CONFIG
-[1/12/2021 18:08:23][  OK  ] CREATE OR APPEND LOG FILE
-[1/12/2021 18:08:27][  OK  ] Listening TCP port 1492
-[1/12/2021 18:08:27][  OK  ] Listening UDP port 1492
-[1/12/2021 18:09:09][  OK  ] LOAD CONFIG
-[1/12/2021 18:09:09][  OK  ] CREATE OR APPEND LOG FILE
-[1/12/2021 18:09:09][  OK  ] Listening TCP port 1492
-[1/12/2021 18:09:09][  OK  ] Listening UDP port 1492
-[6/12/2021 15:09:01][  OK  ] LOAD CONFIG
-[6/12/2021 15:09:01][  OK  ] CREATE OR APPEND LOG FILE
-[6/12/2021 15:09:01][  OK  ] Listening TCP port 1492
-[6/12/2021 15:09:01][  OK  ] Listening UDP port 1492
-[6/12/2021 15:09:30][  OK  ] LOAD CONFIG
-[6/12/2021 15:09:30][  OK  ] CREATE OR APPEND LOG FILE
-[6/12/2021 15:09:30][  OK  ] Listening TCP port 1492
-[6/12/2021 15:09:30][  OK  ] Listening UDP port 1492
-[9/12/2021 15:18:49][  OK  ] LOAD CONFIG
-[9/12/2021 15:18:49][  OK  ] CREATE OR APPEND LOG FILE
-[9/12/2021 15:18:49][  OK  ] Listening TCP port 1492
-[9/12/2021 15:18:49][  OK  ] Listening UDP port 1492
-[9/12/2021 15:39:39][  OK  ] LOAD CONFIG
-[9/12/2021 15:39:39][  OK  ] CREATE OR APPEND LOG FILE
-[9/12/2021 16:23:25][  OK  ] LOAD CONFIG
-[9/12/2021 16:23:25][  OK  ] CREATE OR APPEND LOG FILE
-[9/12/2021 16:25:42][  OK  ] LOAD CONFIG
-[9/12/2021 16:25:42][  OK  ] CREATE OR APPEND LOG FILE
-[9/12/2021 16:27:00][  OK  ] LOAD CONFIG
-[9/12/2021 16:27:00][  OK  ] CREATE OR APPEND LOG FILE
-[9/12/2021 16:27:12][  OK  ] Listening TCP port 1492
-[9/12/2021 16:27:12][  OK  ] Listening UDP port 1492
-[9/12/2021 17:29:55][  OK  ] LOAD CONFIG
-[9/12/2021 17:29:55][  OK  ] CREATE OR APPEND LOG FILE
-[9/12/2021 17:46:34][  OK  ] LOAD CONFIG
-[9/12/2021 17:46:34][  OK  ] CREATE OR APPEND LOG FILE
-[9/12/2021 20:59:52][  OK  ] LOAD CONFIG
-[9/12/2021 20:59:52][  OK  ] CREATE OR APPEND LOG FILE
-[9/12/2021 20:59:54][  OK  ] Listening TCP port 1492
-[9/12/2021 20:59:54][  OK  ] Listening UDP port 1492
-[10/12/2021 12:42:46][  OK  ] LOAD CONFIG
-[10/12/2021 12:42:46][  OK  ] CREATE OR APPEND LOG FILE
-[10/12/2021 12:43:35][  OK  ] Listening TCP port 1492
-[10/12/2021 12:43:35][  OK  ] Listening UDP port 1492
-[13/12/2021 17:17:02][  OK  ] LOAD CONFIG
-[13/12/2021 17:17:02][  OK  ] CREATE OR APPEND LOG FILE
-[13/12/2021 17:17:02][  OK  ] Listening TCP port 1492
-[13/12/2021 17:17:02][  OK  ] Listening UDP port 1492
-[13/12/2021 17:31:56][  OK  ] LOAD CONFIG
-[13/12/2021 17:31:56][  OK  ] CREATE OR APPEND LOG FILE
-[13/12/2021 17:31:56]Connecting to MapServer
-[13/12/2021 17:32:09][  OK  ] LOAD CONFIG
-[13/12/2021 17:32:09][  OK  ] CREATE OR APPEND LOG FILE
-[13/12/2021 17:32:09]Connecting to MapServer
-[13/12/2021 17:32:42]Connecting to MapServer
-[13/12/2021 17:33:14]Connecting to MapServer
-[13/12/2021 17:33:47][  OK  ] Listening TCP port 1492
-[13/12/2021 17:33:47][  OK  ] Listening UDP port 1492
-[13/12/2021 18:02:09][  OK  ] LOAD CONFIG
-[13/12/2021 18:02:09][  OK  ] CREATE OR APPEND LOG FILE
-[13/12/2021 18:02:09]Connecting to MapServer
-[13/12/2021 18:02:41][  ERROR  ]   MapServer_1
-[13/12/2021 18:02:41]Connecting to MapServer
-[13/12/2021 18:03:14][  ERROR  ]   MapServer_2
-[13/12/2021 18:03:14]Connecting to MapServer
-[13/12/2021 18:03:46][  ERROR  ]   MapServer_3
-[13/12/2021 18:03:46][  OK  ] Listening TCP port 1492
-[13/12/2021 18:03:46][  OK  ] Listening UDP port 1492
-[13/12/2021 18:11:46][  OK  ] LOAD CONFIG
-[13/12/2021 18:11:46][  OK  ] CREATE OR APPEND LOG FILE
-[13/12/2021 18:11:46]Connecting to MapServer
-[13/12/2021 18:12:19][  ERROR  ]  127.0.0.1 MapServer_1
-[13/12/2021 18:12:19]Connecting to MapServer
-[13/12/2021 18:12:51][  ERROR  ]  127.0.0.1 MapServer_2
-[13/12/2021 18:12:51]Connecting to MapServer
-[13/12/2021 18:14:32][  OK  ] LOAD CONFIG
-[13/12/2021 18:14:32][  OK  ] CREATE OR APPEND LOG FILE
-[13/12/2021 18:14:32]Connecting to MapServer MapServer_1
-[13/12/2021 18:15:04][  ERROR  ]  127.0.0.1 MapServer_1
-[13/12/2021 18:15:04]Connecting to MapServer MapServer_2
-[13/12/2021 18:15:37][  ERROR  ]  127.0.0.1 MapServer_2
-[13/12/2021 18:15:37]Connecting to MapServer MapServer_3
-[13/12/2021 18:16:10][  ERROR  ]  127.0.0.1 MapServer_3
-[13/12/2021 18:16:10][  OK  ] Listening TCP port 1492
-[13/12/2021 18:16:10][  OK  ] Listening UDP port 1492
-[14/12/2021 12:04:24][  OK  ] LOAD CONFIG
-[14/12/2021 12:04:24][  OK  ] CREATE OR APPEND LOG FILE
-[14/12/2021 12:04:24]Connecting to MapServer MapServer_1
-[14/12/2021 12:04:57][  ERROR  ]  127.0.0.1 MapServer_1
-[14/12/2021 12:04:57]Connecting to MapServer MapServer_2
-[14/12/2021 12:05:29][  ERROR  ]  127.0.0.1 MapServer_2
-[14/12/2021 12:05:29]Connecting to MapServer MapServer_3
-[14/12/2021 12:06:02][  ERROR  ]  127.0.0.1 MapServer_3
-[14/12/2021 12:06:02][  OK  ] Listening TCP port 1492
-[14/12/2021 12:06:02][  OK  ] Listening UDP port 1492
-[14/12/2021 12:09:45][  OK  ] LOAD CONFIG
-[14/12/2021 12:09:45][  OK  ] CREATE OR APPEND LOG FILE
-[14/12/2021 12:09:45]Connecting to MapServer MapServer_1
-[14/12/2021 12:09:55][  OK  ] LOAD CONFIG
-[14/12/2021 12:09:55][  OK  ] CREATE OR APPEND LOG FILE
-[14/12/2021 12:09:55]Connecting to MapServer MapServer_1
-[14/12/2021 16:12:29][  OK  ] LOAD CONFIG
-[14/12/2021 16:12:29][  OK  ] CREATE OR APPEND LOG FILE
-[14/12/2021 16:12:29]Connecting to MapServer MapServer_1
-[14/12/2021 16:12:29][  OK  ] Connected to 127.0.0.1 MapServer_1
-[14/12/2021 16:12:29]Connecting to MapServer MapServer_2
-[14/12/2021 16:12:29][  OK  ] Connected to 127.0.0.1 MapServer_2
-[14/12/2021 16:12:29]Connecting to MapServer MapServer_3
-[14/12/2021 16:12:29][  OK  ] Connected to 127.0.0.1 MapServer_3
-[14/12/2021 16:12:29][  OK  ] Listening TCP port 1492
-[14/12/2021 16:12:29][  OK  ] Listening UDP port 1492
-[14/12/2021 16:16:21][  OK  ] LOAD CONFIG
-[14/12/2021 16:16:21][  OK  ] CREATE OR APPEND LOG FILE
-[14/12/2021 16:16:21]Connecting to MapServer MapServer_1
-[14/12/2021 16:16:21][  OK  ] Connected to 127.0.0.1 MapServer_1
-[14/12/2021 16:16:21]Connecting to MapServer MapServer_2
-[14/12/2021 16:16:21][  OK  ] Connected to 127.0.0.1 MapServer_2
-[14/12/2021 16:16:21]Connecting to MapServer MapServer_3
-[14/12/2021 16:16:21][  OK  ] Connected to 127.0.0.1 MapServer_3
-[14/12/2021 16:16:21][  OK  ] Listening TCP port 1492
-[14/12/2021 16:16:21][  OK  ] Listening UDP port 1492
-[14/12/2021 16:18:09][  OK  ] LOAD CONFIG
-[14/12/2021 16:18:09][  OK  ] CREATE OR APPEND LOG FILE
-[14/12/2021 16:18:09][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[14/12/2021 16:18:09][  OK  ] Connected to 127.0.0.1 MapServer_1
-[14/12/2021 16:18:09][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[14/12/2021 16:18:09][  OK  ] Connected to 127.0.0.1 MapServer_2
-[14/12/2021 16:18:09][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[14/12/2021 16:18:09][  OK  ] Connected to 127.0.0.1 MapServer_3
-[14/12/2021 16:18:09][  OK  ] Listening TCP port 1492
-[14/12/2021 16:18:09][  OK  ] Listening UDP port 1492
-[14/12/2021 16:19:24][  OK  ] LOAD CONFIG
-[14/12/2021 16:19:24][  OK  ] CREATE OR APPEND LOG FILE
-[14/12/2021 16:19:24][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[14/12/2021 16:19:24][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[14/12/2021 16:19:24][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[14/12/2021 16:19:24][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[14/12/2021 16:19:24][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[14/12/2021 16:19:24][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[14/12/2021 16:19:24][  OK  ] Listening TCP port 1492
-[14/12/2021 16:19:24][  OK  ] Listening UDP port 1492
-[16/12/2021 17:56:16][  OK  ] LOAD CONFIG
-[16/12/2021 17:56:16][  OK  ] CREATE OR APPEND LOG FILE
-[16/12/2021 17:56:16][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[16/12/2021 17:56:17][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[16/12/2021 17:56:17][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[16/12/2021 17:56:17][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[16/12/2021 17:56:17][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[16/12/2021 17:56:17][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[16/12/2021 17:56:17][  OK  ] Listening TCP port 1492
-[16/12/2021 17:56:17][  OK  ] Listening UDP port 1492
-[16/12/2021 17:57:43][  OK  ] LOAD CONFIG
-[16/12/2021 17:57:43][  OK  ] CREATE OR APPEND LOG FILE
-[16/12/2021 17:57:43][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[16/12/2021 17:57:43][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[16/12/2021 17:58:09][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[16/12/2021 17:58:09][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[16/12/2021 17:58:23][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[16/12/2021 17:58:23][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[16/12/2021 17:58:47][  OK  ] Listening TCP port 1492
-[16/12/2021 17:58:47][  OK  ] Listening UDP port 1492
-[16/12/2021 20:54:24][  OK  ] LOAD CONFIG
-[16/12/2021 20:54:24][  OK  ] CREATE OR APPEND LOG FILE
-[16/12/2021 20:54:24][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[16/12/2021 20:54:24][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[16/12/2021 20:54:27][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[16/12/2021 20:54:27][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[16/12/2021 20:54:27][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[16/12/2021 20:54:27][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[16/12/2021 20:54:27][  OK  ] Listening TCP port 1492
-[16/12/2021 20:54:27][  OK  ] Listening UDP port 1492
-[17/12/2021 11:46:18][  OK  ] LOAD CONFIG
-[17/12/2021 11:46:18][  OK  ] CREATE OR APPEND LOG FILE
-[17/12/2021 11:46:18][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[17/12/2021 11:47:18][  OK  ] LOAD CONFIG
-[17/12/2021 11:47:18][  OK  ] CREATE OR APPEND LOG FILE
-[17/12/2021 11:47:18][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[17/12/2021 11:47:18][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[17/12/2021 11:47:18][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[17/12/2021 11:47:18][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[17/12/2021 11:47:18][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[17/12/2021 11:47:18][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[17/12/2021 11:47:18][  OK  ] Listening TCP port 1492
-[17/12/2021 11:47:18][  OK  ] Listening UDP port 1492
-[17/12/2021 11:50:28][  OK  ] LOAD CONFIG
-[17/12/2021 11:50:28][  OK  ] CREATE OR APPEND LOG FILE
-[17/12/2021 11:50:28][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[17/12/2021 11:50:28][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[17/12/2021 11:50:28][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[17/12/2021 11:50:28][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[17/12/2021 11:50:28][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[17/12/2021 11:50:28][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[17/12/2021 11:50:28][  OK  ] Listening TCP port 1492
-[17/12/2021 11:50:28][  OK  ] Listening UDP port 1492
-[17/12/2021 12:08:23][  OK  ] LOAD CONFIG
-[17/12/2021 12:08:23][  OK  ] CREATE OR APPEND LOG FILE
-[17/12/2021 12:08:23][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[17/12/2021 12:08:23][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[17/12/2021 12:08:23][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[17/12/2021 12:08:23][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[17/12/2021 12:08:23][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[17/12/2021 12:08:23][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[17/12/2021 12:08:24][  OK  ] Listening TCP port 1492
-[17/12/2021 12:08:24][  OK  ] Listening UDP port 1492
-[17/12/2021 12:32:41][  OK  ] LOAD CONFIG
-[17/12/2021 12:32:41][  OK  ] CREATE OR APPEND LOG FILE
-[17/12/2021 12:32:41][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[17/12/2021 12:32:41][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[17/12/2021 12:32:41][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[17/12/2021 12:32:43][  ERROR  ]  127.0.0.1 MapServer_2
-[17/12/2021 12:32:43][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[17/12/2021 12:32:45][  ERROR  ]  127.0.0.1 MapServer_3
-[17/12/2021 12:32:45][  OK  ] Listening TCP port 1492
-[17/12/2021 12:32:45][  OK  ] Listening UDP port 1492
-[21/12/2021 17:24:29][  OK  ] LOAD CONFIG
-[21/12/2021 17:24:29][  OK  ] CREATE OR APPEND LOG FILE
-[21/12/2021 17:24:29][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[21/12/2021 17:24:31][  ERROR  ]  127.0.0.1 MapServer_1
-[21/12/2021 17:24:31][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[21/12/2021 17:24:34][  OK  ] LOAD CONFIG
-[21/12/2021 17:24:34][  OK  ] CREATE OR APPEND LOG FILE
-[21/12/2021 17:24:34][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[21/12/2021 17:24:36][  ERROR  ]  127.0.0.1 MapServer_1
-[21/12/2021 17:24:36][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[21/12/2021 17:24:38][  ERROR  ]  127.0.0.1 MapServer_2
-[21/12/2021 17:24:38][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[21/12/2021 17:24:40][  ERROR  ]  127.0.0.1 MapServer_3
-[21/12/2021 17:24:40][  OK  ] Listening TCP port 1492
-[21/12/2021 17:24:40][  OK  ] Listening UDP port 1492
-[21/12/2021 17:57:01][  OK  ] LOAD CONFIG
-[21/12/2021 17:57:01][  OK  ] CREATE OR APPEND LOG FILE
-[21/12/2021 17:57:01][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[21/12/2021 17:57:03][  ERROR  ]  127.0.0.1 MapServer_1
-[21/12/2021 17:57:03][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[21/12/2021 18:00:11][  OK  ] LOAD CONFIG
-[21/12/2021 18:00:11][  OK  ] CREATE OR APPEND LOG FILE
-[21/12/2021 18:00:11][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[21/12/2021 18:00:13][  ERROR  ]  127.0.0.1 MapServer_1
-[21/12/2021 18:00:13][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[21/12/2021 18:00:15][  ERROR  ]  127.0.0.1 MapServer_2
-[21/12/2021 18:00:15][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[21/12/2021 19:03:28][  OK  ] LOAD CONFIG
-[21/12/2021 19:03:28][  OK  ] CREATE OR APPEND LOG FILE
-[21/12/2021 19:03:28][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[21/12/2021 19:03:30][  ERROR  ]  127.0.0.1 MapServer_1
-[21/12/2021 19:03:30][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[21/12/2021 19:03:32][  ERROR  ]  127.0.0.1 MapServer_2
-[21/12/2021 19:03:32][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[21/12/2021 19:03:34][  ERROR  ]  127.0.0.1 MapServer_3
-[21/12/2021 19:03:34][  OK  ] Listening TCP port 1492
-[21/12/2021 19:03:34][  OK  ] Listening UDP port 1492
-[22/12/2021 09:43:19][  OK  ] LOAD CONFIG
-[22/12/2021 09:43:19][  OK  ] CREATE OR APPEND LOG FILE
-[22/12/2021 09:43:19][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[22/12/2021 09:43:21][  ERROR  ]  127.0.0.1 MapServer_1
-[22/12/2021 09:43:21][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[22/12/2021 09:43:23][  ERROR  ]  127.0.0.1 MapServer_2
-[22/12/2021 09:43:23][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[22/12/2021 09:43:25][  ERROR  ]  127.0.0.1 MapServer_3
-[22/12/2021 09:43:25][  OK  ] Listening TCP port 1492
-[22/12/2021 09:43:25][  OK  ] Listening UDP port 1492
-[22/12/2021 10:20:10][  OK  ] LOAD CONFIG
-[22/12/2021 10:20:10][  OK  ] CREATE OR APPEND LOG FILE
-[22/12/2021 10:20:10][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[22/12/2021 10:20:13][  ERROR  ]  127.0.0.1 MapServer_1
-[22/12/2021 10:20:13][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[22/12/2021 10:20:15][  ERROR  ]  127.0.0.1 MapServer_2
-[22/12/2021 10:20:15][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[22/12/2021 10:20:17][  ERROR  ]  127.0.0.1 MapServer_3
-[22/12/2021 10:20:17][  OK  ] Listening TCP port 1492
-[22/12/2021 10:20:17][  OK  ] Listening UDP port 1492
-[22/12/2021 10:28:39][  OK  ] LOAD CONFIG
-[22/12/2021 10:28:39][  OK  ] CREATE OR APPEND LOG FILE
-[22/12/2021 10:28:39][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[22/12/2021 10:28:41][  ERROR  ]  127.0.0.1 MapServer_1
-[22/12/2021 10:28:41][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[22/12/2021 10:28:43][  ERROR  ]  127.0.0.1 MapServer_2
-[22/12/2021 10:28:43][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[22/12/2021 10:28:45][  ERROR  ]  127.0.0.1 MapServer_3
-[22/12/2021 10:28:45][  OK  ] Listening TCP port 1492
-[22/12/2021 10:28:45][  OK  ] Listening UDP port 1492
-[22/12/2021 10:35:16][  OK  ] LOAD CONFIG
-[22/12/2021 10:35:16][  OK  ] CREATE OR APPEND LOG FILE
-[22/12/2021 10:35:16][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[22/12/2021 10:35:18][  ERROR  ]  127.0.0.1 MapServer_1
-[22/12/2021 10:35:18][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[22/12/2021 10:35:20][  ERROR  ]  127.0.0.1 MapServer_2
-[22/12/2021 10:35:20][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[22/12/2021 10:35:22][  ERROR  ]  127.0.0.1 MapServer_3
-[22/12/2021 10:35:22][  OK  ] Listening TCP port 1492
-[22/12/2021 10:35:22][  OK  ] Listening UDP port 1492
-[23/12/2021 15:04:47][  OK  ] LOAD CONFIG
-[23/12/2021 15:04:47][  OK  ] CREATE OR APPEND LOG FILE
-[23/12/2021 15:04:47][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[23/12/2021 16:41:17][  OK  ] LOAD CONFIG
-[23/12/2021 16:41:17][  OK  ] CREATE OR APPEND LOG FILE
-[23/12/2021 16:41:17][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[23/12/2021 16:41:58][  OK  ] LOAD CONFIG
-[23/12/2021 16:41:58][  OK  ] CREATE OR APPEND LOG FILE
-[23/12/2021 16:41:58][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[23/12/2021 16:42:27][  OK  ] LOAD CONFIG
-[23/12/2021 16:42:27][  OK  ] CREATE OR APPEND LOG FILE
-[23/12/2021 16:42:27][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[23/12/2021 17:06:57][  OK  ] LOAD CONFIG
-[23/12/2021 17:06:57][  OK  ] CREATE OR APPEND LOG FILE
-[23/12/2021 17:06:57][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[23/12/2021 17:06:57][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[23/12/2021 17:06:57][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[23/12/2021 17:06:57][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[23/12/2021 17:06:57][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[23/12/2021 17:06:57][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[23/12/2021 17:06:57][  OK  ] Listening TCP port 1492
-[23/12/2021 17:06:57][  OK  ] Listening UDP port 1492
-[23/12/2021 17:07:32][  OK  ] LOAD CONFIG
-[23/12/2021 17:07:32][  OK  ] CREATE OR APPEND LOG FILE
-[23/12/2021 17:07:32][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[23/12/2021 17:07:32][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[23/12/2021 17:07:32][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[23/12/2021 17:07:32][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[23/12/2021 17:07:32][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[23/12/2021 17:07:32][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[23/12/2021 17:07:32][  OK  ] Listening TCP port 1492
-[23/12/2021 17:07:32][  OK  ] Listening UDP port 1492
-[23/12/2021 17:18:54][  OK  ] LOAD CONFIG
-[23/12/2021 17:18:54][  OK  ] CREATE OR APPEND LOG FILE
-[23/12/2021 17:18:54][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[23/12/2021 17:18:54][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[23/12/2021 17:18:54][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[23/12/2021 17:18:54][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[23/12/2021 17:18:54][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[23/12/2021 17:18:54][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[23/12/2021 17:18:54][  OK  ] Listening TCP port 1492
-[23/12/2021 17:18:54][  OK  ] Listening UDP port 1492
-[23/12/2021 17:19:27][  OK  ] LOAD CONFIG
-[23/12/2021 17:19:27][  OK  ] CREATE OR APPEND LOG FILE
-[23/12/2021 17:19:27][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[23/12/2021 17:19:27][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[23/12/2021 17:19:27][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[23/12/2021 17:19:27][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[23/12/2021 17:19:27][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[23/12/2021 17:19:27][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[23/12/2021 17:19:27][  OK  ] Listening TCP port 1492
-[23/12/2021 17:19:27][  OK  ] Listening UDP port 1492
-[23/12/2021 17:19:52][  OK  ] LOAD CONFIG
-[23/12/2021 17:19:52][  OK  ] CREATE OR APPEND LOG FILE
-[23/12/2021 17:19:52][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[23/12/2021 17:19:52][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[23/12/2021 17:21:32][  OK  ] LOAD CONFIG
-[23/12/2021 17:21:32][  OK  ] CREATE OR APPEND LOG FILE
-[23/12/2021 17:21:32][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[23/12/2021 17:21:32][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[23/12/2021 17:21:35][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[23/12/2021 17:21:35][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[23/12/2021 17:21:35][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[23/12/2021 17:21:35][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[23/12/2021 17:21:35][  OK  ] Listening TCP port 1492
-[23/12/2021 17:21:35][  OK  ] Listening UDP port 1492
-[23/12/2021 17:24:30][  OK  ] LOAD CONFIG
-[23/12/2021 17:24:30][  OK  ] CREATE OR APPEND LOG FILE
-[23/12/2021 17:24:30][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[23/12/2021 17:24:30][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[23/12/2021 17:24:30][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[23/12/2021 17:24:30][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[23/12/2021 17:24:30][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[23/12/2021 17:24:30][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[23/12/2021 17:24:30][  OK  ] Listening TCP port 1492
-[23/12/2021 17:24:30][  OK  ] Listening UDP port 1492
-[23/12/2021 17:26:16][  OK  ] LOAD CONFIG
-[23/12/2021 17:26:16][  OK  ] CREATE OR APPEND LOG FILE
-[23/12/2021 17:26:16][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[23/12/2021 17:26:16][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[23/12/2021 17:26:16][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[23/12/2021 17:26:16][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[23/12/2021 17:26:16][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[23/12/2021 17:26:16][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[23/12/2021 17:26:16][  OK  ] Listening TCP port 1492
-[23/12/2021 17:26:16][  OK  ] Listening UDP port 1492
-[23/12/2021 17:48:51][  OK  ] LOAD CONFIG
-[23/12/2021 17:48:51][  OK  ] CREATE OR APPEND LOG FILE
-[23/12/2021 17:48:51][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[23/12/2021 17:48:53][  ERROR  ]  127.0.0.1 MapServer_1
-[23/12/2021 17:48:53][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[23/12/2021 17:48:55][  ERROR  ]  127.0.0.1 MapServer_2
-[23/12/2021 17:48:55][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[23/12/2021 17:48:57][  ERROR  ]  127.0.0.1 MapServer_3
-[23/12/2021 17:48:57][  OK  ] Listening TCP port 1492
-[23/12/2021 17:48:57][  OK  ] Listening UDP port 1492
-[23/12/2021 21:34:55][  OK  ] LOAD CONFIG
-[23/12/2021 21:34:55][  OK  ] CREATE OR APPEND LOG FILE
-[23/12/2021 21:34:55][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[23/12/2021 21:34:57][  ERROR  ]  127.0.0.1 MapServer_1
-[23/12/2021 21:34:57][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[23/12/2021 21:34:59][  ERROR  ]  127.0.0.1 MapServer_2
-[23/12/2021 21:34:59][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[23/12/2021 21:35:01][  ERROR  ]  127.0.0.1 MapServer_3
-[23/12/2021 21:35:01][  OK  ] Listening TCP port 1492
-[23/12/2021 21:35:01][  OK  ] Listening UDP port 1492
-[27/12/2021 16:39:43][  OK  ] LOAD CONFIG
-[27/12/2021 16:39:43][  OK  ] CREATE OR APPEND LOG FILE
-[27/12/2021 16:39:43][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[27/12/2021 16:39:46][  ERROR  ]  127.0.0.1 MapServer_1
-[27/12/2021 16:39:46][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[27/12/2021 16:39:48][  ERROR  ]  127.0.0.1 MapServer_2
-[27/12/2021 16:39:48][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[27/12/2021 16:39:50][  ERROR  ]  127.0.0.1 MapServer_3
-[27/12/2021 16:39:50][  OK  ] Listening TCP port 1492
-[27/12/2021 16:39:50][  OK  ] Listening UDP port 1492
-[27/12/2021 16:53:27][  OK  ] LOAD CONFIG
-[27/12/2021 16:53:27][  OK  ] CREATE OR APPEND LOG FILE
-[27/12/2021 16:53:27][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[27/12/2021 16:53:27][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[27/12/2021 16:53:27][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[27/12/2021 16:53:27][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[27/12/2021 16:53:27][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[27/12/2021 16:53:27][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[27/12/2021 16:53:27][  OK  ] Listening TCP port 1492
-[27/12/2021 16:53:27][  OK  ] Listening UDP port 1492
-[27/12/2021 16:53:40][  OK  ] LOAD CONFIG
-[27/12/2021 16:53:40][  OK  ] CREATE OR APPEND LOG FILE
-[27/12/2021 16:53:40][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[27/12/2021 16:53:40][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[27/12/2021 16:53:40][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[27/12/2021 16:53:40][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[27/12/2021 16:53:40][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[27/12/2021 16:53:40][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[27/12/2021 16:53:40][  OK  ] Listening TCP port 1492
-[27/12/2021 16:53:40][  OK  ] Listening UDP port 1492
-[27/12/2021 16:57:10][  OK  ] LOAD CONFIG
-[27/12/2021 16:57:10][  OK  ] CREATE OR APPEND LOG FILE
-[27/12/2021 16:57:10][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[27/12/2021 16:57:10][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[27/12/2021 16:57:10][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[27/12/2021 16:57:10][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[27/12/2021 16:57:10][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[27/12/2021 16:57:10][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[27/12/2021 16:57:10][  OK  ] Listening TCP port 1492
-[27/12/2021 16:57:10][  OK  ] Listening UDP port 1492
-[27/12/2021 18:24:29][  OK  ] LOAD CONFIG
-[27/12/2021 18:24:29][  OK  ] CREATE OR APPEND LOG FILE
-[27/12/2021 18:24:29][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[27/12/2021 18:25:02][  OK  ] LOAD CONFIG
-[27/12/2021 18:25:02][  OK  ] CREATE OR APPEND LOG FILE
-[27/12/2021 18:25:02][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[27/12/2021 18:25:41][  OK  ] LOAD CONFIG
-[27/12/2021 18:25:41][  OK  ] CREATE OR APPEND LOG FILE
-[27/12/2021 18:25:41][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[27/12/2021 18:26:06][  OK  ] LOAD CONFIG
-[27/12/2021 18:26:06][  OK  ] CREATE OR APPEND LOG FILE
-[27/12/2021 18:26:06][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[27/12/2021 18:26:09][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[27/12/2021 18:26:09][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[27/12/2021 18:26:09][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[27/12/2021 18:26:09][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[27/12/2021 18:26:09][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[27/12/2021 18:26:09][  OK  ] Listening TCP port 1492
-[27/12/2021 18:26:09][  OK  ] Listening UDP port 1492
-[28/12/2021 10:42:50][  OK  ] LOAD CONFIG
-[28/12/2021 10:42:50][  OK  ] CREATE OR APPEND LOG FILE
-[28/12/2021 10:42:50][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[28/12/2021 10:42:53][  ERROR  ]  127.0.0.1 MapServer_1
-[28/12/2021 10:42:53][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[28/12/2021 10:42:55][  ERROR  ]  127.0.0.1 MapServer_2
-[28/12/2021 10:42:55][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[28/12/2021 10:42:57][  ERROR  ]  127.0.0.1 MapServer_3
-[28/12/2021 10:42:57][  OK  ] Listening TCP port 1492
-[28/12/2021 10:42:57][  OK  ] Listening UDP port 1492
-[30/12/2021 12:32:25][  OK  ] LOAD CONFIG
-[30/12/2021 12:32:25][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 12:32:25][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 12:32:25][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 12:32:25][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 12:32:25][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 12:32:25][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 12:32:25][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 12:32:25][  OK  ] Listening TCP port 1492
-[30/12/2021 12:32:25][  OK  ] Listening UDP port 1492
-[30/12/2021 12:49:50][  OK  ] LOAD CONFIG
-[30/12/2021 12:49:50][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 12:49:50][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 12:49:50][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 12:49:50][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 12:49:50][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 12:49:50][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 12:49:50][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 12:49:50][  OK  ] Listening TCP port 1492
-[30/12/2021 12:49:50][  OK  ] Listening UDP port 1492
-[30/12/2021 12:52:01][  OK  ] LOAD CONFIG
-[30/12/2021 12:52:01][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 12:52:01][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 12:52:01][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 12:52:01][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 12:52:01][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 12:52:01][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 12:52:01][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 12:52:01][  OK  ] Listening TCP port 1492
-[30/12/2021 12:52:01][  OK  ] Listening UDP port 1492
-[30/12/2021 14:32:10][  OK  ] LOAD CONFIG
-[30/12/2021 14:32:10][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 14:32:10][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 14:32:10][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 14:32:10][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 14:32:10][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 14:32:10][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 14:32:10][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 14:32:10][  OK  ] Listening TCP port 1492
-[30/12/2021 14:32:10][  OK  ] Listening UDP port 1492
-[30/12/2021 15:04:18][  OK  ] LOAD CONFIG
-[30/12/2021 15:04:18][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 15:04:18][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 15:04:18][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 15:04:19][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 15:04:19][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 15:04:19][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 15:04:19][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 15:04:19][  OK  ] Listening TCP port 1492
-[30/12/2021 15:04:19][  OK  ] Listening UDP port 1492
-[30/12/2021 16:30:06][  OK  ] LOAD CONFIG
-[30/12/2021 16:30:06][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 16:30:06][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 16:30:06][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 16:30:06][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 16:30:06][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 16:30:06][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 16:30:06][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 16:30:07][  OK  ] Listening TCP port 1492
-[30/12/2021 16:30:07][  OK  ] Listening UDP port 1492
-[30/12/2021 16:33:49][  OK  ] LOAD CONFIG
-[30/12/2021 16:33:49][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 16:33:49][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 16:33:49][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 16:34:55][  OK  ] LOAD CONFIG
-[30/12/2021 16:34:55][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 16:34:55][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 16:34:55][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 16:38:23][  OK  ] LOAD CONFIG
-[30/12/2021 16:38:23][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 16:38:23][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 16:38:23][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 17:07:15][  OK  ] LOAD CONFIG
-[30/12/2021 17:07:15][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 17:07:15][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 17:07:15][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 17:19:57][  OK  ] LOAD CONFIG
-[30/12/2021 17:19:57][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 17:19:57][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 17:19:57][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 17:20:17][  OK  ] LOAD CONFIG
-[30/12/2021 17:20:17][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 17:20:17][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 17:20:17][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 17:21:45][  OK  ] LOAD CONFIG
-[30/12/2021 17:21:45][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 17:21:45][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 17:21:45][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 17:29:13][  OK  ] LOAD CONFIG
-[30/12/2021 17:29:13][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 17:29:13][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 17:29:13][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 17:30:07][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 17:30:07][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 17:30:10][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 17:30:10][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 17:30:11][  OK  ] Listening TCP port 1492
-[30/12/2021 17:30:11][  OK  ] Listening UDP port 1492
-[30/12/2021 17:58:42][  OK  ] LOAD CONFIG
-[30/12/2021 17:58:42][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 17:58:42][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 17:58:42][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 17:58:42][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 17:58:42][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 17:58:42][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 17:58:42][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 17:58:42][  OK  ] Listening TCP port 1492
-[30/12/2021 17:58:42][  OK  ] Listening UDP port 1492
-[30/12/2021 18:01:44][  OK  ] LOAD CONFIG
-[30/12/2021 18:01:44][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 18:01:44][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 18:01:44][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 18:02:55][  OK  ] LOAD CONFIG
-[30/12/2021 18:02:55][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 18:02:55][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 18:02:55][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 18:03:39][  OK  ] LOAD CONFIG
-[30/12/2021 18:03:39][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 18:03:39][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 18:03:39][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 18:03:39][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 18:03:39][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 18:03:39][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 18:03:39][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 18:03:39][  OK  ] Listening TCP port 1492
-[30/12/2021 18:03:39][  OK  ] Listening UDP port 1492
-[30/12/2021 18:04:27][  OK  ] LOAD CONFIG
-[30/12/2021 18:04:27][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 18:04:27][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 18:04:27][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 18:04:27][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 18:04:27][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 18:04:27][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 18:04:27][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 18:04:27][  OK  ] Listening TCP port 1492
-[30/12/2021 18:04:27][  OK  ] Listening UDP port 1492
-[30/12/2021 18:04:45][  OK  ] LOAD CONFIG
-[30/12/2021 18:04:45][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 18:04:45][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 18:04:45][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 18:04:59][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 18:04:59][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 18:05:00][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 18:05:00][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 18:05:01][  OK  ] Listening TCP port 1492
-[30/12/2021 18:05:01][  OK  ] Listening UDP port 1492
-[30/12/2021 18:07:53][  OK  ] LOAD CONFIG
-[30/12/2021 18:07:53][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 18:07:53][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 18:07:53][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 18:08:29][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 18:08:29][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 18:08:53][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 18:08:53][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 18:09:03][  OK  ] Listening TCP port 1492
-[30/12/2021 18:09:03][  OK  ] Listening UDP port 1492
-[30/12/2021 18:09:41][  OK  ] LOAD CONFIG
-[30/12/2021 18:09:41][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 18:09:41][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 18:09:41][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 18:09:44][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 18:09:44][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 18:09:45][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 18:09:45][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 18:09:45][  OK  ] Listening TCP port 1492
-[30/12/2021 18:09:45][  OK  ] Listening UDP port 1492
-[30/12/2021 18:12:25][  OK  ] LOAD CONFIG
-[30/12/2021 18:12:25][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 18:12:25][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 18:12:25][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 18:13:40][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 18:13:40][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 18:13:42][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 18:13:42][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 18:13:44][  OK  ] Listening TCP port 1492
-[30/12/2021 18:13:44][  OK  ] Listening UDP port 1492
-[30/12/2021 18:14:21][  OK  ] LOAD CONFIG
-[30/12/2021 18:14:21][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 18:14:21][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 18:14:21][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 18:14:45][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 18:14:45][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 18:14:47][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 18:14:47][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 18:14:48][  OK  ] Listening TCP port 1492
-[30/12/2021 18:14:48][  OK  ] Listening UDP port 1492
-[30/12/2021 18:18:20][  OK  ] LOAD CONFIG
-[30/12/2021 18:18:20][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 18:18:20][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 18:18:20][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 18:18:24][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 18:18:24][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 18:18:24][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 18:18:24][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 18:18:24][  OK  ] Listening TCP port 1492
-[30/12/2021 18:18:24][  OK  ] Listening UDP port 1492
-[30/12/2021 18:20:27][  OK  ] LOAD CONFIG
-[30/12/2021 18:20:27][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 18:20:27][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 18:20:27][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 18:24:18][  OK  ] LOAD CONFIG
-[30/12/2021 18:24:18][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 18:24:18][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 18:24:18][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 18:27:02][  OK  ] LOAD CONFIG
-[30/12/2021 18:27:02][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 18:27:02][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 18:27:02][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 18:27:02][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 18:27:02][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 18:27:02][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 18:27:02][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 18:27:02][  OK  ] Listening TCP port 1492
-[30/12/2021 18:27:02][  OK  ] Listening UDP port 1492
-[30/12/2021 22:52:59][  OK  ] LOAD CONFIG
-[30/12/2021 22:52:59][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 22:52:59][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 22:52:59][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 22:52:59][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 22:52:59][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 22:52:59][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 22:52:59][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 22:52:59][  OK  ] Listening TCP port 1492
-[30/12/2021 22:52:59][  OK  ] Listening UDP port 1492
-[30/12/2021 22:55:15][  OK  ] LOAD CONFIG
-[30/12/2021 22:55:15][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 22:55:15][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 22:55:15][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 23:21:30][  OK  ] LOAD CONFIG
-[30/12/2021 23:21:30][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 23:21:30][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 23:21:30][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 23:21:35][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 23:21:35][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 23:21:39][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 23:21:39][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 23:21:39][  OK  ] Listening TCP port 1492
-[30/12/2021 23:21:39][  OK  ] Listening UDP port 1492
-[30/12/2021 23:26:12][  OK  ] LOAD CONFIG
-[30/12/2021 23:26:12][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 23:26:12][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 23:26:12][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 23:27:05][  OK  ] LOAD CONFIG
-[30/12/2021 23:27:05][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 23:27:05][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 23:27:05][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 23:28:38][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 23:28:38][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 23:28:39][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 23:28:39][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 23:28:40][  OK  ] Listening TCP port 1492
-[30/12/2021 23:28:40][  OK  ] Listening UDP port 1492
-[30/12/2021 23:29:04][  OK  ] LOAD CONFIG
-[30/12/2021 23:29:04][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 23:29:04][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 23:29:04][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 23:29:47][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 23:29:47][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 23:29:49][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 23:29:49][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 23:29:51][  OK  ] Listening TCP port 1492
-[30/12/2021 23:29:51][  OK  ] Listening UDP port 1492
-[30/12/2021 23:33:13][  OK  ] LOAD CONFIG
-[30/12/2021 23:33:13][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 23:33:13][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 23:33:13][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 23:33:28][  OK  ] LOAD CONFIG
-[30/12/2021 23:33:28][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 23:33:28][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 23:33:28][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 23:33:52][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 23:33:52][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 23:33:53][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 23:33:53][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 23:33:54][  OK  ] Listening TCP port 1492
-[30/12/2021 23:33:54][  OK  ] Listening UDP port 1492
-[30/12/2021 23:49:53][  OK  ] LOAD CONFIG
-[30/12/2021 23:49:53][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 23:49:53][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 23:49:53][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 23:51:09][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 23:51:09][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 23:51:13][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 23:51:13][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 23:51:18][  OK  ] Listening TCP port 1492
-[30/12/2021 23:51:18][  OK  ] Listening UDP port 1492
-[30/12/2021 23:53:36][  OK  ] LOAD CONFIG
-[30/12/2021 23:53:36][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 23:53:36][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 23:53:36][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 23:59:53][  OK  ] LOAD CONFIG
-[30/12/2021 23:59:53][  OK  ] CREATE OR APPEND LOG FILE
-[30/12/2021 23:59:53][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[30/12/2021 23:59:53][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[30/12/2021 23:59:56][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[30/12/2021 23:59:56][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[30/12/2021 23:59:56][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[30/12/2021 23:59:56][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[30/12/2021 23:59:56][  OK  ] Listening TCP port 1492
-[30/12/2021 23:59:56][  OK  ] Listening UDP port 1492
-[31/12/2021 00:01:39][  OK  ] LOAD CONFIG
-[31/12/2021 00:01:39][  OK  ] CREATE OR APPEND LOG FILE
-[31/12/2021 00:01:39][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[31/12/2021 00:01:39][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[31/12/2021 00:01:39][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[31/12/2021 00:01:39][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[31/12/2021 00:01:39][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[31/12/2021 00:01:39][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[31/12/2021 00:01:39][  OK  ] Listening TCP port 1492
-[31/12/2021 00:01:39][  OK  ] Listening UDP port 1492
-[31/12/2021 00:02:35][  OK  ] LOAD CONFIG
-[31/12/2021 00:02:35][  OK  ] CREATE OR APPEND LOG FILE
-[31/12/2021 00:02:35][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[31/12/2021 00:02:35][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[31/12/2021 00:02:35][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[31/12/2021 00:02:35][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[31/12/2021 00:02:35][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[31/12/2021 00:02:35][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[31/12/2021 00:02:35][  OK  ] Listening TCP port 1492
-[31/12/2021 00:02:35][  OK  ] Listening UDP port 1492
-[31/12/2021 00:05:29][  OK  ] LOAD CONFIG
-[31/12/2021 00:05:29][  OK  ] CREATE OR APPEND LOG FILE
-[31/12/2021 00:05:29][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[31/12/2021 00:05:29][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[31/12/2021 00:05:29][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[31/12/2021 00:05:29][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[31/12/2021 00:05:29][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[31/12/2021 00:05:29][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[31/12/2021 00:05:29][  OK  ] Listening TCP port 1492
-[31/12/2021 00:05:29][  OK  ] Listening UDP port 1492
-[31/12/2021 00:29:54][  OK  ] LOAD CONFIG
-[31/12/2021 00:29:54][  OK  ] CREATE OR APPEND LOG FILE
-[31/12/2021 00:29:54][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[31/12/2021 00:29:54][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[31/12/2021 00:29:54][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[31/12/2021 00:29:54][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[31/12/2021 00:29:54][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[31/12/2021 00:29:54][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[31/12/2021 00:29:54][  OK  ] Listening TCP port 1492
-[31/12/2021 00:29:54][  OK  ] Listening UDP port 1492
-[31/12/2021 00:30:48][  OK  ] LOAD CONFIG
-[31/12/2021 00:30:48][  OK  ] CREATE OR APPEND LOG FILE
-[31/12/2021 00:30:48][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[31/12/2021 00:30:48][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[31/12/2021 00:31:25][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[31/12/2021 00:31:25][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[31/12/2021 00:31:25][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[31/12/2021 00:31:25][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[31/12/2021 00:31:26][  OK  ] Listening TCP port 1492
-[31/12/2021 00:31:26][  OK  ] Listening UDP port 1492
-[31/12/2021 00:32:02][  OK  ] LOAD CONFIG
-[31/12/2021 00:32:02][  OK  ] CREATE OR APPEND LOG FILE
-[31/12/2021 00:32:02][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[31/12/2021 00:32:02][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[31/12/2021 00:32:04][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[31/12/2021 00:32:04][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[31/12/2021 00:32:05][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[31/12/2021 00:32:05][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[31/12/2021 00:32:05][  OK  ] Listening TCP port 1492
-[31/12/2021 00:32:05][  OK  ] Listening UDP port 1492
-[31/12/2021 00:33:07][  OK  ] LOAD CONFIG
-[31/12/2021 00:33:07][  OK  ] CREATE OR APPEND LOG FILE
-[31/12/2021 00:33:07][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[31/12/2021 00:33:07][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[31/12/2021 00:33:07][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[31/12/2021 00:33:07][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[31/12/2021 00:33:07][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[31/12/2021 00:33:07][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[31/12/2021 00:33:07][  OK  ] Listening TCP port 1492
-[31/12/2021 00:33:07][  OK  ] Listening UDP port 1492
-[3/1/2022 15:20:35][  OK  ] LOAD CONFIG
-[3/1/2022 15:20:35][  OK  ] CREATE OR APPEND LOG FILE
-[3/1/2022 15:20:35][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_1
-[3/1/2022 15:20:35][  OK  ] Connected to 127.0.0.1 MapServer_1
-
-[3/1/2022 15:20:35][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_2
-[3/1/2022 15:20:35][  OK  ] Connected to 127.0.0.1 MapServer_2
-
-[3/1/2022 15:20:35][ [0;34;40mINFO[0m ]Connecting to MapServer MapServer_3
-[3/1/2022 15:20:35][  OK  ] Connected to 127.0.0.1 MapServer_3
-
-[3/1/2022 15:20:35][  OK  ] Listening TCP port 1492
-[3/1/2022 15:20:35][  OK  ] Listening UDP port 1492
+[10/5/2022 17:38:53] GAMESERVER_LOAD_CONFIG_OK
+[10/5/2022 17:38:53] GAMESERVER_START_SERVER_LISTENING
+[10/5/2022 17:38:53] Listening TCP port 1492
+[10/5/2022 17:38:53] GAMESERVER_START_SERVER_LISTENING
+[10/5/2022 17:38:53] Listening UDP port 1492
+[13/5/2022 11:07:16] GAMESERVER_LOAD_CONFIG_OK
+[13/5/2022 11:07:16] GAMESERVER_START_SERVER_LISTENING
+[13/5/2022 11:07:16] Listening TCP port 1492
+[13/5/2022 11:07:16] GAMESERVER_START_SERVER_LISTENING
+[13/5/2022 11:07:16] Listening UDP port 1492
+[20/5/2022 16:31:24] GAMESERVER_LOAD_CONFIG_OK
+[20/5/2022 16:31:24] GAMESERVER_START_SERVER_LISTENING
+[20/5/2022 16:31:24] Listening TCP port 1492
+[20/5/2022 16:31:24] GAMESERVER_START_SERVER_LISTENING
+[20/5/2022 16:31:24] Listening UDP port 1492
+[26/5/2022 11:38:12] GAMESERVER_LOAD_CONFIG_OK
+[26/5/2022 11:38:23] GAMESERVER_START_SERVER_LISTENING
+[26/5/2022 11:38:43] Listening TCP port 1492
+[26/5/2022 11:38:43] GAMESERVER_START_SERVER_LISTENING
+[26/5/2022 11:38:43] Listening UDP port 1492
+[26/5/2022 14:44:19] GAMESERVER_LOAD_CONFIG_OK
+[26/5/2022 14:44:19] GAMESERVER_START_SERVER_LISTENING
+[26/5/2022 14:44:19] [  OK  ] Listening TCP port 1492
+[26/5/2022 14:44:19] GAMESERVER_START_SERVER_LISTENING
+[26/5/2022 14:44:19] [  OK  ] Listening UDP port 1492
+[26/5/2022 14:44:57] [  OK  ] Listening TCP port 1492
+[26/5/2022 14:44:57] [  OK  ] Listening UDP port 1492
+[26/5/2022 14:47:30] starting gateway server
+
+[26/5/2022 14:47:30] [  OK  ] Listening TCP port 1492
+[26/5/2022 17:15:09] starting gateway server
+
+[26/5/2022 17:15:09] [  OK  ] Listening TCP port 1492
+[26/5/2022 17:15:21] GAMESERVER_LOAD_CONFIG_OK
+[26/5/2022 17:15:21] starting gateway server
+
+[26/5/2022 17:15:21] GAMESERVER_START_SERVER_LISTENING
+[26/5/2022 17:15:21] [  OK  ] Listening TCP port 1492
+[26/5/2022 17:15:21] GAMESERVER_START_SERVER_LISTENING
+[26/5/2022 17:15:21] [  OK  ] Listening UDP port 1492
+[26/5/2022 17:15:35] GAMESERVER_ACCEPT_CONNECTION
+[26/5/2022 17:15:35] GAMESERVER_NEW_CONNECTION
+[26/5/2022 17:15:38] GAMESERVER_DATA_IN
+[26/5/2022 17:15:38] GAMESERVER_DATA_IN
+[26/5/2022 17:15:39] GAMESERVER_DATA_IN
+[26/5/2022 17:15:39] GAMESERVER_DATA_IN
+[26/5/2022 17:15:40] GAMESERVER_DATA_IN
+[26/5/2022 17:15:40] GAMESERVER_DATA_IN
+[26/5/2022 17:15:40] GAMESERVER_DATA_IN
+[26/5/2022 17:15:40] GAMESERVER_DATA_IN
+[26/5/2022 17:15:40] GAMESERVER_DATA_IN
+[26/5/2022 17:15:41] GAMESERVER_DATA_IN
+[26/5/2022 17:15:41] GAMESERVER_DATA_IN
+[26/5/2022 17:15:41] GAMESERVER_DATA_IN
+[26/5/2022 17:15:41] GAMESERVER_DATA_IN
+[26/5/2022 17:15:41] GAMESERVER_DATA_IN
+[26/5/2022 17:15:41] GAMESERVER_DATA_IN
+[26/5/2022 17:15:41] GAMESERVER_DATA_IN
+[26/5/2022 17:15:43] GAMESERVER_DATA_IN
+[26/5/2022 18:06:02] GAMESERVER_LOAD_CONFIG_OK
+[26/5/2022 18:06:02] starting gateway server
+
+[26/5/2022 18:06:02] GAMESERVER_START_SERVER_LISTENING
+[26/5/2022 18:06:02] [  OK  ] Listening TCP port 1492
+[26/5/2022 18:06:02] GAMESERVER_START_SERVER_LISTENING
+[26/5/2022 18:06:02] [  OK  ] Listening UDP port 1492
+[26/5/2022 18:06:23] GAMESERVER_ACCEPT_CONNECTION
+[26/5/2022 18:06:23] GAMESERVER_NEW_CONNECTION
+[26/5/2022 18:06:26] GAMESERVER_DATA_IN
+[26/5/2022 18:06:27] GAMESERVER_DATA_IN
+[26/5/2022 18:06:27] GAMESERVER_DATA_IN
+[26/5/2022 18:06:28] GAMESERVER_DATA_IN
+[26/5/2022 18:06:28] GAMESERVER_DATA_IN
+[26/5/2022 18:06:28] GAMESERVER_DATA_IN
+[26/5/2022 18:06:28] GAMESERVER_DATA_IN
+[27/5/2022 12:11:05] GAMESERVER_LOAD_CONFIG_OK
+[27/5/2022 12:11:05] starting gateway server
+
+[27/5/2022 12:11:05] GAMESERVER_START_SERVER_LISTENING
+[27/5/2022 12:11:05] [  OK  ] Listening TCP port 1492
+[27/5/2022 12:11:05] GAMESERVER_START_SERVER_LISTENING
+[27/5/2022 12:32:55] GAMESERVER_LOAD_CONFIG_OK
+[27/5/2022 12:32:55] starting gateway server
+
+[27/5/2022 12:32:55] GAMESERVER_START_SERVER_LISTENING
+[27/5/2022 12:32:55] [  OK  ] Listening TCP port 1492
+[27/5/2022 12:32:55] GAMESERVER_START_SERVER_LISTENING
+[27/5/2022 12:34:12] GAMESERVER_LOAD_CONFIG_OK
+[27/5/2022 12:34:12] starting gateway server
+
+[27/5/2022 12:34:12] GAMESERVER_START_SERVER_LISTENING
+[27/5/2022 12:34:12] [  OK  ] Listening TCP port 1492
+[27/5/2022 12:34:12] GAMESERVER_START_SERVER_LISTENING
+[27/5/2022 12:35:43] GAMESERVER_LOAD_CONFIG_OK
+[27/5/2022 12:35:43] starting gateway server
+
+[27/5/2022 12:35:43] GAMESERVER_START_SERVER_LISTENING
+[27/5/2022 12:35:43] [  OK  ] Listening TCP port 1492
+[27/5/2022 12:35:43] GAMESERVER_START_SERVER_LISTENING
+[27/5/2022 12:35:43] [  OK  ] Listening UDP port 1492
+[27/5/2022 12:36:04] GAMESERVER_ACCEPT_CONNECTION
+[27/5/2022 12:36:04] GAMESERVER_NEW_CONNECTION
+[27/5/2022 12:36:05] GAMESERVER_DATA_IN
+[27/5/2022 12:36:06] GAMESERVER_DATA_IN
+[27/5/2022 12:36:06] GAMESERVER_DATA_IN
+[27/5/2022 12:36:06] GAMESERVER_DATA_IN
+[27/5/2022 12:36:07] GAMESERVER_DATA_IN
+[27/5/2022 12:36:07] GAMESERVER_DATA_IN
+[27/5/2022 12:36:07] GAMESERVER_DATA_IN
+[27/5/2022 12:36:08] GAMESERVER_DATA_IN
+[27/5/2022 12:36:09] GAMESERVER_END_CONNECTION
+[27/5/2022 16:51:29] GAMESERVER_LOAD_CONFIG_OK
+[27/5/2022 16:51:29] starting gateway server
+
+[27/5/2022 16:51:30] GAMESERVER_START_SERVER_LISTENING
+[27/5/2022 16:51:30] [  OK  ] Listening TCP port 1492
+[27/5/2022 16:51:30] GAMESERVER_START_SERVER_LISTENING
+[27/5/2022 16:53:11] GAMESERVER_LOAD_CONFIG_OK
+[27/5/2022 16:53:11] starting gateway server
+
+[27/5/2022 16:53:11] GAMESERVER_START_SERVER_LISTENING
+[27/5/2022 16:53:11] [  OK  ] Listening TCP port 1492
+[27/5/2022 16:53:11] GAMESERVER_START_SERVER_LISTENING
+[27/5/2022 16:53:50] GAMESERVER_LOAD_CONFIG_OK
+[27/5/2022 16:53:50] starting gateway server
+
+[27/5/2022 16:53:50] GAMESERVER_START_SERVER_LISTENING
+[27/5/2022 16:53:50] [  OK  ] Listening TCP port 1492
+[27/5/2022 16:53:50] GAMESERVER_START_SERVER_LISTENING
+[30/5/2022 17:57:23] GAMESERVER_LOAD_CONFIG_OK
+[30/5/2022 17:57:23] starting gateway server
+
+[30/5/2022 17:57:33] GAMESERVER_START_SERVER_LISTENING
+[30/5/2022 17:57:33] [  OK  ] Listening TCP port 1492
+[30/5/2022 17:57:33] GAMESERVER_START_SERVER_LISTENING
+[30/5/2022 18:03:12] GAMESERVER_LOAD_CONFIG_OK
+[30/5/2022 18:03:12] starting gateway server
+
+[30/5/2022 18:03:12] GAMESERVER_CLIENT_CONNECTION_OK
+[30/5/2022 18:03:12] GAMESERVER_CLIENT_CONNECTION_OK
+[30/5/2022 18:03:12] GAMESERVER_CLIENT_CONNECTION_OK
+[30/5/2022 18:03:12] GAMESERVER_START_SERVER_LISTENING
+[30/5/2022 18:03:12] [  OK  ] Listening TCP port 1492
+[30/5/2022 18:03:12] GAMESERVER_START_SERVER_LISTENING
+[30/5/2022 18:03:12] [  OK  ] Listening UDP port 1492
+[30/5/2022 18:03:53] GAMESERVER_LOAD_CONFIG_OK
+[30/5/2022 18:03:53] starting gateway server
+
+[30/5/2022 18:05:13] GAMESERVER_CLIENT_CONNECTION_OK
+[30/5/2022 18:06:07] GAMESERVER_CLIENT_CONNECTION_OK
+[30/5/2022 18:06:33] GAMESERVER_CLIENT_CONNECTION_OK
+[30/5/2022 18:07:49] GAMESERVER_START_SERVER_LISTENING
+[30/5/2022 18:07:49] [  OK  ] Listening TCP port 1492
+[30/5/2022 18:07:49] GAMESERVER_START_SERVER_LISTENING
+[30/5/2022 18:07:49] [  OK  ] Listening UDP port 1492
+[30/5/2022 21:37:30] GAMESERVER_LOAD_CONFIG_OK
+[30/5/2022 21:37:30] starting gateway server
+
+[30/5/2022 21:37:30] GAMESERVER_CLIENT_CONNECTION_OK
+[30/5/2022 21:37:30] GAMESERVER_CLIENT_CONNECTION_OK
+[30/5/2022 21:37:30] GAMESERVER_CLIENT_CONNECTION_OK
+[30/5/2022 21:37:30] GAMESERVER_START_SERVER_LISTENING
+[30/5/2022 21:37:30] [  OK  ] Listening TCP port 1492
+[30/5/2022 21:37:30] GAMESERVER_START_SERVER_LISTENING
+[30/5/2022 21:37:30] [  OK  ] Listening UDP port 1492

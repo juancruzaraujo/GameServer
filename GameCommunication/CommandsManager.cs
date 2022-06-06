@@ -15,6 +15,18 @@ namespace GameCommunication
 
         private List<Command> _lstCommands;
 
+        string _message;
+
+        public string GetErrorMessage
+        {
+            get
+            {
+                string aux = _message;
+                _message = "";
+                return aux;
+            }
+        }
+
         public CommandsManager()
         {
             _lstCommands = new List<Command>();
@@ -26,7 +38,7 @@ namespace GameCommunication
             {
                 if (com.GetExecCommand == command.GetExecCommand)
                 {
-                    throw new Exception(C_ERROR_MESSAGE_EXISTING_COMMAND);
+                    _message = C_ERROR_MESSAGE_EXISTING_COMMAND;
                 }
             }
 
@@ -38,7 +50,7 @@ namespace GameCommunication
             int index = GetCommandIndex(name);
             if (index == -1)
             {
-                throw new Exception(C_ERROR_MESSAGE_COMMAND_NOT_FOUND);
+                _message = C_ERROR_MESSAGE_COMMAND_NOT_FOUND;
             }
 
             _lstCommands[index].SetEnabled(enabled);
@@ -49,7 +61,7 @@ namespace GameCommunication
             int index = GetCommandIndex(name);
             if (index == -1)
             {
-                throw new Exception(C_ERROR_MESSAGE_COMMAND_NOT_FOUND);
+                _message = C_ERROR_MESSAGE_COMMAND_NOT_FOUND;
             }
 
             _lstCommands.RemoveAt(index);
@@ -60,7 +72,8 @@ namespace GameCommunication
             int index = GetCommandIndex(name);
             if (index == -1)
             {
-                throw new Exception(C_ERROR_MESSAGE_COMMAND_NOT_FOUND);
+                _message = C_ERROR_MESSAGE_COMMAND_NOT_FOUND;
+                return;
             }
 
             if (_lstCommands[index].GetEnabled)
@@ -69,7 +82,8 @@ namespace GameCommunication
             }
             else
             {
-                throw new Exception(C_ERROR_MESSAGE_COMMAND_DISABLED);
+                _message = C_ERROR_MESSAGE_COMMAND_DISABLED;
+                return;
             }
 
         }
@@ -83,7 +97,7 @@ namespace GameCommunication
                     return i;
                 }
             }
-
+            _message = C_ERROR_MESSAGE_COMMAND_NOT_FOUND;
             return -1;
         }
        

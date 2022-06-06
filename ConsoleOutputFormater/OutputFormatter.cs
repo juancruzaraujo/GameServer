@@ -24,6 +24,7 @@ namespace ConsoleOutputFormater
             
         }
 
+        /*
         public string FormatText(string text, OutputFormatterAttributes outputFormatterAttributes=null)
         {
             //  "\x1b[1m bold.\x1b[0m  \r\n "
@@ -39,7 +40,22 @@ namespace ConsoleOutputFormater
 
             return aux;
         }
+        */
 
-       
+        public static string FormatText(string text, OutputFormatterAttributes outputFormatterAttributes = null)
+        {
+            if (outputFormatterAttributes == null)
+            {
+                outputFormatterAttributes = new OutputFormatterAttributes();
+            }
+
+            string aux = "\x1b[" + outputFormatterAttributes.GetAttributes + outputFormatterAttributes.GetTextFG +
+                OutputFormatterAttributes.C_P + outputFormatterAttributes.GetTextBG + OutputFormatterAttributes.C_M + text + "\x1b[0m";
+
+            return aux;
+        }
+
+
+
     }
 }

@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C6623127-329F-4EEB-93EE-E8948E379BB3}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ShowAndLogMessage</RootNamespace>
-    <AssemblyName>ShowAndLogMessage</AssemblyName>
+    <ProjectGuid>{86B8554D-3B71-4E80-B746-BDC48756358D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>GSGateway</RootNamespace>
+    <AssemblyName>GSGateway</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,14 +43,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormatterOutput.cs" />
-    <Compile Include="LogInfo.cs" />
+    <Compile Include="CommandLineParametersHelp.cs" />
+    <Compile Include="GSCommandManager.cs" />
+    <Compile Include="GSConnectionManager.cs" />
+    <Compile Include="GSGatewayManager.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerConfManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommunicationObjects\CommunicationObjects.csproj">
+      <Project>{49117a4f-ffd1-452f-9c9c-7ba50af167b3}</Project>
+      <Name>CommunicationObjects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ConsoleOutputFormater\ConsoleOutputFormatter.csproj">
       <Project>{bc6db0f0-eb09-4f5b-8aaa-76dae681e3d8}</Project>
       <Name>ConsoleOutputFormatter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameCommunication\GameCommunication.csproj">
+      <Project>{5c0bab6c-9a28-4bd2-a5fe-1c7ab5a4ecbe}</Project>
+      <Name>GameCommunication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameServerFW\GameServerFW.csproj">
+      <Project>{8966dc55-74ee-4f64-b234-a1acd0114ff6}</Project>
+      <Name>GameServerFW</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShowAndLogMessage\ShowAndLogMessage.csproj">
+      <Project>{c6623127-329f-4eeb-93ee-e8948e379bb3}</Project>
+      <Name>ShowAndLogMessage</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

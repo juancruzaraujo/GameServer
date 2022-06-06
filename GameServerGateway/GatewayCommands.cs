@@ -30,14 +30,14 @@ namespace GameServerGateway
             internal string messageTag { get; set; }
             internal string messageJson { get; set; }
             internal string strConnectionNumber { get; set; }
-            internal GameServerFW.Connections.Protocol.ConnectionProtocol connectionProtocol { get; set; }
+            //internal GameServerFW.Connections.Protocol.ConnectionProtocol connectionProtocol { get; set; }
             internal Mode mode { get; set; }
             internal bool msgToAll { get; set; }
 
             internal SendParams() //whit default values
             {
                 mode = Mode.CLIENT;
-                connectionProtocol = GameServerFW.Connections.Protocol.ConnectionProtocol.TCP;
+                //connectionProtocol = GameServerFW.Connections.Protocol.ConnectionProtocol.TCP;
                 msgToAll = false;
             }
 
@@ -75,6 +75,7 @@ namespace GameServerGateway
             }
         }
 
+        
         private string ClassToJson(Type theClass, object obj)
         {
 
@@ -88,8 +89,12 @@ namespace GameServerGateway
             string json = sr.ReadToEnd();
             return json;
         }
+        
 
-        //private void Send(string messageTag, string messageJson, string strConnectionNumber)
+        /// <summary>
+        /// creates the body of the message to send, the parameter that it receives is precisely the body of the message 
+        /// </summary>
+        /// <param name="sendParams">body of the message</param>
         private void Send(SendParams sendParams)
         {
             
@@ -97,10 +102,10 @@ namespace GameServerGateway
 
             BodyMessage bodyMessage = new BodyMessage();
             bodyMessage.messageTag = sendParams.messageTag;
-            bodyMessage.message = sendParams.messageJson;
+            bodyMessage.messageBody = sendParams.messageJson;
 
             string bodyMsg = ClassToJson(typeof(BodyMessage), bodyMessage);
-            
+            /*
             if (sendParams.connectionProtocol == GameServerFW.Connections.Protocol.ConnectionProtocol.TCP)
             {
                 if (sendParams.msgToAll)
@@ -125,9 +130,9 @@ namespace GameServerGateway
                         _gameServerManager.connectionsManager.SeverSendMessage(connectionNumber,bodyMsg, sendParams.connectionProtocol);
                     }
 
-                    
                 }
-            }            
+            }
+            */
 
         }
 

@@ -152,7 +152,7 @@ namespace GameServerFW.Mappers
                     break;
 
                 case Sockets.EventParameters.EventType.SEND_ARRAY_COMPLETE:
-                    gameServerEventParameters.SetEventType(GameServerEventParameters.GameServerEventType.GAMESERVER_SEDN_ARRAY_COMPLETE);
+                    gameServerEventParameters.SetEventType(GameServerEventParameters.GameServerEventType.GAMESERVER_SEND_ARRAY_COMPLETE);
                     break;
 
                 case Sockets.EventParameters.EventType.SERVER_ACCEPT_CONNECTION:

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using GameCommunication;
 
-namespace Communica
+namespace SrvComs
 {
     public class ServerConnections
     {
@@ -37,28 +37,44 @@ namespace Communica
 
         private int GetClientInfoIndex(string clientId)
         {
+
+            int res = -1;
             for (int i=0;i<_lstClientInfo.Count();i++)
             {
                 if (_lstClientInfo[i].GetClientId == clientId)
                 {
-                    return i;
+                    res = i;
+                    return res;
                 }
             }
 
-            return -1;
+            if (res==-1)
+            {
+                throw new Exception(C_CLIENTINFO_NOT_FOUND);
+            }
+
+            return res;
         }
 
         private int GetClientInfoIndex(int connectionNumber)
         {
+            int res = -1;
             for (int i = 0; i < _lstClientInfo.Count(); i++)
             {
                 if (_lstClientInfo[i].ConnectionNumber == connectionNumber)
                 {
-                    return i;
+                    res = i;
+                    return res;
                 }
             }
 
-            return -1;
+            if (res == -1)
+            {
+                throw new Exception(C_CLIENTINFO_NOT_FOUND);
+            }
+
+
+            return res;
         }
 
         public int GetClientInfoConnectionNumber(string clientId)
@@ -169,15 +185,22 @@ namespace Communica
 
         private int GetHostInfoIndex(string tag)
         {
+            int res = -1;
             for (int i = 0; i < _lstHostInfo.Count(); i++)
             {
                 if (_lstHostInfo[i].GetServerTag == tag)
                 {
-                    return i;
+                    res = i;
+                    return res;
                 }
             }
 
-            return -1;
+            if (res==-1)
+            {
+                throw new Exception(C_HOSTINFO_NOT_FOUND);
+            }
+
+            return res;
         }
 
         public int GetClientsCount

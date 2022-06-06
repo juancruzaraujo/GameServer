@@ -16,6 +16,7 @@ namespace GameServerFW.EventParameters
             WRITE_LOG_FILE_ERROR,
             SAVE_LOG_OK,
             SAVE_LOG_ERROR,
+            SHOW_LOG_ERROR
 
         }
 

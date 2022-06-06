@@ -21,14 +21,14 @@ namespace DummyServer
         static string serverType;
         static bool keepRuning;
         static int maxCon;
-        static LoggerMessage _msg;
+        static LogInfo _msg;
 
 
         static void Main(string[] args)
         {
             outputFormater = new ConsoleOutputFormater.OutputFormatter();
             OutputFormatterAttributes attr = new OutputFormatterAttributes();
-            _msg = LoggerMessage.GetInstance();
+            _msg = LogInfo.GetInstance();
             try
             {
 
@@ -36,7 +36,7 @@ namespace DummyServer
                 if (args.Count() != 3)
                 {
                     //attr.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_Red);
-                    _msg.ShowMessage(" \r\nparams[port number][server type] [max connections]", null, LoggerMessage.typeMsg.ERROR);
+                    _msg.ShowMessage(" \r\nparams[port number][server type] [max connections]", null, LogInfo.typeMsg.ERROR);
 
                     System.Environment.Exit(0);
                 }
@@ -54,19 +54,19 @@ namespace DummyServer
                 socketsTCP.Event_Socket += SocketsTCP_Event_Socket;
                 socketsUDP.Event_Socket += SocketsUDP_Event_Socket;
 
-                _msg.ShowMessage("Dummy server ", null, LoggerMessage.typeMsg.NO_TYPE);
+                _msg.ShowMessage("Dummy server ", null, LogInfo.typeMsg.NO_TYPE);
 
 
-                _msg.ShowMessage("tcp port " + portNumber, null, LoggerMessage.typeMsg.OK);
-                _msg.ShowMessage("udp port " + portNumber, null, LoggerMessage.typeMsg.OK);
-                _msg.ShowMessage("server type  " + serverType, null, LoggerMessage.typeMsg.OK);          
+                _msg.ShowMessage("tcp port " + portNumber, null, LogInfo.typeMsg.OK);
+                _msg.ShowMessage("udp port " + portNumber, null, LogInfo.typeMsg.OK);
+                _msg.ShowMessage("server type  " + serverType, null, LogInfo.typeMsg.OK);          
 
 
                 socketsTCP.StartServer();
-                _msg.ShowMessage("tcp start " + serverType, null, LoggerMessage.typeMsg.OK);
+                _msg.ShowMessage("tcp start " + serverType, null, LogInfo.typeMsg.OK);
 
                 socketsUDP.StartServer();
-                _msg.ShowMessage("udp start " + serverType, null, LoggerMessage.typeMsg.OK);
+                _msg.ShowMessage("udp start " + serverType, null, LogInfo.typeMsg.OK);
 
                 OutputFormatterAttributes atrr = new OutputFormatterAttributes();
                 attr.SetColorFG(OutputFormatterAttributes.TextColorFG.Bright_Blue).SetColorBG(OutputFormatterAttributes.TextColorBG.Black);
@@ -82,7 +82,7 @@ namespace DummyServer
             catch(Exception err)
             {
                 //WriteMessage(err.Message);
-                _msg.ShowMessage(err.Message, null, LoggerMessage.typeMsg.ERROR);
+                _msg.ShowMessage(err.Message, null, LogInfo.typeMsg.ERROR);
             }
 
         }
@@ -113,12 +113,14 @@ namespace DummyServer
                     break;
 
                 case EventParameters.EventType.ERROR:
-                    _msg.ShowMessage(eventParameters.GetData +  " " + eventParameters.GetConnectionNumber, null, LoggerMessage.typeMsg.ERROR);
+                    _msg.ShowMessage(eventParameters.GetData +  " " + eventParameters.GetConnectionNumber, null, LogInfo.typeMsg.ERROR);
                     break;
 
                 case EventParameters.EventType.END_CONNECTION:
-                    _msg.ShowMessage("end connection " + eventParameters.GetConnectionNumber, null, LoggerMessage.typeMsg.OK);
+                    _msg.ShowMessage("end connection " + eventParameters.GetConnectionNumber, null, LogInfo.typeMsg.OK);
                     break;
+
+                
             }
         }
 
